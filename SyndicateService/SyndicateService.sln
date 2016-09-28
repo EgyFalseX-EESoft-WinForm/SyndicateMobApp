@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyndicateServiceLib", "SyndicateService\SyndicateServiceLib.csproj", "{1F138269-ADB0-44F5-A51D-2C70D3E6636E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyndicateServiceLibWeb", "SyndicateServiceLibWeb\SyndicateServiceLibWeb.csproj", "{0754DEF5-8AD8-45DB-8017-710190C0507B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F138269-ADB0-44F5-A51D-2C70D3E6636E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F138269-ADB0-44F5-A51D-2C70D3E6636E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F138269-ADB0-44F5-A51D-2C70D3E6636E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F138269-ADB0-44F5-A51D-2C70D3E6636E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0754DEF5-8AD8-45DB-8017-710190C0507B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0754DEF5-8AD8-45DB-8017-710190C0507B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0754DEF5-8AD8-45DB-8017-710190C0507B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0754DEF5-8AD8-45DB-8017-710190C0507B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

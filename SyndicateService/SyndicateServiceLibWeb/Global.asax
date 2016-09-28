@@ -1,0 +1,1 @@
+<%@ Application Codebehind="Global.asax.cs" Inherits="SyndicateServiceLibWeb.Global_asax" Language="C#" %>
