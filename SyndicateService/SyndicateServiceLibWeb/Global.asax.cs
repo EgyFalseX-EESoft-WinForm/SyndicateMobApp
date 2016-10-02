@@ -12,8 +12,10 @@ using System;
                 DevExpress.Web.ASPxWebControl.CallbackError += new EventHandler(Application_Error);
             //SyndicateServiceLib.Properties.Settings.RetirementDBConnectionString
                 SyndicateServiceLib.Properties.Settings.Default["ETSMOBILEConnectionString"] =
-                "Data Source=.;Initial Catalog=ETSMOBILE;Persist Security Info=True;User ID=sa;Password=123456";
-        }
+                    System.Configuration.ConfigurationManager.ConnectionStrings["ETSMOBILEConnectionString"].ConnectionString;
+
+                //"Data Source=.;Initial Catalog=ETSMOBILE;Persist Security Info=True;User ID=sa;Password=123456";
+            }
 
             void Application_End(object sender, EventArgs e) {
                 // Code that runs on application shutdown

@@ -1,0 +1,6 @@
+<publishData>
+  <publishTarget publishUrl="ftp://ftp.myasp.net/Syndicate">
+    <file relUrl="bin/SyndicateServiceLib.dll.config" publishTime="09/29/2016 15:30:30" />
+    <file relUrl="bin/SyndicateServiceLib.pdb" publishTime="10/01/2016 10:26:31" />
+  </publishTarget>
+</publishData>

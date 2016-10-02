@@ -1,0 +1,12 @@
+﻿Service connection
+ //var client = new HttpClient();
+//client.BaseAddress = new Uri("http://falsex-001-site3.atempurl.com/SyndicateService.svc/rest");
+////var authHeader = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes(string.Format("{0}", 5))));
+////client.DefaultRequestHeaders.Authorization = authHeader;
+//string xxx = await client.GetStringAsync("http://falsex-001-site3.atempurl.com/SyndicateService.svc/rest/LoginMember/5");
+//await DisplayAlert("Result", xxx, "OK");
+//return;
+//var response = await client.GetAsync("/LoginMember/5");
+//string jesonString = response.Content.ReadAsStringAsync().Result;
+//await DisplayAlert("Result", jesonString, "OK");
+______________________________________________________________________________________________________
