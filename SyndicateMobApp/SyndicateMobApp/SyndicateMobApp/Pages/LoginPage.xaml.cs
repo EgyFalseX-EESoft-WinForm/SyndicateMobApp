@@ -19,18 +19,7 @@ namespace SyndicateMobApp.Pages
 
         private async void BtnLogin_OnClicked(object sender, EventArgs e)
         {
-            LoginMemberContrect mem = await SyndicateService.LoginMemberAsync(EntyId.Text);
-            if (mem != null)
-            {
-
-                return;
-            }
-            LoginWarasaContrect wsa = await SyndicateService.LoginWarasaAsync(EntyId.Text);
-            if (wsa != null)
-            {
-
-                return;    
-            }
+            
 
             await DisplayAlert("خطــــــأ", "هذا الرقم غير موجود", "OK");
         }

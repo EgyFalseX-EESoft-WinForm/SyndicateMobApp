@@ -36,6 +36,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Services\BankMemberContrect.cs" />
+    <Compile Include="Services\BankWarasaContrect.cs" />
+    <Compile Include="Services\LoginWarasaContrect.cs" />
     <Compile Include="Services\SyndicateService.cs" />
     <Compile Include="Services\LoginMemberContrect.cs" />
     <Compile Include="Pages\LoginPage.xaml.cs">

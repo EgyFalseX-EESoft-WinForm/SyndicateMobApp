@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using SyndicateMobApp.Services;
 using Xamarin.Forms;
 
 namespace SyndicateMobApp.ViewModels
@@ -12,43 +13,60 @@ namespace SyndicateMobApp.ViewModels
     public class LoginVm : INotifyPropertyChanged
     {
         string _inputString = "";
+        ICommand _loginCommand { set; get; }
 
         public LoginVm()
         {
-            LoginCommand = new Command(Login);
-        }
 
-        public void Login()
-        {
-            string aaaa;
         }
-
         // Public properties
         public string InputString
         {
-            protected set
+            set
             {
                 if (_inputString != value)
                 {
                     _inputString = value;
+                    // Perhaps the login button must be enabled/disabled.
+                    _loginCommand.CanExecute(_inputString != string.Empty);
                     OnPropertyChanged("InputString");
-                    // Perhaps the delete button must be enabled/disabled.
-                    ((Command)this.LoginCommand).ChangeCanExecute();
                 }
             }
 
             get { return _inputString; }
         }
+        public ICommand LoginCommand
+        {
+            get
+            {
+                return _loginCommand ?? (_loginCommand = new Command(Login));
+            }
 
-        // ICommand implementations
-        public ICommand LoginCommand { protected set; get; }
+        }
+
+        // Functions
+        public async void Login()
+        {
+            LoginMemberContrect mem = await SyndicateService.LoginMemberAsync(_inputString);
+            if (mem != null)
+            {
+                
+                // To Do
+                return;
+            }
+            LoginWarasaContrect wsa = await SyndicateService.LoginWarasaAsync(_inputString);
+            if (wsa != null)
+            {
+                // To Do
+                return;
+            }
+            // To Do
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this,
-                    new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
     }
