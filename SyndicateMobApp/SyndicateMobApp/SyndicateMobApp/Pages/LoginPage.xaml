@@ -2,12 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SyndicateMobApp.Pages.LoginPage"
-            xmlns:local="clr-namespace:SyndicateMobApp.ViewModels;assembly=SyndicateMobApp">
+             BindingContext="{Binding Login, Source={StaticResource Locator}}">
   
   <StackLayout VerticalOptions="CenterAndExpand">
-    <StackLayout.BindingContext>
-      <local:LoginVm />
+    <!--<StackLayout.BindingContext>
+      <vm:LoginVm />
     </StackLayout.BindingContext>
+     <ContentPage.BindingContext>
+    <vm:ViewModelLocator/>
+  </ContentPage.BindingContext>-->
     <Label Text="الاعضاء: قم بأدخال رقم العضوية" TextColor="Lime" FontAttributes="Bold" HorizontalTextAlignment="End"></Label>
     <Label Text="الورثة: قم بأدخال كود الفيزا" TextColor="Lime" FontAttributes="Bold" HorizontalTextAlignment="End"></Label>
     <Entry x:Name="EntyId" Text="{Binding InputString}" Placeholder="ادخل رقمك هنا" HorizontalTextAlignment="Center"></Entry>

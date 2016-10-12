@@ -13,14 +13,14 @@ using Xamarin.Forms;
 
 namespace SyndicateMobApp.ViewModels
 {
-    public class LoginVm : ViewModelBase
+    public class BankMemberVm : ViewModelBase
     {
         private readonly INavigationService _navigationService;
         string _inputString = "";
         RelayCommand _loginCommand { set; get; }
         private bool _isLoading = false;
 
-        public LoginVm(INavigationService navigationService)
+        public BankMemberVm(INavigationService navigationService)
         {
             _navigationService = navigationService;
         }
@@ -69,9 +69,10 @@ namespace SyndicateMobApp.ViewModels
             LoginMemberContrect mem = await SyndicateService.LoginMemberAsync(_inputString);
             if (mem != null)
             {
+                Helpers.NavigationService nav = new Helpers.NavigationService();
+                nav.NavigateTo("");
+
                 // To Do
-                
-                _navigationService.NavigateTo(Helpers.ViewModelLocator.BankMemberPageKey);
                 return;
             }
             LoginWarasaContrect wsa = await SyndicateService.LoginWarasaAsync(_inputString);
@@ -83,11 +84,6 @@ namespace SyndicateMobApp.ViewModels
             // To Do
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
     }
 }
