@@ -36,21 +36,30 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Helpers\Core.cs" />
     <Compile Include="Helpers\DialogService.cs" />
     <Compile Include="Helpers\NavigationService.cs" />
+    <Compile Include="Helpers\Types.cs" />
+    <Compile Include="Helpers\UserManager.cs" />
     <Compile Include="Helpers\ViewModelLocator.cs" />
+    <Compile Include="Pages\BankWarasaPage.xaml.cs">
+      <DependentUpon>BankWarasaPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BankMemberPage.xaml.cs">
       <DependentUpon>BankMemberPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\BankMemberContrect.cs" />
     <Compile Include="Services\BankWarasaContrect.cs" />
+    <Compile Include="Services\ISyndicateService.cs" />
     <Compile Include="Services\LoginWarasaContrect.cs" />
+    <Compile Include="Services\SyndicateServiceOffline.cs" />
     <Compile Include="Services\SyndicateService.cs" />
     <Compile Include="Services\LoginMemberContrect.cs" />
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\BankWarasaVm.cs" />
     <Compile Include="ViewModels\BankMemberVm.cs" />
     <Compile Include="ViewModels\LoginVm.cs" />
   </ItemGroup>
@@ -113,6 +122,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\BankMemberPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\BankWarasaPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

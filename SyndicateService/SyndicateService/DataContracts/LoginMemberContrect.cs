@@ -11,7 +11,7 @@ namespace SyndicateServiceLib.DataContracts
     [DataContract]
     public class LoginMemberContrect
     {
-        public LoginMemberContrect(int mMashatId, string mMashatName, int sarfnumber, int hafzano, DateTime hafzadate, string syndicate, string subCommitte)
+        public LoginMemberContrect(int mMashatId, string mMashatName, int sarfnumber, int? hafzano, DateTime? hafzadate, string syndicate, string subCommitte)
         {
             MMashatId = mMashatId;
             MMashatName = mMashatName;
@@ -28,9 +28,9 @@ namespace SyndicateServiceLib.DataContracts
         [DataMember]
         public int Sarfnumber { get; set; }
         [DataMember]
-        public int Hafzano { get; set; }
+        public int? Hafzano { get; set; }
         [DataMember]
-        public DateTime Hafzadate { get; set; }
+        public DateTime? Hafzadate { get; set; }
         [DataMember]
         public string Syndicate { get; set; }
         [DataMember]

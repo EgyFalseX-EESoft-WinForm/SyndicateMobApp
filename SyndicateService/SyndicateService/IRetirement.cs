@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System.Collections.ObjectModel;
+using System.ServiceModel;
 using System.ServiceModel.Web;
 using SyndicateServiceLib.DataContracts;
 
@@ -17,10 +18,10 @@ namespace SyndicateServiceLib
         LoginWarasaContrect LoginWarasa(string value);
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "BankMember/{value}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        BankMemberContrect BankMember(string value);
+        ObservableCollection<BankMemberContrect> BankMember(string value);
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "BankWarasa/{value}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        BankWarasaContrect BankWarasa(string value);
+        ObservableCollection<BankWarasaContrect> BankWarasa(string value);
     }
 
    

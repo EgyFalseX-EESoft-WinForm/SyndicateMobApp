@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Views;
+using SyndicateMobApp.Helpers;
 using SyndicateMobApp.Pages;
+using SyndicateMobApp.ViewModels;
 using Xamarin.Forms;
 
 namespace SyndicateMobApp
@@ -13,21 +17,14 @@ namespace SyndicateMobApp
         {
             InitializeComponent();
 
-            // The root page of your application
-            //MainPage = new ContentPage
-            //{
-            //    Content = new StackLayout
-            //    {
-            //        VerticalOptions = LayoutOptions.Center,
-            //        Children = {
-            //            new Label {
-            //                XAlign = TextAlignment.Center,
-            //                Text = "Welcome to Xamarin Forms!"
-            //            }
-            //        }
-            //    }
-            //};
-            MainPage = new LoginPage();
+            Core.Startup();
+            NavigationPage navPage = new NavigationPage(new LoginPage());
+
+            Core.InitializeNavigationService(navPage);
+            Core.InitializeDialogService(navPage);
+
+            MainPage = navPage;
+
         }
 
         protected override void OnStart()

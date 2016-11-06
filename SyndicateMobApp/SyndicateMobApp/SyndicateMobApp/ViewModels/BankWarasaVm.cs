@@ -16,32 +16,32 @@ using Xamarin.Forms;
 
 namespace SyndicateMobApp.ViewModels
 {
-    public class BankMemberVm : ViewModelBase
+    public class BankWarasaVm : ViewModelBase
     {
         private readonly INavigationService _navigationService;
         
-        private ObservableCollection<BankMemberContrect> _dataList;
+        private ObservableCollection<BankWarasaContrect> _dataList;
 
         private bool _isLoading = false;
         private string _title;
 
-        public BankMemberVm(INavigationService navigationService)
+        public BankWarasaVm(INavigationService navigationService)
         {
             _navigationService = navigationService;
             Title = "بيــانــات البنــــك";
-            _dataList = new ObservableCollection<BankMemberContrect>();
+            _dataList = new ObservableCollection<BankWarasaContrect>();
+
         }
         public async void RefreshAsync()
         {
             IsLoading = true;
             DataList.Clear();
             ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
-            DataList = await srv.BankMemberAsync(UserManager.Id.ToString());
+            _dataList = await srv.BankWarasaAsync(UserManager.Id.ToString());
             IsLoading = false;
         }
-
         // Public properties
-        public ObservableCollection<BankMemberContrect> DataList
+        public ObservableCollection<BankWarasaContrect> DataList
         {
             set
             {

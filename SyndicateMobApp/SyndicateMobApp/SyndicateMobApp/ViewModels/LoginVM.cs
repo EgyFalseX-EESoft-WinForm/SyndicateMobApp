@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
+using Microsoft.Practices.ServiceLocation;
+using SyndicateMobApp.Helpers;
 using SyndicateMobApp.Services;
-using Xamarin.Forms;
 
 namespace SyndicateMobApp.ViewModels
 {
@@ -17,8 +11,8 @@ namespace SyndicateMobApp.ViewModels
     {
         private readonly INavigationService _navigationService;
         string _inputString = "";
-        RelayCommand _loginCommand { set; get; }
-        private bool _isLoading = false;
+        private RelayCommand _loginCommand;
+        private bool _isLoading;
 
         public LoginVm(INavigationService navigationService)
         {
@@ -33,22 +27,16 @@ namespace SyndicateMobApp.ViewModels
                 {
                     _inputString = value;
                     // Perhaps the login button must be enabled/disabled.
-                    _loginCommand.CanExecute(_inputString != string.Empty);
-                    RaisePropertyChanged("InputString");
+                    _loginCommand.RaiseCanExecuteChanged();
+                    RaisePropertyChanged();
+
                 }
             }
 
             get { return _inputString; }
         }
-        public RelayCommand LoginCommand
-        {
-            get
-            {
-                return _loginCommand ?? (_loginCommand = new RelayCommand(Login));
-            }
+        public RelayCommand LoginCommand => _loginCommand ?? (_loginCommand = new RelayCommand(Login, ValidInput));
 
-        }
-        
         public bool IsLoading
         {
             get
@@ -58,36 +46,56 @@ namespace SyndicateMobApp.ViewModels
             set
             {
                 _isLoading = value;
-                RaisePropertyChanged("IsLoading");
+                _loginCommand.RaiseCanExecuteChanged();
+                RaisePropertyChanged();
 
             }
         }
-
         // Functions
+        public bool ValidInput()
+        {
+            if (IsLoading)
+                return false;
+            if (InputString == string.Empty)
+                return false;
+            int idValue;
+            if (!int.TryParse(InputString, out idValue)) return false;
+            if (idValue > 0) { return true; }
+            return false;
+        }
         public async void Login()
         {
-            LoginMemberContrect mem = await SyndicateService.LoginMemberAsync(_inputString);
+            IsLoading = true;
+            ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
+            LoginMemberContrect mem = await srv.LoginMemberAsync(_inputString);
             if (mem != null)
             {
-                // To Do
-                
-                _navigationService.NavigateTo(Helpers.ViewModelLocator.BankMemberPageKey);
+                UserManager.Id = mem.MMashatId;
+                UserManager.Type = Types.UserType.Member;
+                UserManager.Member = mem;
+                ServiceLocator.Current.GetInstance<BankMemberVm>().RefreshAsync();
+                IsLoading = false;
+                _navigationService.NavigateTo(ViewModelLocator.BankMemberPageKey);
                 return;
             }
-            LoginWarasaContrect wsa = await SyndicateService.LoginWarasaAsync(_inputString);
+            LoginWarasaContrect wsa = await srv.LoginWarasaAsync(_inputString);
             if (wsa != null)
             {
-                // To Do
+                UserManager.Id = wsa.Code60;
+                UserManager.Type = Types.UserType.Warasa;
+                UserManager.Warasa = wsa;
+                ServiceLocator.Current.GetInstance<BankWarasaVm>().RefreshAsync();
+                IsLoading = false;
+                _navigationService.NavigateTo(ViewModelLocator.BankWarasaPageKey);
                 return;
             }
-            // To Do
+            // Handle error when login
+            IDialogService dialog = ServiceLocator.Current.GetInstance<IDialogService>();
+            await dialog.ShowError("لا يوجد بيانات لهذا الرقم", "خطــــاء", "موافق", null);
+
+            IsLoading = false;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
     }
 }

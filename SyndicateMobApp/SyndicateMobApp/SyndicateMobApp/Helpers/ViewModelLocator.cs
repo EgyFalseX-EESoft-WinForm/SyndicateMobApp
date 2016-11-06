@@ -12,11 +12,14 @@
   See http://www.galasoft.ch/mvvm
 */
 
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 using SyndicateMobApp.Pages;
+using SyndicateMobApp.Services;
 using SyndicateMobApp.ViewModels;
+using Xamarin.Forms;
 
 
 namespace SyndicateMobApp.Helpers
@@ -29,6 +32,7 @@ namespace SyndicateMobApp.Helpers
     {
         public const string LoginPageKey = "Login";
         public const string BankMemberPageKey = "BankMember";
+        public const string BankWarasaPageKey = "BankWarasa";
 
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.
@@ -37,27 +41,23 @@ namespace SyndicateMobApp.Helpers
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-            NavigationService navSrv = new NavigationService();
-            navSrv.Configure(LoginPageKey, typeof(LoginPage));
-            navSrv.Configure(BankMemberPageKey, typeof(BankMemberPage));
+            if (ViewModelBase.IsInDesignModeStatic)
+            {
+                SimpleIoc.Default.Register<ISyndicateService, SyndicateServiceOffline>();
+            }
+            else
+            {
+                SimpleIoc.Default.Register<ISyndicateService, SyndicateService>();
+            }
 
-            //if (ViewModelBase.IsInDesignModeStatic)
-            //{
-            //    SimpleIoc.Default.Register<IDataService, Design.DesignDataService>();
-            //}
-            //else
-            //{
-            //    SimpleIoc.Default.Register<IDataService, DataService>();
-            //}
-
-            //Register your services used here
-            SimpleIoc.Default.Register<INavigationService>(() => navSrv);
             SimpleIoc.Default.Register<LoginVm>();
             SimpleIoc.Default.Register<BankMemberVm>();
         }
 
         public LoginVm LoginInstance => ServiceLocator.Current.GetInstance<LoginVm>();
         public BankMemberVm BankMemberInstance => ServiceLocator.Current.GetInstance<BankMemberVm>();
+        public BankWarasaVm BankWarasaInstance => ServiceLocator.Current.GetInstance<BankWarasaVm>();
+
 
 
         public static void Cleanup()

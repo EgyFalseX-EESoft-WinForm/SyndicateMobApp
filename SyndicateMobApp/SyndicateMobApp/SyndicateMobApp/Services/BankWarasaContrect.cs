@@ -9,7 +9,7 @@ namespace SyndicateMobApp.Services
 {
     public class BankWarasaContrect
     {
-        public BankWarasaContrect(long autoId, int mMashatId, int personId, string visanumber, double summony, DateTime sendbankdate, double amanatmony, DateTime amanatwareddate, int newid)
+        public BankWarasaContrect(long autoId, int mMashatId, int personId, string visanumber, double summony, DateTime sendbankdate, double amanatmony, object amanatwareddate, int newid)
         {
             AutoId = AutoId;
             MMashatId = mMashatId;
@@ -28,7 +28,7 @@ namespace SyndicateMobApp.Services
         public double Summony { get; set; }
         public DateTime Sendbankdate { get; set; }
         public double Amanatmony { get; set; }
-        public DateTime Amanatwareddate { get; set; }
+        public object Amanatwareddate { get; set; }
         public int Newid { get; set; }
     }
 }

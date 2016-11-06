@@ -48,15 +48,14 @@ namespace SyndicateMobApp.Helpers
             {
                 if (_pagesByKey.ContainsKey(pageKey))
                 {
-                    var type = _pagesByKey[pageKey];
+                    Type type = _pagesByKey[pageKey];
                     ConstructorInfo constructor = null;
                     object[] parameters = null;
 
                     if (parameter == null)
                     {
-                        constructor = type.GetTypeInfo()
-                            .DeclaredConstructors
-                            .FirstOrDefault(c => !c.GetParameters().Any());
+                        constructor =
+                            type.GetTypeInfo().DeclaredConstructors.FirstOrDefault(c => !c.GetParameters().Any());
 
                         parameters = new object[]
                         {
@@ -70,8 +69,7 @@ namespace SyndicateMobApp.Helpers
                                 c =>
                                 {
                                     var p = c.GetParameters();
-                                    return p.Count() == 1
-                                           && p[0].ParameterType == parameter.GetType();
+                                    return p.Count() == 1 && p[0].ParameterType == parameter.GetType();
                                 });
 
                         parameters = new[]
@@ -82,12 +80,12 @@ namespace SyndicateMobApp.Helpers
 
                     if (constructor == null)
                     {
-                        throw new InvalidOperationException(
-                            "No suitable constructor found for page " + pageKey);
+                        throw new InvalidOperationException("No suitable constructor found for page " + pageKey);
                     }
 
-                    var page = constructor.Invoke(parameters) as Page;
+                    Page page = constructor.Invoke(parameters) as Page;
                     _navigation.PushAsync(page);
+                    
                 }
 				else
 				{

@@ -11,7 +11,7 @@ namespace SyndicateServiceLib.DataContracts
     [DataContract]
     public class BankWarasaContrect
     {
-        public BankWarasaContrect(long autoId, int mMashatId, int personId, string visanumber, double summony, DateTime sendbankdate, double amanatmony, DateTime amanatwareddate, int newid)
+        public BankWarasaContrect(long autoId, int mMashatId, int personId, string visanumber, double summony, DateTime? sendbankdate, double amanatmony, DateTime? amanatwareddate, int newid)
         {
             AutoId = AutoId;
             MMashatId = mMashatId;
@@ -34,11 +34,11 @@ namespace SyndicateServiceLib.DataContracts
         [DataMember]
         public double Summony { get; set; }
         [DataMember]
-        public DateTime Sendbankdate { get; set; }
+        public DateTime? Sendbankdate { get; set; }
         [DataMember]
         public double Amanatmony { get; set; }
         [DataMember]
-        public DateTime Amanatwareddate { get; set; }
+        public DateTime? Amanatwareddate { get; set; }
         [DataMember]
         public int Newid { get; set; }
     }

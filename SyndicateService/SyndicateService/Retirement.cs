@@ -1,4 +1,6 @@
-﻿using SyndicateServiceLib.DataContracts;
+﻿using System;
+using System.Collections.ObjectModel;
+using SyndicateServiceLib.DataContracts;
 using SyndicateServiceLib.Datasource;
 using SyndicateServiceLib.Datasource.dsETSMobileTableAdapters;
 
@@ -17,7 +19,14 @@ namespace SyndicateServiceLib
             if (tbl.Count > 0)
             {
                 dsETSMobile.LoginMemberRow row = tbl[0];
-                return new LoginMemberContrect(row.MMashatId, row.MMashatName, row.sarfnumber, row.hafzano, row.hafzadate, row.Syndicate, row.SubCommitte);
+                int hafzano = 0;
+                if (!row.IshafzanoNull())
+                    hafzano = row.hafzano;
+                DateTime? hafzadate = null;
+                if (!row.IshafzadateNull())
+                    hafzadate = row.hafzadate;
+
+                return new LoginMemberContrect(row.MMashatId, row.MMashatName, row.sarfnumber, hafzano, hafzadate, row.Syndicate, row.SubCommitte);
             }
             return null;
         }
@@ -35,33 +44,46 @@ namespace SyndicateServiceLib
             }
             return null;
         }
-        public BankMemberContrect BankMember(string value)
+        public ObservableCollection<BankMemberContrect> BankMember(string value)
         {
             int id;
             if (!int.TryParse(value, out id))
                 return null;
+            ObservableCollection<BankMemberContrect> lst = new ObservableCollection<BankMemberContrect>();
             BankMemberTableAdapter adp = new BankMemberTableAdapter();
             dsETSMobile.BankMemberDataTable tbl = adp.GetData(id);
-            if (tbl.Count > 0)
+            foreach (dsETSMobile.BankMemberRow bankMemberRow in tbl)
             {
-                dsETSMobile.BankMemberRow row = tbl[0];
-                return new BankMemberContrect(row.AutoId, row.MMashatId, row.summony, row.sendbankdate, row.amanatmony, row.amanatwareddate, row.DofatSarf);
+                DateTime? amanatwareddate = null;
+                if (!bankMemberRow.IsamanatwareddateNull())
+                    amanatwareddate = bankMemberRow.amanatwareddate;
+                
+                lst.Add(new BankMemberContrect(bankMemberRow.AutoId, bankMemberRow.MMashatId, bankMemberRow.summony,
+                    bankMemberRow.sendbankdate, bankMemberRow.amanatmony, amanatwareddate,
+                    bankMemberRow.DofatSarf));
             }
-            return null;
+
+            return lst;
         }
-        public BankWarasaContrect BankWarasa(string value)
+        public ObservableCollection<BankWarasaContrect> BankWarasa(string value)
         {
             int id;
             if (!int.TryParse(value, out id))
                 return null;
+            ObservableCollection<BankWarasaContrect> lst = new ObservableCollection<BankWarasaContrect>();
             BankWarasaTableAdapter adp = new BankWarasaTableAdapter();
             dsETSMobile.BankWarasaDataTable tbl = adp.GetData(id);
-            if (tbl.Count > 0)
+            foreach (dsETSMobile.BankWarasaRow bankWarasaRow in tbl)
             {
-                dsETSMobile.BankWarasaRow row = tbl[0];
-                return new BankWarasaContrect(row.AutoId, row.MMashatId, row.PersonId, row.visanumber, row.summony, row.sendbankdate, row.amanatmony, row.amanatwareddate, row.newid);
+                DateTime? amanatwareddate = null;
+                if (!bankWarasaRow.IsamanatwareddateNull())
+                    amanatwareddate = bankWarasaRow.amanatwareddate;
+
+                lst.Add(new BankWarasaContrect(bankWarasaRow.AutoId, bankWarasaRow.MMashatId, bankWarasaRow.PersonId,
+                    bankWarasaRow.visanumber, bankWarasaRow.summony, bankWarasaRow.sendbankdate,
+                    bankWarasaRow.amanatmony, amanatwareddate, bankWarasaRow.newid));
             }
-            return null;
+            return lst;
         }
 
     }
