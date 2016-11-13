@@ -6,7 +6,7 @@
              >
   
   <StackLayout VerticalOptions="CenterAndExpand">
-
+    <Image Source="{Binding Logo}"></Image>
     <Label Text="الاعضاء: قم بأدخال رقم العضوية" TextColor="Lime" FontAttributes="Bold" HorizontalTextAlignment="End"></Label>
     <Label Text="الورثة: قم بأدخال كود الفيزا" TextColor="Lime" FontAttributes="Bold" HorizontalTextAlignment="End"></Label>
     <Entry x:Name="EntyId" Text="{Binding InputString}" Placeholder="ادخل رقمك هنا" HorizontalTextAlignment="Center"></Entry>
@@ -18,6 +18,5 @@
       </ContentView>
     </AbsoluteLayout>
   </StackLayout>
-  
 
 </ContentPage>

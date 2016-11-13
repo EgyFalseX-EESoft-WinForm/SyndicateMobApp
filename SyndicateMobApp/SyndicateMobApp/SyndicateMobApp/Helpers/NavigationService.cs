@@ -41,7 +41,6 @@ namespace SyndicateMobApp.Helpers
         {
             NavigateTo(pageKey, null);
         }
-
         public void NavigateTo(string pageKey, object parameter)
         {
             lock (_pagesByKey)
@@ -83,7 +82,78 @@ namespace SyndicateMobApp.Helpers
                         throw new InvalidOperationException("No suitable constructor found for page " + pageKey);
                     }
 
+                    //List<Page> existingPages = _navigation.Navigation.NavigationStack.ToList();
+                    //foreach (Page pageItem in existingPages)
+                    //    _navigation.Navigation.RemovePage(pageItem);
+
                     Page page = constructor.Invoke(parameters) as Page;
+                    _navigation.PushAsync(page);
+
+                }
+                else
+                {
+                    throw new ArgumentException(
+                        string.Format(
+                            "No such page: {0}. Did you forget to call NavigationService.Configure?",
+                            pageKey),
+                        "pageKey");
+                }
+            }
+        }
+        public void NavigateTo(string pageKey, bool clearPageStack)
+        {
+            NavigateTo(pageKey, null, clearPageStack);
+        }
+        public void NavigateTo(string pageKey, object parameter, bool clearPageStack)
+        {
+            lock (_pagesByKey)
+            {
+                if (_pagesByKey.ContainsKey(pageKey))
+                {
+                    Type type = _pagesByKey[pageKey];
+                    ConstructorInfo constructor = null;
+                    object[] parameters = null;
+
+                    if (parameter == null)
+                    {
+                        constructor =
+                            type.GetTypeInfo().DeclaredConstructors.FirstOrDefault(c => !c.GetParameters().Any());
+
+                        parameters = new object[]
+                        {
+                        };
+                    }
+                    else
+                    {
+                        constructor = type.GetTypeInfo()
+                            .DeclaredConstructors
+                            .FirstOrDefault(
+                                c =>
+                                {
+                                    var p = c.GetParameters();
+                                    return p.Count() == 1 && p[0].ParameterType == parameter.GetType();
+                                });
+
+                        parameters = new[]
+                        {
+                            parameter
+                        };
+                    }
+
+                    if (constructor == null)
+                    {
+                        throw new InvalidOperationException("No suitable constructor found for page " + pageKey);
+                    }
+
+                    Page page = constructor.Invoke(parameters) as Page;
+                    //clear stack pages before puch
+                    //if (clearPageStack)
+                    //{
+                    //    List<Page> existingPages = _navigation.Navigation.NavigationStack.ToList();
+                    //    foreach (Page pageItem in existingPages)
+                    //        _navigation.Navigation.RemovePage(pageItem);
+                    //}
+
                     _navigation.PushAsync(page);
                     
                 }

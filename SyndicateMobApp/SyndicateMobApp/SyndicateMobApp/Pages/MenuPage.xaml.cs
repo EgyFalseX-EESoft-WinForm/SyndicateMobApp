@@ -8,11 +8,14 @@ using Xamarin.Forms;
 
 namespace SyndicateMobApp.Pages
 {
-    public partial class BankMemberPage : ContentPage
+    public partial class MenuPage : ContentPage
     {
-        public BankMemberPage()
+        public MenuPage()
         {
             InitializeComponent();
+            
+            //BindingContext = ((ViewModelLocator)Application.Current.Resources["ViewModelLocator"]).BankMemberInstance;
+
         }
     }
 }

@@ -17,6 +17,7 @@ namespace SyndicateMobApp.ViewModels
         public LoginVm(INavigationService navigationService)
         {
             _navigationService = navigationService;
+            
         }
         // Public properties
         public string InputString
@@ -35,6 +36,8 @@ namespace SyndicateMobApp.ViewModels
 
             get { return _inputString; }
         }
+
+        public string Logo => "logo.png";
         public RelayCommand LoginCommand => _loginCommand ?? (_loginCommand = new RelayCommand(Login, ValidInput));
 
         public bool IsLoading
@@ -75,7 +78,8 @@ namespace SyndicateMobApp.ViewModels
                 UserManager.Member = mem;
                 ServiceLocator.Current.GetInstance<BankMemberVm>().RefreshAsync();
                 IsLoading = false;
-                _navigationService.NavigateTo(ViewModelLocator.BankMemberPageKey);
+                //_navigationService.NavigateTo(ViewModelLocator.BankMemberPageKey);
+                _navigationService.NavigateTo(ViewModelLocator.RootPageKey);
                 return;
             }
             LoginWarasaContrect wsa = await srv.LoginWarasaAsync(_inputString);
@@ -86,7 +90,8 @@ namespace SyndicateMobApp.ViewModels
                 UserManager.Warasa = wsa;
                 ServiceLocator.Current.GetInstance<BankWarasaVm>().RefreshAsync();
                 IsLoading = false;
-                _navigationService.NavigateTo(ViewModelLocator.BankWarasaPageKey);
+                //_navigationService.NavigateTo(ViewModelLocator.BankWarasaPageKey);
+                _navigationService.NavigateTo(ViewModelLocator.RootPageKey);
                 return;
             }
             // Handle error when login

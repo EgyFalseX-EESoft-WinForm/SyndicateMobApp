@@ -31,8 +31,11 @@ namespace SyndicateMobApp.Helpers
     public class ViewModelLocator
     {
         public const string LoginPageKey = "Login";
+        public const string MenuPageKey = "Menu";
+        public const string RootPageKey = "Root";
         public const string BankMemberPageKey = "BankMember";
         public const string BankWarasaPageKey = "BankWarasa";
+        public const string NewsPageKey = "News";
 
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.
@@ -51,10 +54,17 @@ namespace SyndicateMobApp.Helpers
             }
 
             SimpleIoc.Default.Register<LoginVm>();
+            SimpleIoc.Default.Register<RootVm>();
+            SimpleIoc.Default.Register<MenuVm>();
             SimpleIoc.Default.Register<BankMemberVm>();
+            SimpleIoc.Default.Register<BankWarasaVm>();
         }
+        public static ViewModelLocator Instance => Application.Current.Resources["Locator"] as ViewModelLocator;
 
         public LoginVm LoginInstance => ServiceLocator.Current.GetInstance<LoginVm>();
+        public RootVm RootInstance => ServiceLocator.Current.GetInstance<RootVm>();
+        public MenuVm MenuInstance => ServiceLocator.Current.GetInstance<MenuVm>();
+        public NewsVm NewsInstance => ServiceLocator.Current.GetInstance<NewsVm>();
         public BankMemberVm BankMemberInstance => ServiceLocator.Current.GetInstance<BankMemberVm>();
         public BankWarasaVm BankWarasaInstance => ServiceLocator.Current.GetInstance<BankWarasaVm>();
 
