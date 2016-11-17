@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
@@ -12,6 +13,7 @@ namespace SyndicateMobApp.ViewModels
         private readonly INavigationService _navigationService;
         private ObservableCollection<MasterPageItem> _dataList;
         private string _title;
+        private string _icon;
         private RelayCommand _navCommand;
         private MasterPageItem _selectedItem;
         
@@ -19,6 +21,7 @@ namespace SyndicateMobApp.ViewModels
         {
             _navigationService = navigationService;
             Title = "نقابة المهن التعليمية";
+            Icon = "home32.png";
             LoadItems();
             
         }
@@ -28,17 +31,21 @@ namespace SyndicateMobApp.ViewModels
             {
                  new MasterPageItem
                 {
+                     Id = 1,
                      Title = "الاخبـار",
                      //IconSource = "SyndicateMobApp.Resources.Bank32.png",
                      IconSource = "bank32.png",
-                     PageKey = ViewModelLocator.NewsPageKey
+                     PageKey = ViewModelLocator.NewsPageKey,
+                     Visible = true,
                 },
                 new MasterPageItem
                 {
+                    Id = 2,
                     Title = "بيانات البنك",
                     //IconSource = "http://falsex-001-site2.atempurl.com/MobileAppAssets/Images/GPSValidationPage32.png",
                     IconSource = "bank32.png",
-                    PageKey = UserManager.Type == Types.UserType.Member ? ViewModelLocator.BankMemberPageKey : ViewModelLocator.BankWarasaPageKey
+                    PageKey = UserManager.Type == Types.UserType.Member ? ViewModelLocator.BankMemberPageKey : ViewModelLocator.BankWarasaPageKey,
+                    Visible = false,
                 },
             };
         }
@@ -62,6 +69,16 @@ namespace SyndicateMobApp.ViewModels
             }
 
             get { return _title; }
+        }
+        public string Icon
+        {
+            set
+            {
+                _icon = value;
+                RaisePropertyChanged();
+            }
+
+            get { return _icon; }
         }
         public MasterPageItem SelectedItem
         {
@@ -90,6 +107,14 @@ namespace SyndicateMobApp.ViewModels
             //    _navigationService.NavigateTo(ViewModelLocator.BankMemberPageKey);
             //this.Detail = new NavigationPage((Page)Activator.CreateInstance(((MasterPageItem)args.SelectedItem).TargetType));
             _navigationService.NavigateTo(_selectedItem.PageKey);
+        }
+
+        public void ActiveMenu(bool activate)
+        {
+            foreach (MasterPageItem masterPageItem in _dataList.Where(masterPageItem => masterPageItem.Id != 1))
+            {
+                masterPageItem.Visible = activate;
+            }
         }
     }
 }

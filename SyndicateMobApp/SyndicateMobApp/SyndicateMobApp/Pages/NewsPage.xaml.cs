@@ -14,21 +14,6 @@ namespace SyndicateMobApp.Pages
         {
             InitializeComponent();
 
-            // For Android & Windows Phone, provide a way to get back to the master page.
-            //if (Device.OS != TargetPlatform.iOS)
-            //{
-            //    TapGestureRecognizer tap = new TapGestureRecognizer();
-            //    tap.Tapped += (sender, args) =>
-            //    {
-            //        ((MasterDetailPage)this.Parent).IsPresented = true;
-            //    };
-            //    Device.BeginInvokeOnMainThread(() =>
-            //    {
-            //        this.Content.BackgroundColor = Color.Transparent;
-            //        this.Content.GestureRecognizers.Add(tap);
-            //    });
-                
-            //}
         }
     }
 }

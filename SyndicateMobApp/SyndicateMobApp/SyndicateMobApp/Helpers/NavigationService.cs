@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using GalaSoft.MvvmLight.Views;
+using SyndicateMobApp.Pages;
 using Xamarin.Forms;
 
 namespace SyndicateMobApp.Helpers
@@ -100,11 +101,11 @@ namespace SyndicateMobApp.Helpers
                 }
             }
         }
-        public void NavigateTo(string pageKey, bool clearPageStack)
+        public void NavigateToclearPageStack(string pageKey, bool clearPageStack)
         {
-            NavigateTo(pageKey, null, clearPageStack);
+            NavigateToclearPageStack(pageKey, null, clearPageStack);
         }
-        public void NavigateTo(string pageKey, object parameter, bool clearPageStack)
+        public void NavigateToclearPageStack(string pageKey, object parameter, bool clearPageStack)
         {
             lock (_pagesByKey)
             {
@@ -146,16 +147,19 @@ namespace SyndicateMobApp.Helpers
                     }
 
                     Page page = constructor.Invoke(parameters) as Page;
-                    //clear stack pages before puch
-                    //if (clearPageStack)
-                    //{
-                    //    List<Page> existingPages = _navigation.Navigation.NavigationStack.ToList();
-                    //    foreach (Page pageItem in existingPages)
-                    //        _navigation.Navigation.RemovePage(pageItem);
-                    //}
-
                     _navigation.PushAsync(page);
-                    
+
+                    //remove login page from stack pages
+                    if (clearPageStack)
+                    {
+                        List<Page> existingPages = _navigation.Navigation.NavigationStack.ToList();
+                        foreach (Page pageItem in existingPages)
+                        {
+                            if (pageItem.GetType() == typeof(LoginPage))
+                                _navigation.Navigation.RemovePage(pageItem);
+                        }
+                    }
+
                 }
 				else
 				{
@@ -186,6 +190,11 @@ namespace SyndicateMobApp.Helpers
         public void Initialize(NavigationPage navigation)
         {
             _navigation = navigation;
+        }
+
+        public void RemovePage(Page page)
+        {
+            _navigation.Navigation.RemovePage(page);
         }
     }
 }

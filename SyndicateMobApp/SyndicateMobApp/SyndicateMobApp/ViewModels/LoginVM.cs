@@ -78,8 +78,10 @@ namespace SyndicateMobApp.ViewModels
                 UserManager.Member = mem;
                 ServiceLocator.Current.GetInstance<BankMemberVm>().RefreshAsync();
                 IsLoading = false;
-                //_navigationService.NavigateTo(ViewModelLocator.BankMemberPageKey);
-                _navigationService.NavigateTo(ViewModelLocator.RootPageKey);
+
+                ViewModelLocator.Instance.MenuInstance.ActiveMenu(true);
+                //_navigationService.NavigateTo(ViewModelLocator.NewsPageKey);
+                ((NavigationService)_navigationService).NavigateToclearPageStack(ViewModelLocator.NewsPageKey, true);
                 return;
             }
             LoginWarasaContrect wsa = await srv.LoginWarasaAsync(_inputString);
@@ -90,8 +92,10 @@ namespace SyndicateMobApp.ViewModels
                 UserManager.Warasa = wsa;
                 ServiceLocator.Current.GetInstance<BankWarasaVm>().RefreshAsync();
                 IsLoading = false;
-                //_navigationService.NavigateTo(ViewModelLocator.BankWarasaPageKey);
-                _navigationService.NavigateTo(ViewModelLocator.RootPageKey);
+
+                ViewModelLocator.Instance.MenuInstance.ActiveMenu(true);
+                //((NavigationService)_navigationService).RemovePage(ViewModelLocator.Instance.LoginInstance);
+                ((NavigationService)_navigationService).NavigateToclearPageStack(ViewModelLocator.NewsPageKey, true);
                 return;
             }
             // Handle error when login

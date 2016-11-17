@@ -4,7 +4,7 @@
                  xmlns:helpers="clr-namespace:SyndicateMobApp.Helpers;assembly=SyndicateMobApp"
                  x:Class="SyndicateMobApp.Pages.MenuPage"
              BindingContext="{Binding MenuInstance, Source={StaticResource Locator}}"
-             Title="{Binding Title}" >
+             Title="{Binding Title}"  Icon="{Binding Icon}" >
   <ContentPage.Content>
      <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="1">
        
@@ -23,7 +23,7 @@
          </ListView.Footer>
          <ListView.ItemTemplate>
            <DataTemplate>
-             <ImageCell Text="{Binding Title}" ImageSource="{Binding IconSource}">
+             <ImageCell Text="{Binding Title}" ImageSource="{Binding IconSource}" IsEnabled="{Binding Visible}">
                <!--ImageSource="{helpers:ImageResource {Binding IconSource}}"-->
                <!--ImageSource="{helpers:ImageResource SyndicateMobApp.Resources.Bank32.png}"-->
                <!--"{Binding IconSource}"-->

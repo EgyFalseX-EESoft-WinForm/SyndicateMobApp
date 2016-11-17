@@ -19,13 +19,32 @@ namespace SyndicateMobApp
             InitializeComponent();
 
             Core.Startup();
-            NavigationPage navPage = new NavigationPage(new LoginPage());
+            LoginPage loginPage = new LoginPage();
+            NavigationPage navPage = new NavigationPage(loginPage);
+            
 
             Core.InitializeNavigationService(navPage);
             Core.InitializeDialogService(navPage);
 
-            MainPage = navPage;
+            MenuPage menuPage = new MenuPage();
+            RootPage masterPage = new RootPage
+            {
+                Detail = navPage,
+                Master = menuPage
+            };
+            // For Android & Windows Phone, provide a way to get back to the master page.
+            if (Device.OS != TargetPlatform.iOS)
+            {
+                TapGestureRecognizer tap = new TapGestureRecognizer();
+                tap.Tapped += (sender, args) =>
+                {
+                    masterPage.IsPresented = true;
+                };
+                ((ContentPage)navPage.CurrentPage).Content.BackgroundColor = Color.Transparent;
+                ((ContentPage)navPage.CurrentPage).Content.GestureRecognizers.Add(tap);
+            }
 
+            MainPage = masterPage;
         }
 
         protected override void OnStart()
@@ -42,5 +61,6 @@ namespace SyndicateMobApp
         {
             // Handle when your app resumes
         }
+
     }
 }

@@ -121,6 +121,7 @@
     <None Include="Windows_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="home32.png" />
     <Content Include="logo.png" />
     <Content Include="bank32.png" />
     <Content Include="Assets\Logo.scale-100.png" />
