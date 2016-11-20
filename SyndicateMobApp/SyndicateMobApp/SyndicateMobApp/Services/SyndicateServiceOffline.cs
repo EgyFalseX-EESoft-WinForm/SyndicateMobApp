@@ -20,39 +20,90 @@ namespace SyndicateMobApp.Services
 
         public async Task<LoginMemberContrect> LoginMemberAsync(string value)
         {
-            LoginMemberContrect result = new LoginMemberContrect(1, "test", 1, 1, DateTime.Now, "test", "test");
-            return result;
+            return await new Task<LoginMemberContrect>(
+                () =>
+                {
+                    LoginMemberContrect result = new LoginMemberContrect(1, "test", 1, 1, DateTime.Now, "test", "test");
+                    return result;
+                });
         }
         public async Task<LoginWarasaContrect> LoginWarasaAsync(string value)
         {
-            LoginWarasaContrect result = new LoginWarasaContrect(1, 1, "test", true, true, 1, "test", "test", "test", "test");
-            return result;
+            return await new Task<LoginWarasaContrect>(
+                () =>
+                {
+                    LoginWarasaContrect result = new LoginWarasaContrect(1, 1, "test", true, true, 1, "test", "test",
+                        "test", "test");
+                    return result;
+                });
         }
-
         public async Task<ObservableCollection<BankMemberContrect>> BankMemberAsync(string value)
         {
-            ObservableCollection<BankMemberContrect> lst = new ObservableCollection<BankMemberContrect>
-            {
-                new BankMemberContrect(1, 1, 1, DateTime.Now, 1, DateTime.Now, "test"),
-                new BankMemberContrect(1, 1, 1, DateTime.Now, 1, DateTime.Now, "test"),
-                new BankMemberContrect(1, 1, 1, DateTime.Now, 1, DateTime.Now, "test"),
-                new BankMemberContrect(1, 1, 1, DateTime.Now, 1, DateTime.Now, "test"),
-                new BankMemberContrect(1, 1, 1, DateTime.Now, 1, DateTime.Now, "test")
-            };
-            return lst;
+            return await new Task<ObservableCollection<BankMemberContrect>>(
+                () =>
+                {
+                    ObservableCollection<BankMemberContrect> lst = new ObservableCollection<BankMemberContrect>
+                    {
+                        new BankMemberContrect(1, 1, 1, DateTime.Now, 1, DateTime.Now, "test"),
+                        new BankMemberContrect(1, 1, 1, DateTime.Now, 1, DateTime.Now, "test"),
+                        new BankMemberContrect(1, 1, 1, DateTime.Now, 1, DateTime.Now, "test"),
+                        new BankMemberContrect(1, 1, 1, DateTime.Now, 1, DateTime.Now, "test"),
+                        new BankMemberContrect(1, 1, 1, DateTime.Now, 1, DateTime.Now, "test")
+                    };
+                    return lst;
+                });
         }
         public async Task<ObservableCollection<BankWarasaContrect>> BankWarasaAsync(string value)
         {
-            ObservableCollection<BankWarasaContrect> lst = new ObservableCollection<BankWarasaContrect>
-            {
-                new BankWarasaContrect(1, 1, 1, "test", 1, DateTime.Now, 1, DateTime.Now, 1),
-                new BankWarasaContrect(1, 1, 1, "test", 1, DateTime.Now, 1, DateTime.Now, 1),
-                new BankWarasaContrect(1, 1, 1, "test", 1, DateTime.Now, 1, DateTime.Now, 1),
-                new BankWarasaContrect(1, 1, 1, "test", 1, DateTime.Now, 1, DateTime.Now, 1),
-                new BankWarasaContrect(1, 1, 1, "test", 1, DateTime.Now, 1, DateTime.Now, 1),
-            };
-            return lst;
+            return await new Task<ObservableCollection<BankWarasaContrect>>(
+                () =>
+                {
+                    ObservableCollection<BankWarasaContrect> lst = new ObservableCollection<BankWarasaContrect>
+                    {
+                        new BankWarasaContrect(1, 1, 1, "test", 1, DateTime.Now, 1, DateTime.Now, 1),
+                        new BankWarasaContrect(1, 1, 1, "test", 1, DateTime.Now, 1, DateTime.Now, 1),
+                        new BankWarasaContrect(1, 1, 1, "test", 1, DateTime.Now, 1, DateTime.Now, 1),
+                        new BankWarasaContrect(1, 1, 1, "test", 1, DateTime.Now, 1, DateTime.Now, 1),
+                        new BankWarasaContrect(1, 1, 1, "test", 1, DateTime.Now, 1, DateTime.Now, 1),
+                    };
+                    return lst;
+                });
         }
-
+        public async Task<ObservableCollection<SyndicateContrect>> GetSyndicateAsync()
+        {
+            return await new Task<ObservableCollection<SyndicateContrect>>(
+                () =>
+                {
+                    ObservableCollection<SyndicateContrect> lst = new ObservableCollection<SyndicateContrect>
+                    {
+                        new SyndicateContrect(1, "test1"),
+                        new SyndicateContrect(2, "test2"),
+                        new SyndicateContrect(3, "test3"),
+                        new SyndicateContrect(4, "test4"),
+                        new SyndicateContrect(5, "test5")
+                    };
+                    return lst;
+                });
+        }
+        public async Task<ObservableCollection<SubCommitteContrect>> GetSubCommitteUriAsync(string value)
+        {
+            return await new Task<ObservableCollection<SubCommitteContrect>>(
+                () =>
+                {
+                    ObservableCollection<SubCommitteContrect> lst = new ObservableCollection<SubCommitteContrect>
+                    {
+                        new SubCommitteContrect(1, "test1", 1, 1, 1),
+                        new SubCommitteContrect(2, "test2", 1, 1, 1),
+                        new SubCommitteContrect(3, "test3", 2, 1, 1),
+                        new SubCommitteContrect(4, "test4", 2, 1, 1),
+                        new SubCommitteContrect(5, "test5", 3, 1, 1),
+                    };
+                    return lst;
+                });
+        }
+        public async void PostSubCommitteUriAsync(int subCommitteId, double lat, double Long)
+        {
+            await Task.Run(() => { });
+        }
     }
 }

@@ -6,7 +6,6 @@ using SyndicateServiceLib.Datasource.dsETSMobileTableAdapters;
 
 namespace SyndicateServiceLib
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class Retirement : IRetirement
     {
         public LoginMemberContrect LoginMember(string value)
@@ -84,6 +83,42 @@ namespace SyndicateServiceLib
                     bankWarasaRow.amanatmony, amanatwareddate, bankWarasaRow.newid));
             }
             return lst;
+        }
+        public ObservableCollection<SyndicateContrect> GetSyndicate()
+        {
+            ObservableCollection<SyndicateContrect> lst = new ObservableCollection<SyndicateContrect>();
+            CDSyndicateTableAdapter adp = new CDSyndicateTableAdapter();
+            dsETSMobile.CDSyndicateDataTable tbl = adp.GetData();
+            foreach (dsETSMobile.CDSyndicateRow cdSyndicateRow in tbl)
+                lst.Add(new SyndicateContrect(cdSyndicateRow.SyndicateId, cdSyndicateRow.Syndicate));
+            return lst;
+        }
+        public ObservableCollection<SubCommitteContrect> GetSubCommitte(string value)
+        {
+            int id;
+            if (!int.TryParse(value, out id))
+                return null;
+            ObservableCollection<SubCommitteContrect> lst = new ObservableCollection<SubCommitteContrect>();
+            CDSubCommitteTableAdapter adp = new CDSubCommitteTableAdapter();
+            dsETSMobile.CDSubCommitteDataTable tbl = adp.GetDataBySyndicateId(id);
+
+            foreach (dsETSMobile.CDSubCommitteRow cDSubCommitteRow in tbl)
+            {
+                lst.Add(new SubCommitteContrect
+                {
+                    SubCommitteId = cDSubCommitteRow.SubCommitteId,
+                    SubCommitte = cDSubCommitteRow.SubCommitte,
+                    SyndicateId = cDSubCommitteRow.SyndicateId,
+                    Lat = cDSubCommitteRow.IsLatNull() ? Convert.ToDouble(0) : cDSubCommitteRow.Lat,
+                    Long = cDSubCommitteRow.IsLongNull() ? Convert.ToDouble(0) : cDSubCommitteRow.Long
+                });
+            }
+
+            return lst;
+        }
+        public void PostSubCommitte(int subCommitteId, double lat, double Long)
+        {
+            new CDSubCommitteTableAdapter().SetCoord(lat, Long, subCommitteId);
         }
 
     }

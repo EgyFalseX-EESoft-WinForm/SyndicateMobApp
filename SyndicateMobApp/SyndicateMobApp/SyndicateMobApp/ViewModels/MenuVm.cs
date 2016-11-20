@@ -21,7 +21,7 @@ namespace SyndicateMobApp.ViewModels
         {
             _navigationService = navigationService;
             Title = "نقابة المهن التعليمية";
-            Icon = "home32.png";
+            Icon = "logo.png";
             LoadItems();
             
         }
@@ -33,19 +33,25 @@ namespace SyndicateMobApp.ViewModels
                 {
                      Id = 1,
                      Title = "الاخبـار",
-                     //IconSource = "SyndicateMobApp.Resources.Bank32.png",
-                     IconSource = "bank32.png",
+                     IconSource = "news.png",
                      PageKey = ViewModelLocator.NewsPageKey,
                      Visible = true,
                 },
                 new MasterPageItem
                 {
                     Id = 2,
-                    Title = "بيانات البنك",
-                    //IconSource = "http://falsex-001-site2.atempurl.com/MobileAppAssets/Images/GPSValidationPage32.png",
-                    IconSource = "bank32.png",
-                    PageKey = UserManager.Type == Types.UserType.Member ? ViewModelLocator.BankMemberPageKey : ViewModelLocator.BankWarasaPageKey,
-                    Visible = false,
+                    Title = "بيانات البنك اعضاء",
+                    IconSource = "bankmember.png",
+                    PageKey = ViewModelLocator.BankMemberPageKey,
+                    Visible = true,
+                },
+                new MasterPageItem
+                {
+                    Id = 3,
+                    Title = "بيانات البنك ورثة",
+                    IconSource = "bankwarasa.png",
+                    PageKey = ViewModelLocator.BankWarasaPageKey,
+                    Visible = true,
                 },
             };
         }
@@ -111,10 +117,11 @@ namespace SyndicateMobApp.ViewModels
 
         public void ActiveMenu(bool activate)
         {
-            foreach (MasterPageItem masterPageItem in _dataList.Where(masterPageItem => masterPageItem.Id != 1))
-            {
-                masterPageItem.Visible = activate;
-            }
+            return;
+            //foreach (MasterPageItem masterPageItem in _dataList.Where(masterPageItem => masterPageItem.Id != 1))
+            //{
+            //    masterPageItem.Visible = activate;
+            //}
         }
     }
 }

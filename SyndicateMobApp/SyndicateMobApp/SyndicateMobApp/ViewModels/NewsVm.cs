@@ -18,6 +18,7 @@ namespace SyndicateMobApp.ViewModels
             Title = "الاخبـــــار";
         }
         // Public properties
+        public string Icon => "news.png";
         public string Title
         {
             set

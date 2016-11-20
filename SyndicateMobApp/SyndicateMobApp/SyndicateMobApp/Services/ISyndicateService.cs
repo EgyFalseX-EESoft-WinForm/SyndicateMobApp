@@ -15,5 +15,8 @@ namespace SyndicateMobApp.Services
         Task<LoginWarasaContrect> LoginWarasaAsync(string value);
         Task<ObservableCollection<BankMemberContrect>> BankMemberAsync(string value);
         Task<ObservableCollection<BankWarasaContrect>> BankWarasaAsync(string value);
+        Task<ObservableCollection<SyndicateContrect>> GetSyndicateAsync();
+        Task<ObservableCollection<SubCommitteContrect>> GetSubCommitteUriAsync(string value);
+        void PostSubCommitteUriAsync(int subCommitteId, double lat, double Long);
     }
 }

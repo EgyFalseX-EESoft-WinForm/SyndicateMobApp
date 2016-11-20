@@ -6,7 +6,6 @@ using SyndicateServiceLib.DataContracts;
 
 namespace SyndicateServiceLib
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
     public interface IRetirement
     {
@@ -22,7 +21,17 @@ namespace SyndicateServiceLib
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "BankWarasa/{value}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         ObservableCollection<BankWarasaContrect> BankWarasa(string value);
-    }
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "GetSyndicate", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        ObservableCollection<SyndicateContrect> GetSyndicate();
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "GetSubCommitte/{value}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        ObservableCollection<SubCommitteContrect> GetSubCommitte(string value);
 
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "PostSubCommitte?subCommitteId={subCommitteId}&lat={lat}&Long={Long}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        void PostSubCommitte(int subCommitteId, double lat, double Long);
+        
+    }
    
 }

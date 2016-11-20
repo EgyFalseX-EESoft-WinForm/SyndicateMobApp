@@ -17,6 +17,9 @@ namespace SyndicateMobApp.Services
         public string LoginWarasaUri => SyndicateServiceUrl + "LoginWarasa/";
         public string BankMemberUri => SyndicateServiceUrl + "BankMember/";
         public string BankWarasaUri => SyndicateServiceUrl + "BankWarasa/";
+        public string GetSyndicateUri => SyndicateServiceUrl + "GetSyndicate";
+        public string GetSubCommitteUri => SyndicateServiceUrl + "GetSubCommitte/";
+        public string PostSubCommitteUri => SyndicateServiceUrl + "PostSubCommitte?";//subCommitteId={subCommitteId}&lat={lat}&Long={Long}
 
         public async Task<LoginMemberContrect> LoginMemberAsync(string value)
         {
@@ -32,7 +35,6 @@ namespace SyndicateMobApp.Services
             LoginWarasaContrect result = JsonConvert.DeserializeObject<LoginWarasaContrect>(jesonString);
             return result;
         }
-
         public async Task<ObservableCollection<BankMemberContrect>> BankMemberAsync(string value)
         {
             HttpClient client = new HttpClient();
@@ -48,6 +50,27 @@ namespace SyndicateMobApp.Services
             ObservableCollection<BankWarasaContrect> result = JsonConvert.DeserializeObject<ObservableCollection<BankWarasaContrect>>(jesonString);
             return result;
         }
+        public async Task<ObservableCollection<SyndicateContrect>> GetSyndicateAsync()
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(GetSyndicateUri);
+            ObservableCollection<SyndicateContrect> result = JsonConvert.DeserializeObject<ObservableCollection<SyndicateContrect>>(jesonString);
+            return result;
+        }
+        public async Task<ObservableCollection<SubCommitteContrect>> GetSubCommitteUriAsync(string value)
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(GetSubCommitteUri + value);
+            ObservableCollection<SubCommitteContrect> result = JsonConvert.DeserializeObject<ObservableCollection<SubCommitteContrect>>(jesonString);
+            return result;
+        }
+        public async void PostSubCommitteUriAsync(int subCommitteId, double lat, double Long)
+        {
+            HttpClient client = new HttpClient();
+            StringContent content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
+            HttpResponseMessage result = await client.PostAsync(PostSubCommitteUri + $"subCommitteId={subCommitteId}&lat={lat}&Long={Long}", content);
+        }
+
 
     }
 }

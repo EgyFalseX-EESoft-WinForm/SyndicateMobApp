@@ -114,13 +114,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AppxManifest Include="Package.appxmanifest">
-      <SubType>Designer</SubType>
-    </AppxManifest>
     <None Include="packages.config" />
     <None Include="Windows_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Logo\Logo.scale-100.png" />
+    <Content Include="Assets\Logo\Logo.scale-140.png" />
+    <Content Include="Assets\Logo\Logo.scale-150.png" />
+    <Content Include="Assets\Logo\Logo.scale-16.png" />
+    <Content Include="Assets\Logo\Logo.scale-180.png" />
+    <Content Include="Assets\Logo\Logo.scale-256.png" />
+    <Content Include="Assets\Logo\Logo.scale-310.png" />
+    <Content Include="Assets\Logo\Logo.scale-32.png" />
+    <Content Include="Assets\Logo\Logo.scale-48.png" />
+    <Content Include="Assets\Logo\Logo.scale-70.png" />
+    <Content Include="Assets\Logo\Logo.scale-80.png" />
+    <Content Include="bankmember.png" />
+    <Content Include="bankwarasa.png" />
     <Content Include="home32.png" />
     <Content Include="logo.png" />
     <Content Include="bank32.png" />
@@ -128,6 +138,7 @@
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="news.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -160,6 +171,14 @@
       <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Plugin.Geolocator, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Geolocator.4.0.0-beta12\lib\win8\Plugin.Geolocator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Geolocator.Abstractions, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Geolocator.4.0.0-beta12\lib\win8\Plugin.Geolocator.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.0.0.6482\lib\win81\Xamarin.Forms.Core.dll</HintPath>
       <Private>True</Private>
@@ -180,6 +199,11 @@
       <HintPath>..\..\packages\Xamarin.Forms.2.0.0.6482\lib\win81\Xamarin.Forms.Xaml.dll</HintPath>
       <Private>True</Private>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

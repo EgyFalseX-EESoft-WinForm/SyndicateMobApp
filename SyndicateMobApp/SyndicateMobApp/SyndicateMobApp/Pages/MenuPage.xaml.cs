@@ -13,9 +13,13 @@ namespace SyndicateMobApp.Pages
         public MenuPage()
         {
             InitializeComponent();
-            
-            //BindingContext = ((ViewModelLocator)Application.Current.Resources["ViewModelLocator"]).BankMemberInstance;
 
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += (s, e) => {
+                Device.OpenUri(new Uri("http://ets.eg"));
+            };
+            WebsiteLabel.GestureRecognizers.Add(tapGestureRecognizer);
+            
         }
     }
 }

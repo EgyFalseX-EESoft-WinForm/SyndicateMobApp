@@ -18,7 +18,8 @@
          </ListView.Header>
          <ListView.Footer>
            <StackLayout Orientation="Horizontal">
-             <Label Text="EgyCS" TextColor="Gray" BackgroundColor="Blue" />
+             <Label x:Name="WebsiteLabel" Text="مـوقــــع النقـــــابـة" TextColor="Lime" />
+             
            </StackLayout>
          </ListView.Footer>
          <ListView.ItemTemplate>

@@ -18,29 +18,44 @@ namespace SyndicateMobApp.ViewModels
 {
     public class BankWarasaVm : ViewModelBase
     {
-        private readonly INavigationService _navigationService;
-        
-        private ObservableCollection<BankWarasaContrect> _dataList;
 
+        #region -  Variables  -
+        private readonly INavigationService _navigationService;
+        private ObservableCollection<BankWarasaContrect> _dataList;
         private bool _isLoading = false;
         private string _title;
-
-        public BankWarasaVm(INavigationService navigationService)
+        string _inputString = "";
+        private RelayCommand _loginCommand;
+        #endregion
+        #region -  Properties -
+        public string InputString
         {
-            _navigationService = navigationService;
-            Title = "بيــانــات البنــــك";
-            _dataList = new ObservableCollection<BankWarasaContrect>();
+            set
+            {
+                if (_inputString != value)
+                {
+                    _inputString = value;
+                    // Perhaps the login button must be enabled/disabled.
+                    _loginCommand.RaiseCanExecuteChanged();
+                    RaisePropertyChanged();
+                }
+            }
 
+            get { return _inputString; }
         }
-        public async void RefreshAsync()
+        public string Icon => "bankwarasa.png";
+        public RelayCommand LoginCommand => _loginCommand ?? (_loginCommand = new RelayCommand(Login, ValidInput));
+        public bool ValidInput()
         {
-            IsLoading = true;
-            DataList.Clear();
-            ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
-            _dataList = await srv.BankWarasaAsync(UserManager.Id.ToString());
-            IsLoading = false;
+            if (IsLoading)
+                return false;
+            if (InputString == string.Empty)
+                return false;
+            int idValue;
+            if (!int.TryParse(InputString, out idValue)) return false;
+            if (idValue > 0) { return true; }
+            return false;
         }
-        // Public properties
         public ObservableCollection<BankWarasaContrect> DataList
         {
             set
@@ -74,6 +89,44 @@ namespace SyndicateMobApp.ViewModels
 
             }
         }
+        #endregion
+        #region -  Functions  -
+        public BankWarasaVm(INavigationService navigationService)
+        {
+            _navigationService = navigationService;
+            Title = "بيـانـات البنــك ورثــة";
+            _dataList = new ObservableCollection<BankWarasaContrect>();
 
+        }
+        public async void Login()
+        {
+            IsLoading = true;
+            ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
+            LoginWarasaContrect wsa = await srv.LoginWarasaAsync(_inputString);
+            if (wsa != null)
+            {
+                UserManager.Id = wsa.Code60;
+                UserManager.Type = Types.UserType.Warasa;
+                UserManager.Warasa = wsa;
+                RefreshAsync();
+            }
+            else
+            {
+                // Handle error when login
+                IDialogService dialog = ServiceLocator.Current.GetInstance<IDialogService>();
+                await dialog.ShowError("لا يوجد بيانات لهذا الرقم", "خطــــاء", "موافق", null);
+            }
+            IsLoading = false;
+        }
+        public async void RefreshAsync()
+        {
+            IsLoading = true;
+            //DataList.Clear();
+            ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
+            DataList = await srv.BankWarasaAsync(UserManager.Id.ToString());
+            IsLoading = false;
+        }
+        #endregion
+        
     }
 }
