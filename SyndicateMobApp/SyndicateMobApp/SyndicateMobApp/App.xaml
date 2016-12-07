@@ -8,6 +8,12 @@
     <Application.Resources>
          <ResourceDictionary>
             <helpers:ViewModelLocator x:Key="Locator" />
+           <OnPlatform x:TypeArguments="Font" Android="25" iOS="35" WinPhone="20" x:Key="MenuFontSize" />
+           <Style x:Key="MenuLabel" TargetType="Label" BaseResourceKey="TitleStyle">
+             <!--<Setter Property="LineBreakMode" Value="TailTruncation" />-->
+             <!--<Setter Property="XAlign" Value="Center" />-->
+             <Setter Property="Font" Value="{StaticResource MenuFontSize}" />
+           </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application >

@@ -36,9 +36,9 @@
              <DataTemplate>
                <ViewCell>
                  <StackLayout Orientation="Horizontal" HeightRequest="25">
-                   <Label Text="{Binding Sendbankdate, StringFormat='{0:MMMM dd, yyyy}'}"  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+                   <Label Text="{Binding Sendbankdate, StringFormat='{0:dd/MM/yyyy}'}"  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
                    <Label Text="{Binding Summony}"   HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
-                   <Label Text="{Binding Amanatwareddate, StringFormat='{0:MMMM dd, yyyy}'}"  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+                   <Label Text="{Binding Amanatwareddate, StringFormat='{0:dd/MM/yyyy}'}"  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
                    <Label Text="{Binding Amanatmony}"   HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
                  </StackLayout>
                </ViewCell>

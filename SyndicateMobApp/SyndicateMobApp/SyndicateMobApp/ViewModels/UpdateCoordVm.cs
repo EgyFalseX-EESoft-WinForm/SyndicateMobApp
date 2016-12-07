@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
@@ -19,6 +20,7 @@ namespace SyndicateMobApp.ViewModels
         int _subCommitteInx;
         //SyndicateContrect _selectedSyndicate;
         //SubCommitteContrect _selectedSubCommitte;
+        private IGeolocator _geolocator;
         double _lat;
         double _long;
         private RelayCommand _updateCoordCommand;
@@ -119,7 +121,7 @@ namespace SyndicateMobApp.ViewModels
                 _updateCoordCommand.RaiseCanExecuteChanged();
                 RaisePropertyChanged();
             }
-            get { return _lat; }
+            get { return _long; }
         }
         public string Icon => "map.png";
         public string Title => "احداثيات الفرعيات و اللجان";
@@ -164,10 +166,15 @@ namespace SyndicateMobApp.ViewModels
             _syndicateInx = -1;
             _subCommitteInx = -1;
             LoadSyndicateDataList();
+
+            _geolocator = CrossGeolocator.Current;
+            _geolocator.DesiredAccuracy = 50;
+            //_geolocator.StartListeningAsync(1, 1, true);
             GetDeviceLocation();
         }
         public bool ValidInput()
         {
+            return true;
             if (IsLoading)
                 return false;
             if (SyndicateInx == -1 || SubCommitteInx == -1 || Lat.Equals(0) || Long.Equals(0))
@@ -179,21 +186,20 @@ namespace SyndicateMobApp.ViewModels
             IsLoading = true;
             // Get current location before saving.
             GetDeviceLocation();
-            ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
-            srv.PostSubCommitteUriAsync(SubCommitteDataList[SubCommitteInx].SubCommitteId, _lat, _long);
-            IDialogService dialog = ServiceLocator.Current.GetInstance<IDialogService>();
-            await dialog.ShowError("تم حفـظ الاحداثيات", "تم الحفـــظ", "موافق", null);
+            
+            //ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
+            //srv.PostSubCommitteUriAsync(SubCommitteDataList[SubCommitteInx].SubCommitteId, _lat, _long);
+            //IDialogService dialog = ServiceLocator.Current.GetInstance<IDialogService>();
+            //await dialog.ShowError("تم حفـظ الاحداثيات", "تم الحفـــظ", "موافق", null);
 
             IsLoading = false;
         }
         private async void GetDeviceLocation()
         {
             //IsLoading = true;
-            IGeolocator locator = CrossGeolocator.Current;
-            locator.DesiredAccuracy = 50;
             try
             {
-                Position position = await locator.GetPositionAsync(20000);
+                Position position = await _geolocator.GetPositionAsync(20000);
                 Lat = position.Latitude;
                 Long = position.Longitude;
             }

@@ -4,9 +4,9 @@
                  xmlns:helpers="clr-namespace:SyndicateMobApp.Helpers;assembly=SyndicateMobApp"
                  x:Class="SyndicateMobApp.Pages.MenuPage"
              BindingContext="{Binding MenuInstance, Source={StaticResource Locator}}"
-             Title="{Binding Title}"  Icon="{Binding Icon}" >
+             Title="{Binding Title}"  Icon="{Binding Icon}">
   <ContentPage.Content>
-     <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="1">
+     <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="1" >
        
        <ListView x:Name="GroupedView"
           SeparatorVisibility="Default" SeparatorColor="Accent"
@@ -18,17 +18,28 @@
          </ListView.Header>
          <ListView.Footer>
            <StackLayout Orientation="Horizontal">
-             <Label x:Name="WebsiteLabel" Text="مـوقــــع النقـــــابـة" TextColor="Lime" />
+             <Label x:Name="WebsiteLabel" Text="مـوقــــع النقـــــابـة" TextColor="Lime" Style="{StaticResource MenuLabel}"/>
              
            </StackLayout>
          </ListView.Footer>
          <ListView.ItemTemplate>
            <DataTemplate>
-             <ImageCell Text="{Binding Title}" ImageSource="{Binding IconSource}" IsEnabled="{Binding Visible}">
-               <!--ImageSource="{helpers:ImageResource {Binding IconSource}}"-->
-               <!--ImageSource="{helpers:ImageResource SyndicateMobApp.Resources.Bank32.png}"-->
-               <!--"{Binding IconSource}"-->
-             </ImageCell>
+             <!--<ImageCell ImageSource="{Binding IconSource}" IsEnabled="{Binding Visible}" >
+               --><!--ImageSource="{helpers:ImageResource {Binding IconSource}}"--><!--
+               --><!--ImageSource="{helpers:ImageResource SyndicateMobApp.Resources.Bank32.png}"--><!--
+               --><!--"{Binding IconSource}"--><!--
+             </ImageCell>-->
+
+             <ViewCell>
+               <ViewCell.View>
+                 <ContentView>
+                   <StackLayout Padding="10,0,20,10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                     <Label Text="{Binding Title}" Style="{StaticResource MenuLabel}"/>
+                     <Image Source="{Binding IconSource}" />
+                   </StackLayout>
+                 </ContentView>
+               </ViewCell.View>
+             </ViewCell>
              
              <!--<ViewCell>
                <StackLayout Orientation="Vertical" HeightRequest="25">
