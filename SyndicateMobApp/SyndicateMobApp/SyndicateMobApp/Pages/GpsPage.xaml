@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SyndicateMobApp.Controls;assembly=SyndicateMobApp"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="SyndicateMobApp.Pages.GpsPage"
+             BindingContext="{Binding GpsInstance, Source={StaticResource Locator}}"
+             Icon="{Binding Icon}"
+             >
+  
+  <StackLayout VerticalOptions="FillAndExpand">
+    <!--<Image Source="{Binding Icon}"></Image>-->
+
+    <controls:BindablePicker x:Name="SyndicatePicker" ItemsSource="{Binding SyndicateDataList}" SelectedIndex="{Binding SyndicateInx}" HorizontalOptions="Fill" Title="الفرعيـــة" ></controls:BindablePicker>
+    <controls:BindablePicker SelectedIndexChanged="SubCommittePicker_OnSelectedIndexChanged" x:Name="SubCommittePicker" ItemsSource="{Binding SubCommitteDataList}" SelectedIndex="{Binding SubCommitteInx}" HorizontalOptions="Fill" Title="اللجنـــة"></controls:BindablePicker>
+    <!--<AbsoluteLayout x:Name="MapAbsLayout" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+      <ContentView x:Name="Indicator" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"  AbsoluteLayout.LayoutFlags="All" IsVisible="{Binding IsLoading}" BackgroundColor="Transparent" Padding="10, 0">
+        <ActivityIndicator IsRunning="True" IsVisible="{Binding IsLoading}" Color="Lime" HorizontalOptions="Center" VerticalOptions="Center"/>
+      </ContentView>
+    </AbsoluteLayout>-->
+
+    <maps:Map x:Name="MainMap" IsShowingUser="true" MapType="Street" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+    
+  </StackLayout>
+
+</ContentPage>

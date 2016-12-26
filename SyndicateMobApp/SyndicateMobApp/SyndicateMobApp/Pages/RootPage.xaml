@@ -6,13 +6,13 @@
                   BindingContext="{Binding RootInstance, Source={StaticResource Locator}}"
                   >
   <MasterDetailPage.Master>
-    <local:MenuPage x:Name="MenuPage" />
+    <!--<local:MenuPage x:Name="MenuPage" />-->
   </MasterDetailPage.Master>
   <MasterDetailPage.Detail>
     <NavigationPage>
-      <x:Arguments>
+      <!--<x:Arguments>
         <local:NewsPage/>
-      </x:Arguments>
+      </x:Arguments>-->
     </NavigationPage>
   </MasterDetailPage.Detail>
 </MasterDetailPage>

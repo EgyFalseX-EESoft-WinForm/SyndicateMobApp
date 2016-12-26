@@ -33,9 +33,9 @@
              <ViewCell>
                <ViewCell.View>
                  <ContentView>
-                   <StackLayout Padding="10,0,20,10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                   <StackLayout Padding="10,0,20,10" Orientation="Horizontal" HorizontalOptions="EndAndExpand">
                      <Label Text="{Binding Title}" Style="{StaticResource MenuLabel}"/>
-                     <Image Source="{Binding IconSource}" />
+                     <Image Source="{Binding IconSource}"/>
                    </StackLayout>
                  </ContentView>
                </ViewCell.View>

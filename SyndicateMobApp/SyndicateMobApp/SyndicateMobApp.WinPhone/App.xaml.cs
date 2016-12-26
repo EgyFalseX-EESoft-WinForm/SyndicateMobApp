@@ -65,6 +65,7 @@ namespace SyndicateMobApp.WinPhone
                 rootFrame.CacheSize = 1;
 
                 Xamarin.Forms.Forms.Init(e);
+                Xamarin.FormsMaps.Init("INSERT_AUTHENTICATION_TOKEN_HERE");//Added to init Maps
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

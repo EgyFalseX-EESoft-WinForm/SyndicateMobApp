@@ -20,14 +20,21 @@ namespace SyndicateMobApp
 
             Core.Startup();
 
-            //MenuPage menuPage = new MenuPage();
-            UpdateCoordPage menuPage = new UpdateCoordPage();
-            NavigationPage navPage = new NavigationPage(menuPage);
+            //UpdateCoordPage menuPage = new UpdateCoordPage();
+            NewsPage newsPage = new NewsPage();
+            NavigationPage navPage = new NavigationPage(newsPage);
+
+            MenuPage menuPage = new MenuPage();
+            RootPage masterPage = new RootPage
+            {
+                Detail = navPage,
+                Master = menuPage
+            };
 
             Core.InitializeNavigationService(navPage);
             Core.InitializeDialogService(navPage);
-
-            MainPage = navPage;
+            
+            MainPage = masterPage;
         }
 
         protected override void OnStart()

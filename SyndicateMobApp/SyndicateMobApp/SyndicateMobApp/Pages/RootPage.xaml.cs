@@ -13,7 +13,7 @@ namespace SyndicateMobApp.Pages
         public RootPage()
         {
             InitializeComponent();
-                       
+            IsPresented = true;
         }
     }
 }

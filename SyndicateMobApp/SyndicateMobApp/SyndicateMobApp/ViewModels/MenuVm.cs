@@ -21,7 +21,7 @@ namespace SyndicateMobApp.ViewModels
         {
             _navigationService = navigationService;
             Title = "نقابة المهن التعليمية";
-            Icon = "logo.png";
+            Icon = "home32.png";
             LoadItems();
             
         }
@@ -51,6 +51,14 @@ namespace SyndicateMobApp.ViewModels
                     Title = "بيانات البنك ورثة",
                     IconSource = "bankwarasa.png",
                     PageKey = ViewModelLocator.BankWarasaPageKey,
+                    Visible = true,
+                },
+                new MasterPageItem
+                {
+                    Id = 4,
+                    Title = "خريطة الفرعيات و اللجان",
+                    IconSource = "map.png",
+                    PageKey = ViewModelLocator.GpsPageKey,
                     Visible = true,
                 },
             };
@@ -113,6 +121,8 @@ namespace SyndicateMobApp.ViewModels
             //    _navigationService.NavigateTo(ViewModelLocator.BankMemberPageKey);
             //this.Detail = new NavigationPage((Page)Activator.CreateInstance(((MasterPageItem)args.SelectedItem).TargetType));
             _navigationService.NavigateTo(_selectedItem.PageKey);
+
+
         }
 
         public void ActiveMenu(bool activate)

@@ -23,6 +23,7 @@ namespace SyndicateMobApp.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            Xamarin.FormsMaps.Init();//Added to init Maps
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

@@ -14,7 +14,7 @@ namespace SyndicateMobApp.Pages
         {
             InitializeComponent();
 
-            var tapGestureRecognizer = new TapGestureRecognizer();
+            TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += (s, e) => {
                 Device.OpenUri(new Uri("http://ets.eg"));
             };
