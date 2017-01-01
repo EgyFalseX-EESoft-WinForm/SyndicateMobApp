@@ -120,6 +120,36 @@ namespace SyndicateServiceLib
         {
             new CDSubCommitteTableAdapter().SetCoord(lat, Long, subCommitteId);
         }
+        public ObservableCollection<NewsFrontPageContrect> GetNewsFrontPage()
+        {
+            ObservableCollection<NewsFrontPageContrect> lst = new ObservableCollection<NewsFrontPageContrect>();
+            TblNewsTableAdapter adp = new TblNewsTableAdapter();
+            dsETSMobile.TblNewsDataTable tbl = adp.GetData();
+            foreach (dsETSMobile.TblNewsRow tblNewsRow in tbl)
+            {
+                string subject = tblNewsRow.IssubjectNull() ? string.Empty : tblNewsRow.subject;
+                string imagePath = tblNewsRow.Isimage_pathNull() ? string.Empty : tblNewsRow.image_path;
+                lst.Add(new NewsFrontPageContrect(tblNewsRow.news_id, subject, imagePath));
+            }
+            return lst;
+        }
 
+        public NewsItemContrect GetNewsItem(string value)
+        {
+            NewsItemContrect returnItem = null;
+            int id;
+            if (!int.TryParse(value, out id))
+                return null;
+            dsETSMobile.TblNewsDataTable tbl = new TblNewsTableAdapter().GetDataByID(id);
+            if (tbl.Rows.Count > 0)
+            {
+                dsETSMobile.TblNewsRow row = tbl[0];
+                string subject = row.IssubjectNull() ? string.Empty : row.subject;
+                string imagePath = row.Isimage_pathNull() ? string.Empty : row.image_path;
+                string contain = row.IscontainNull() ? string.Empty : row.contain;
+                returnItem = new NewsItemContrect(row.news_id, subject, imagePath, contain);
+            }
+            return returnItem;
+        }
     }
 }

@@ -9,15 +9,13 @@ using SyndicateMobApp.Services;
 
 namespace SyndicateMobApp.ViewModels
 {
-    public class NewsVm : ViewModelBase
+    public class NewsDetailsVm : ViewModelBase
     {
         #region -  Variables  -
         private readonly INavigationService _navigationService;
         private string _title;
         private bool _isLoading;
-        private ObservableCollection<NewsFrontPageContrect> _newsFrontPageListList;
-        private NewsFrontPageContrect _selectedItem;
-        private RelayCommand _viewItemCommand;
+        private NewsItemContrect _selectedItem;
         #endregion
         #region -  Properties  -
         public string Icon => "news.png";
@@ -40,56 +38,38 @@ namespace SyndicateMobApp.ViewModels
             set
             {
                 _isLoading = value;
-                _viewItemCommand.RaiseCanExecuteChanged();
                 RaisePropertyChanged();
-
             }
         }
         
-        public ObservableCollection<NewsFrontPageContrect> NewsFrontPageList
-        {
-            set
-            {
-                _newsFrontPageListList = value;
-                RaisePropertyChanged();
-            }
-            get { return _newsFrontPageListList; }
-        }
-        public NewsFrontPageContrect SelectedItem
+        public NewsItemContrect SelectedItem
         {
             set
             {
                 _selectedItem = value;
                 if (_selectedItem == null)
                     return;
-                ViewItemCommand.Execute(_selectedItem);
-                SelectedItem = null;
                 RaisePropertyChanged();
             }
 
             get { return _selectedItem; }
         }
-        public RelayCommand ViewItemCommand => _viewItemCommand ?? (_viewItemCommand = new RelayCommand(ViewItem, ()=> true));
         #endregion
         #region -  Functions  -
-        public NewsVm(INavigationService navigationService)
+        public NewsDetailsVm(INavigationService navigationService)
         {
             _navigationService = navigationService;
-            Title = "الاخبـــــار";
-            LoadNewsFrontPageDataList();
+            Title = "تفاصيل الخبر";
         }
-        private async void LoadNewsFrontPageDataList()
+        public async void LoadDetailsAsync(int id)
         {
-            //IsLoading = true;
+            SelectedItem = null;
+            IsLoading = true;
             ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
-            NewsFrontPageList = await srv.GetNewsFrontPageAsync();
-            //IsLoading = false;
+            SelectedItem = await srv.GetNewsItemAsync(id.ToString());
+            IsLoading = false;
         }
-        public void ViewItem()
-        {
-            _navigationService.NavigateTo(ViewModelLocator.NewsDetailsPageKey);
-            ServiceLocator.Current.GetInstance<NewsDetailsVm>().LoadDetailsAsync(_selectedItem.news_id);
-        }
+
         #endregion
 
     }

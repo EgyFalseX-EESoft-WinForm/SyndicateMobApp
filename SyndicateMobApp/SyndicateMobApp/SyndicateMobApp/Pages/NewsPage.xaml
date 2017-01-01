@@ -1,6 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SyndicateMobApp.Pages.NewsPage">
-  <Label Text="This is News page" VerticalOptions="Center" HorizontalOptions="Center" />
+             x:Class="SyndicateMobApp.Pages.NewsPage"
+             BindingContext="{Binding NewsInstance, Source={StaticResource Locator}}"
+             Title="{Binding Title}" Icon="{Binding Icon}">
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="1" >
+
+      <ListView x:Name="GroupedView"
+         SeparatorVisibility="Default" SeparatorColor="Accent"
+         ItemsSource="{Binding NewsFrontPageList}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+        <ListView.Header>
+          <StackLayout Orientation="Horizontal" HeightRequest="20" BackgroundColor="Accent">
+            <!--Insert Image Here-->
+          </StackLayout>
+        </ListView.Header>
+        <ListView.Footer>
+          <StackLayout Orientation="Horizontal">
+          </StackLayout>
+        </ListView.Footer>
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <!--<ImageCell Text="{Binding subject}" ImageSource="{Binding image_path}" >
+            </ImageCell>-->
+            <ViewCell>
+              <ViewCell.View>
+                <ContentView>
+                  <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                    <Label Text="{Binding subject}" VerticalTextAlignment="End"/>
+                    <Image Source="{Binding image_path}" VerticalOptions="End" WidthRequest="96" HeightRequest="96"/>
+                  </StackLayout>
+                </ContentView>
+              </ViewCell.View>
+            </ViewCell>
+
+            <!--<ViewCell>
+               <StackLayout Orientation="Vertical" HeightRequest="25">
+                 <Label Text="{Binding Sendbankdate, StringFormat='{0:MMMM dd, yyyy}'}"  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+                 <Label Text="{Binding Summony}"   HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+                 <Label Text="{Binding Amanatwareddate, StringFormat='{0:MMMM dd, yyyy}'}"  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+                 <Label Text="{Binding Amanatmony}"   HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+               </StackLayout>
+             </ViewCell>-->
+
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+
+    </StackLayout>
+  </ContentPage.Content>
 </ContentPage>

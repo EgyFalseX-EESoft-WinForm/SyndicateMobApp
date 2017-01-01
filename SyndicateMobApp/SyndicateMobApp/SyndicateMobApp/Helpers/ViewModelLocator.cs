@@ -36,6 +36,7 @@ namespace SyndicateMobApp.Helpers
         public const string BankMemberPageKey = "BankMember";
         public const string BankWarasaPageKey = "BankWarasa";
         public const string NewsPageKey = "News";
+        public const string NewsDetailsPageKey = "NewsDetails";
         public const string UpdateCoordPageKey = "UpdateCoord";
         public const string GpsPageKey = "Gps";
 
@@ -60,6 +61,8 @@ namespace SyndicateMobApp.Helpers
             SimpleIoc.Default.Register<MenuVm>();
             SimpleIoc.Default.Register<BankMemberVm>();
             SimpleIoc.Default.Register<BankWarasaVm>();
+            SimpleIoc.Default.Register<NewsVm>();
+            SimpleIoc.Default.Register<NewsDetailsVm>();
             SimpleIoc.Default.Register<UpdateCoordVm>();
             SimpleIoc.Default.Register<GpsVm>();
         }
@@ -69,6 +72,7 @@ namespace SyndicateMobApp.Helpers
         public RootVm RootInstance => ServiceLocator.Current.GetInstance<RootVm>();
         public MenuVm MenuInstance => ServiceLocator.Current.GetInstance<MenuVm>();
         public NewsVm NewsInstance => ServiceLocator.Current.GetInstance<NewsVm>();
+        public NewsDetailsVm NewsDetailsInstance => ServiceLocator.Current.GetInstance<NewsDetailsVm>();
         public BankMemberVm BankMemberInstance => ServiceLocator.Current.GetInstance<BankMemberVm>();
         public BankWarasaVm BankWarasaInstance => ServiceLocator.Current.GetInstance<BankWarasaVm>();
         public UpdateCoordVm UpdateCoordInstance => ServiceLocator.Current.GetInstance<UpdateCoordVm>();

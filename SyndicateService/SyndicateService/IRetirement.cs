@@ -31,7 +31,15 @@ namespace SyndicateServiceLib
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "PostSubCommitte?subCommitteId={subCommitteId}&lat={lat}&Long={Long}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         void PostSubCommitte(int subCommitteId, double lat, double Long);
-        
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "GetNewsFrontPage", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        ObservableCollection<NewsFrontPageContrect> GetNewsFrontPage();
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "GetNewsItem/{value}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        NewsItemContrect GetNewsItem(string value);
+
     }
    
 }

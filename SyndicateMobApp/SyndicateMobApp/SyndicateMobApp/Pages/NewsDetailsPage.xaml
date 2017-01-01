@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SyndicateMobApp.Pages.NewsDetailsPage"
+             BindingContext="{Binding NewsDetailsInstance, Source={StaticResource Locator}}"
+             Title="{Binding Title}" Icon="{Binding Icon}">
+  <ContentPage.Content>
+    
+    <StackLayout Padding="0,0,0,0" VerticalOptions="StartAndExpand" BindingContext="{Binding Path=SelectedItem}">
+      <Label Text="{Binding subject}" HorizontalOptions="End"/>
+      <Image Source="{Binding image_path}" HorizontalOptions="Center" WidthRequest="256" HeightRequest="256"/>
+      <ScrollView  HorizontalOptions="End">
+        <Label Text="{Binding contain}" HorizontalOptions="End"/>
+      </ScrollView>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

@@ -21,6 +21,7 @@ namespace SyndicateMobApp.Helpers
             MainNavigationService.Configure(ViewModelLocator.MenuPageKey, typeof(MenuPage));
             MainNavigationService.Configure(ViewModelLocator.RootPageKey, typeof(RootPage));
             MainNavigationService.Configure(ViewModelLocator.NewsPageKey, typeof(NewsPage));
+            MainNavigationService.Configure(ViewModelLocator.NewsDetailsPageKey, typeof(NewsDetailsPage));
             MainNavigationService.Configure(ViewModelLocator.BankMemberPageKey, typeof(BankMemberPage));
             MainNavigationService.Configure(ViewModelLocator.BankWarasaPageKey, typeof(BankWarasaPage));
             MainNavigationService.Configure(ViewModelLocator.UpdateCoordPageKey, typeof(UpdateCoordPage));

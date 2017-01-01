@@ -53,6 +53,9 @@
     <Compile Include="Pages\GpsPage.xaml.cs">
       <DependentUpon>GpsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\NewsDetailsPage.xaml.cs">
+      <DependentUpon>NewsDetailsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\UpdateCoordPage.xaml.cs">
       <DependentUpon>UpdateCoordPage.xaml</DependentUpon>
     </Compile>
@@ -76,6 +79,8 @@
     <Compile Include="Services\BankWarasaContrect.cs" />
     <Compile Include="Services\ISyndicateService.cs" />
     <Compile Include="Services\LoginWarasaContrect.cs" />
+    <Compile Include="Services\NewsFrontPageContrect.cs" />
+    <Compile Include="Services\NewsItemContrect.cs" />
     <Compile Include="Services\SubCommitteContrect.cs" />
     <Compile Include="Services\SyndicateContrect.cs" />
     <Compile Include="Services\SyndicateServiceOffline.cs" />
@@ -86,6 +91,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\GPSVm.cs" />
+    <Compile Include="ViewModels\NewsDetailsVm.cs" />
     <Compile Include="ViewModels\UpdateCoordVm.cs" />
     <Compile Include="ViewModels\MenuVm.cs" />
     <Compile Include="ViewModels\NewsVm.cs" />
@@ -148,7 +154,12 @@
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\NewsDetailsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

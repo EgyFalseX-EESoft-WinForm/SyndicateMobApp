@@ -10,6 +10,11 @@ namespace SyndicateMobApp.Services
         string LoginWarasaUri { get; }
         string BankMemberUri { get; }
         string BankWarasaUri { get; }
+        string GetSyndicateUri { get; }
+        string GetSubCommitteUri { get; }
+        string PostSubCommitteUri { get; }//subCommitteId={subCommitteId}&lat={lat}&Long={Long}
+        string GetNewsFrontPageUri { get; }
+        string GetNewsItemUri { get; }
 
         Task<LoginMemberContrect> LoginMemberAsync(string value);
         Task<LoginWarasaContrect> LoginWarasaAsync(string value);
@@ -18,5 +23,8 @@ namespace SyndicateMobApp.Services
         Task<ObservableCollection<SyndicateContrect>> GetSyndicateAsync();
         Task<ObservableCollection<SubCommitteContrect>> GetSubCommitteUriAsync(string value);
         void PostSubCommitteUriAsync(int subCommitteId, double lat, double Long);
+        Task<ObservableCollection<NewsFrontPageContrect>> GetNewsFrontPageAsync();
+        Task<NewsItemContrect> GetNewsItemAsync(string value);
+
     }
 }

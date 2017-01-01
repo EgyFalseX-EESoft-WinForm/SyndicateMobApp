@@ -21,6 +21,8 @@ namespace SyndicateMobApp.Services
         public string GetSyndicateUri => SyndicateServiceUrl + "GetSyndicate";
         public string GetSubCommitteUri => SyndicateServiceUrl + "GetSubCommitte/";
         public string PostSubCommitteUri => SyndicateServiceUrl + "PostSubCommitte?";//subCommitteId={subCommitteId}&lat={lat}&Long={Long}
+        public string GetNewsFrontPageUri => SyndicateServiceUrl + "GetNewsFrontPage";
+        public string GetNewsItemUri => SyndicateServiceUrl + "GetNewsItem/";
 
         public async Task<LoginMemberContrect> LoginMemberAsync(string value)
         {
@@ -71,7 +73,19 @@ namespace SyndicateMobApp.Services
             StringContent content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
             HttpResponseMessage result = await client.PostAsync(PostSubCommitteUri + $"subCommitteId={subCommitteId}&lat={lat}&Long={Long}", content);
         }
-
-
+        public async Task<ObservableCollection<NewsFrontPageContrect>> GetNewsFrontPageAsync()
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(GetNewsFrontPageUri);
+            ObservableCollection<NewsFrontPageContrect> result = JsonConvert.DeserializeObject<ObservableCollection<NewsFrontPageContrect>>(jesonString);
+            return result;
+        }
+        public async Task<NewsItemContrect> GetNewsItemAsync(string value)
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(GetNewsItemUri + value);
+            NewsItemContrect result = JsonConvert.DeserializeObject<NewsItemContrect>(jesonString);
+            return result;
+        }
     }
 }

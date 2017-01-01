@@ -17,6 +17,11 @@ namespace SyndicateMobApp.Services
         public string LoginWarasaUri => SyndicateServiceUrl + "test/";
         public string BankMemberUri => SyndicateServiceUrl + "test/";
         public string BankWarasaUri => SyndicateServiceUrl + "BantestkWarasa/";
+        public string GetSyndicateUri => SyndicateServiceUrl + "test";
+        public string GetSubCommitteUri => SyndicateServiceUrl + "test/";
+        public string PostSubCommitteUri => SyndicateServiceUrl + "test?";//subCommitteId={subCommitteId}&lat={lat}&Long={Long}
+        public string GetNewsFrontPageUri => SyndicateServiceUrl + "test";
+        public string GetNewsItemUri => SyndicateServiceUrl + "test/";
 
         public async Task<LoginMemberContrect> LoginMemberAsync(string value)
         {
@@ -104,6 +109,30 @@ namespace SyndicateMobApp.Services
         public async void PostSubCommitteUriAsync(int subCommitteId, double lat, double Long)
         {
             await Task.Run(() => { });
+        }
+        public async Task<ObservableCollection<NewsFrontPageContrect>> GetNewsFrontPageAsync()
+        {
+            return await new Task<ObservableCollection<NewsFrontPageContrect>>(
+                () =>
+                {
+                    ObservableCollection<NewsFrontPageContrect> lst = new ObservableCollection<NewsFrontPageContrect>
+                    {
+                        new NewsFrontPageContrect(1, "test1", "test1"),
+                        new NewsFrontPageContrect(2, "test2", "test1"),
+                        new NewsFrontPageContrect(3, "test3", "test1"),
+                        new NewsFrontPageContrect(4, "test4", "test1"),
+                        new NewsFrontPageContrect(5, "test5", "test1")
+                    };
+                    return lst;
+                });
+        }
+        public async Task<NewsItemContrect> GetNewsItemAsync(string value)
+        {
+            return await new Task<NewsItemContrect>(
+                () =>
+                {
+                    return new NewsItemContrect(1, "test", "test", "test"); 
+                });
         }
     }
 }

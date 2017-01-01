@@ -29,7 +29,7 @@
                --><!--ImageSource="{helpers:ImageResource SyndicateMobApp.Resources.Bank32.png}"--><!--
                --><!--"{Binding IconSource}"--><!--
              </ImageCell>-->
-
+             
              <ViewCell>
                <ViewCell.View>
                  <ContentView>

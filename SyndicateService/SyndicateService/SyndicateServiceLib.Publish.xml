@@ -1,4 +1,10 @@
 <publishData>
+  <publishTarget publishUrl="ftp://ftp.myasp.net/Syndicate/bin">
+    <file relUrl="bin/SyndicateServiceLib.pdb" publishTime="12/27/2016 12:21:14" />
+    <file relUrl="bin/SyndicateServiceLib.dll.config" publishTime="09/29/2016 15:30:30" />
+    <file relUrl="bin/SyndicateServiceLib.dll" publishTime="12/27/2016 12:21:14" />
+    <file relUrl="Web.config" publishTime="09/29/2016 15:30:30" />
+  </publishTarget>
   <publishTarget publishUrl="ftp://ftp.myasp.net/Syndicate">
     <file relUrl="bin/SyndicateServiceLib.dll.config" publishTime="09/29/2016 15:30:30" />
     <file relUrl="bin/SyndicateServiceLib.pdb" publishTime="10/01/2016 10:26:31" />
