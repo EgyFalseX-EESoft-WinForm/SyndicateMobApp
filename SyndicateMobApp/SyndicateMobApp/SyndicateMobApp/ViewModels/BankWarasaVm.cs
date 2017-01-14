@@ -43,7 +43,7 @@ namespace SyndicateMobApp.ViewModels
 
             get { return _inputString; }
         }
-        public string Icon => "bankwarasa.png";
+        public string Icon => "bank32.png";
         public RelayCommand LoginCommand => _loginCommand ?? (_loginCommand = new RelayCommand(Login, ValidInput));
         public bool ValidInput()
         {

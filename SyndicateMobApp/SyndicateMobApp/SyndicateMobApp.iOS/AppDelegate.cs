@@ -24,6 +24,7 @@ namespace SyndicateMobApp.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             Xamarin.FormsMaps.Init();//Added to init Maps
+            DevExpress.Mobile.Forms.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

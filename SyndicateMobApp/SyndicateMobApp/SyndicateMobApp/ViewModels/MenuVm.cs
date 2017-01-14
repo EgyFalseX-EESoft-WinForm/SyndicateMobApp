@@ -41,7 +41,7 @@ namespace SyndicateMobApp.ViewModels
                 {
                     Id = 2,
                     Title = "بيانات البنك اعضاء",
-                    IconSource = "bankmember.png",
+                    IconSource = "bank32.png",
                     PageKey = ViewModelLocator.BankMemberPageKey,
                     Visible = true,
                 },
@@ -49,7 +49,7 @@ namespace SyndicateMobApp.ViewModels
                 {
                     Id = 3,
                     Title = "بيانات البنك ورثة",
-                    IconSource = "bankwarasa.png",
+                    IconSource = "bank32.png",
                     PageKey = ViewModelLocator.BankWarasaPageKey,
                     Visible = true,
                 },
@@ -63,7 +63,6 @@ namespace SyndicateMobApp.ViewModels
                 },
             };
         }
-
         // Public properties
         public ObservableCollection<MasterPageItem> DataList
         {
@@ -110,7 +109,6 @@ namespace SyndicateMobApp.ViewModels
             get { return _selectedItem; }
         }
         public RelayCommand NavigateCommand => _navCommand ?? (_navCommand = new RelayCommand(GoTo));
-
         public void GoTo()
         {
             if (_selectedItem == null)
@@ -124,7 +122,6 @@ namespace SyndicateMobApp.ViewModels
 
 
         }
-
         public void ActiveMenu(bool activate)
         {
             return;

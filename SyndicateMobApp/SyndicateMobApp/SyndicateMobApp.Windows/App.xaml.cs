@@ -65,7 +65,6 @@ namespace SyndicateMobApp.Windows
                 Xamarin.Forms.Forms.Init(e);
                 Xamarin.FormsMaps.Init("INSERT_AUTHENTICATION_TOKEN_HERE");//Added to init Maps
 
-
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     // TODO: Load state from previously suspended application

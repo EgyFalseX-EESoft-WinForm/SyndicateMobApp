@@ -1,14 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v16.2"
              x:Class="SyndicateMobApp.Pages.BankWarasaPage"
              BindingContext="{Binding BankWarasaInstance, Source={StaticResource Locator}}"
              Title="{Binding Title}" Icon="{Binding Icon}">
 
   <ContentPage.Content>
-<!--GroupDisplayBinding="{Binding Title}"
-         GroupShortNameBinding="{Binding ShortName}"
-         IsGroupingEnabled="true"-->
      <StackLayout  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="1">
        <Entry x:Name="EntyId" Text="{Binding InputString}" Placeholder="ادخل رقمك هنا" HorizontalTextAlignment="Center"></Entry>
        <Button x:Name="BtnLogin" Command="{Binding LoginCommand}" Text="عـــرض" > </Button>
@@ -16,36 +14,14 @@
          <ContentView x:Name="Indicator" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"  AbsoluteLayout.LayoutFlags="All" IsVisible="{Binding IsLoading}" BackgroundColor="Transparent" Padding="10, 0">
            <ActivityIndicator IsRunning="True" IsVisible="{Binding IsLoading}" Color="Lime" HorizontalOptions="Center" VerticalOptions="Center"/>
          </ContentView>
-         <ListView x:Name="GroupedView"
-          SeparatorVisibility="Default" SeparatorColor="Accent"
-          ItemsSource="{Binding DataList}">
-           <ListView.Header>
-             <StackLayout Orientation="Horizontal" HeightRequest="20" BackgroundColor="Accent">
-               <Label Text="الارسال" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
-               <Label Text="المبلغ"  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
-               <Label Text="تاريخ الوارد" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
-               <Label Text="مبلغ الوارد" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
-             </StackLayout>
-           </ListView.Header>
-           <ListView.Footer>
-             <!--<StackLayout Orientation="Horizontal">
-                  <Label Text="Footer" TextColor="Gray" BackgroundColor="Blue" />
-              </StackLayout>-->
-           </ListView.Footer>
-           <ListView.ItemTemplate>
-             <DataTemplate>
-               <ViewCell>
-                 <StackLayout Orientation="Horizontal" HeightRequest="25">
-                   <Label Text="{Binding Sendbankdate, StringFormat='{0:MMMM dd, yyyy}'}"  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
-                   <Label Text="{Binding Summony}"   HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
-                   <Label Text="{Binding Amanatwareddate, StringFormat='{0:MMMM dd, yyyy}'}"  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
-                   <Label Text="{Binding Amanatmony}"   HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
-                 </StackLayout>
-               </ViewCell>
-             </DataTemplate>
-           </ListView.ItemTemplate>
-
-         </ListView>
+         <dxGrid:GridControl x:Name="DxGrid" ItemsSource="{Binding DataList}" AllowSort="True" AllowResizeColumns="True" AllowDeleteRows="False" AllowEditRows="False" >
+           <dxGrid:GridControl.Columns>
+             <dxGrid:DateColumn FieldName="Sendbankdate" Caption="الارسال" DisplayFormat="dd/MM/yyyy" IsReadOnly="True"/>
+             <dxGrid:NumberColumn FieldName="Summony" Caption="المبلغ" DisplayFormat="n1" IsReadOnly="True"/>
+             <dxGrid:DateColumn FieldName="Amanatwareddate" Caption="تاريخ الامانات" DisplayFormat="dd/MM/yyyy" IsReadOnly="True" />
+             <dxGrid:NumberColumn FieldName="Amanatmony" Caption="مبلغ الامانات" DisplayFormat="n1" IsReadOnly="True"/>
+           </dxGrid:GridControl.Columns>
+         </dxGrid:GridControl>
        </AbsoluteLayout>
            
      </StackLayout>

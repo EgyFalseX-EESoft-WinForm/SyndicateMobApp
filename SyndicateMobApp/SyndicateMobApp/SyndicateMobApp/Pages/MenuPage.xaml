@@ -8,7 +8,7 @@
   <ContentPage.Content>
      <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="1" >
        
-       <ListView x:Name="GroupedView"
+       <ListView x:Name="GroupedView" BackgroundColor="White"
           SeparatorVisibility="Default" SeparatorColor="Accent"
           ItemsSource="{Binding DataList}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
          <ListView.Header>
@@ -29,18 +29,16 @@
                --><!--ImageSource="{helpers:ImageResource SyndicateMobApp.Resources.Bank32.png}"--><!--
                --><!--"{Binding IconSource}"--><!--
              </ImageCell>-->
-             
              <ViewCell>
                <ViewCell.View>
                  <ContentView>
                    <StackLayout Padding="10,0,20,10" Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-                     <Label Text="{Binding Title}" Style="{StaticResource MenuLabel}"/>
+                     <Label Text="{Binding Title}" Style="{StaticResource MenuLabel}" TextColor="Navy" />
                      <Image Source="{Binding IconSource}"/>
                    </StackLayout>
                  </ContentView>
                </ViewCell.View>
              </ViewCell>
-             
              <!--<ViewCell>
                <StackLayout Orientation="Vertical" HeightRequest="25">
                  <Label Text="{Binding Sendbankdate, StringFormat='{0:MMMM dd, yyyy}'}"  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>

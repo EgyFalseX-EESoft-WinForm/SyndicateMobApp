@@ -19,6 +19,7 @@ namespace SyndicateMobApp.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Xamarin.FormsMaps.Init(this, bundle);//Added to init Maps
+            DevExpress.Mobile.Forms.Init();
             LoadApplication(new App());
         }
     }

@@ -101,6 +101,12 @@
     <Compile Include="ViewModels\LoginVm.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Mobile.Core.v16.2">
+      <HintPath>C:\bin\DevexpressGridForXamarin\lib\pcl\DevExpress.Mobile.Core.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mobile.Grid.v16.2">
+      <HintPath>C:\bin\DevexpressGridForXamarin\lib\pcl\DevExpress.Mobile.Grid.v16.2.dll</HintPath>
+    </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MvvmLightLibs.5.3.0.0\lib\portable-net45+wp8+wpa81+netcore45+monoandroid1+xamarin.ios10\GalaSoft.MvvmLight.dll</HintPath>
       <Private>True</Private>
@@ -219,6 +225,10 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\map.png" />
+    <EmbeddedResource Include="Resources\news.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
