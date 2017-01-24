@@ -10,6 +10,8 @@ namespace SyndicateMobApp.Pages
 {
     public partial class MenuPage : ContentPage
     {
+        public ListView Menu => GroupedView;
+        
         public MenuPage()
         {
             InitializeComponent();
@@ -19,7 +21,8 @@ namespace SyndicateMobApp.Pages
                 Device.OpenUri(new Uri("http://ets.eg"));
             };
             WebsiteLabel.GestureRecognizers.Add(tapGestureRecognizer);
-            
+            var ibj = this.Parent;
+
         }
     }
 }

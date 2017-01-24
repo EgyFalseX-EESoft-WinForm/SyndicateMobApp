@@ -20,7 +20,7 @@ namespace SyndicateMobApp.Windows
         public MainPage()
         {
             this.InitializeComponent();
-
+            
             LoadApplication(new SyndicateMobApp.App());
         }
     }

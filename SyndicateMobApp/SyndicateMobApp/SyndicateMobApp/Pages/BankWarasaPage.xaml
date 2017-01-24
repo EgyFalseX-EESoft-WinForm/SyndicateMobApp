@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v16.2"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
              x:Class="SyndicateMobApp.Pages.BankWarasaPage"
              BindingContext="{Binding BankWarasaInstance, Source={StaticResource Locator}}"
              Title="{Binding Title}" Icon="{Binding Icon}">
@@ -10,20 +11,19 @@
      <StackLayout  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="1">
        <Entry x:Name="EntyId" Text="{Binding InputString}" Placeholder="ادخل رقمك هنا" HorizontalTextAlignment="Center"></Entry>
        <Button x:Name="BtnLogin" Command="{Binding LoginCommand}" Text="عـــرض" > </Button>
-       <AbsoluteLayout x:Name="MapAbsLayout" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-         <ContentView x:Name="Indicator" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"  AbsoluteLayout.LayoutFlags="All" IsVisible="{Binding IsLoading}" BackgroundColor="Transparent" Padding="10, 0">
-           <ActivityIndicator IsRunning="True" IsVisible="{Binding IsLoading}" Color="Lime" HorizontalOptions="Center" VerticalOptions="Center"/>
-         </ContentView>
-         <dxGrid:GridControl x:Name="DxGrid" ItemsSource="{Binding DataList}" AllowSort="True" AllowResizeColumns="True" AllowDeleteRows="False" AllowEditRows="False" >
-           <dxGrid:GridControl.Columns>
-             <dxGrid:DateColumn FieldName="Sendbankdate" Caption="الارسال" DisplayFormat="dd/MM/yyyy" IsReadOnly="True"/>
-             <dxGrid:NumberColumn FieldName="Summony" Caption="المبلغ" DisplayFormat="n1" IsReadOnly="True"/>
-             <dxGrid:DateColumn FieldName="Amanatwareddate" Caption="تاريخ الامانات" DisplayFormat="dd/MM/yyyy" IsReadOnly="True" />
-             <dxGrid:NumberColumn FieldName="Amanatmony" Caption="مبلغ الامانات" DisplayFormat="n1" IsReadOnly="True"/>
-           </dxGrid:GridControl.Columns>
-         </dxGrid:GridControl>
-       </AbsoluteLayout>
-           
+       <syncfusion:SfDataGrid x:Name="SynGrid" ItemsSource="{Binding DataList}"
+                               ColumnSizer="Star" AutoGenerateColumns="False" AllowSorting="True" IsBusy="{Binding IsLoading}" SelectionMode="Single" >
+         <syncfusion:SfDataGrid.Columns >
+           <syncfusion:GridTextColumn HeaderText="الارسال"
+                                      MappingName="Sendbankdate" Format="dd/MM/yyyy" />
+           <syncfusion:GridTextColumn HeaderText="المبلغ"
+                                      MappingName="Summony" Format="n0"/>
+           <syncfusion:GridTextColumn HeaderText="تاريخ الامانات"
+                                      MappingName="Amanatwareddate" Format="dd/MM/yyyy"/>
+           <syncfusion:GridTextColumn HeaderText="مبلغ الامانات"
+                                      MappingName="Amanatmony" Format="n0"/>
+         </syncfusion:SfDataGrid.Columns>
+       </syncfusion:SfDataGrid>
      </StackLayout>
     </ContentPage.Content>
 </ContentPage>

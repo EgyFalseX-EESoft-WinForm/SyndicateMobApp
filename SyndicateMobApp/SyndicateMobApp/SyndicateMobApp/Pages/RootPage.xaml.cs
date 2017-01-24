@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using SyndicateMobApp.Helpers;
+using SyndicateMobApp.ViewModels;
 using Xamarin.Forms;
 
 namespace SyndicateMobApp.Pages
@@ -13,7 +14,8 @@ namespace SyndicateMobApp.Pages
         public RootPage()
         {
             InitializeComponent();
-            IsPresented = true;
+            
+            Microsoft.Practices.ServiceLocation.ServiceLocator.Current.GetInstance<MenuVm>().Master = this;
         }
     }
 }

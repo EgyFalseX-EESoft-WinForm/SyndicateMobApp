@@ -194,16 +194,32 @@ namespace SyndicateMobApp.ViewModels
         private async void LoadSyndicateDataList()
         {
             IsLoading = true;
-            ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
-            SyndicateDataList = await srv.GetSyndicateAsync();
+            try
+            {
+                ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
+                SyndicateDataList = await srv.GetSyndicateAsync();
+            }
+            catch (GeolocationException ex)
+            {
+                IDialogService dialog = ServiceLocator.Current.GetInstance<IDialogService>();
+                await dialog.ShowError(ex.Message, "خطــــاء", "موافق", null);
+            }
             IsLoading = false;
         }
         private async void LoadSubCommitteDataList()
         {
             if (SyndicateInx == -1) return;
             IsLoading = true;
-            ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
-            SubCommitteDataList = await srv.GetSubCommitteUriAsync(SyndicateDataList[SyndicateInx].SyndicateId.ToString());
+            try
+            {
+                ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
+                SubCommitteDataList = await srv.GetSubCommitteUriAsync(SyndicateDataList[SyndicateInx].SyndicateId.ToString());
+            }
+            catch (GeolocationException ex)
+            {
+                IDialogService dialog = ServiceLocator.Current.GetInstance<IDialogService>();
+                await dialog.ShowError(ex.Message, "خطــــاء", "موافق", null);
+            }
             IsLoading = false;
         }
 

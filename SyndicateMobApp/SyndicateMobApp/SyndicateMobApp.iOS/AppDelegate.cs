@@ -25,8 +25,9 @@ namespace SyndicateMobApp.iOS
             global::Xamarin.Forms.Forms.Init();
             Xamarin.FormsMaps.Init();//Added to init Maps
             DevExpress.Mobile.Forms.Init();
+            Syncfusion.SfDataGrid.XForms.iOS.SfDataGridRenderer.Init();
             LoadApplication(new App());
-
+            //new SfChartRenderer();
             return base.FinishedLaunching(app, options);
         }
     }

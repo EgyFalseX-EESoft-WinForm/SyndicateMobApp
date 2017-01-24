@@ -14,7 +14,7 @@ namespace SyndicateMobApp.Pages
         }
         private void SubCommittePicker_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CurrentViewModel.Pins.Count == 0)
+            if (CurrentViewModel.Pins.Count == 0 || MainMap?.Pins == null)
                 return;
             MainMap.Pins.Clear();
             Pin pin = CurrentViewModel.Pins[0];

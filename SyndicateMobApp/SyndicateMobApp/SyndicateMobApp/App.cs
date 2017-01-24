@@ -21,8 +21,8 @@ namespace SyndicateMobApp
             Core.Startup();
 
             //UpdateCoordPage menuPage = new UpdateCoordPage();
-            NewsPage newsPage = new NewsPage();
-            NavigationPage navPage = new NavigationPage(newsPage);
+            HomePage homePage = new HomePage();
+            NavigationPage navPage = new NavigationPage(homePage);
 
             MenuPage menuPage = new MenuPage();
             RootPage masterPage = new RootPage

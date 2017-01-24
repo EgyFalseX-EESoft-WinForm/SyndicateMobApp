@@ -93,6 +93,9 @@ namespace SyndicateMobApp.ViewModels
 
             get { return _icon; }
         }
+
+        public Xamarin.Forms.MasterDetailPage Master { get; set; }
+
         public MasterPageItem SelectedItem
         {
             set
@@ -118,6 +121,7 @@ namespace SyndicateMobApp.ViewModels
             //if (_selectedItem == typeof(string))
             //    _navigationService.NavigateTo(ViewModelLocator.BankMemberPageKey);
             //this.Detail = new NavigationPage((Page)Activator.CreateInstance(((MasterPageItem)args.SelectedItem).TargetType));
+            Master.IsPresented = false;
             _navigationService.NavigateTo(_selectedItem.PageKey);
 
 
