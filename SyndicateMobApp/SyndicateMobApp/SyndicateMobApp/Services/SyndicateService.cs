@@ -11,8 +11,8 @@ namespace SyndicateMobApp.Services
 {
     public class SyndicateService : ISyndicateService
     {
-        public string SyndicateServiceUrl => "http://falsex-001-site3.atempurl.com/SyndicateService.svc/rest/";
-        //public string SyndicateServiceUrl => "http://egycstest.com/SyndicateService.svc/rest/";
+        //public string SyndicateServiceUrl => "http://falsex-001-site3.atempurl.com/SyndicateService.svc/rest/";
+        public string SyndicateServiceUrl => "http://egycstest.com/SyndicateService.svc/rest/";
 
         public string LoginMemberUri  => SyndicateServiceUrl + "LoginMember/";
         public string LoginWarasaUri => SyndicateServiceUrl + "LoginWarasa/";
@@ -23,6 +23,8 @@ namespace SyndicateMobApp.Services
         public string PostSubCommitteUri => SyndicateServiceUrl + "PostSubCommitte?";//subCommitteId={subCommitteId}&lat={lat}&Long={Long}
         public string GetNewsFrontPageUri => SyndicateServiceUrl + "GetNewsFrontPage";
         public string GetNewsItemUri => SyndicateServiceUrl + "GetNewsItem/";
+        public string GetMemberInfoUri => SyndicateServiceUrl + "GetMemberInfo/";
+        public string GetWarasaInfoUri => SyndicateServiceUrl + "GetWarasaInfo/";
 
         public async Task<LoginMemberContrect> LoginMemberAsync(string value)
         {
@@ -85,6 +87,20 @@ namespace SyndicateMobApp.Services
             HttpClient client = new HttpClient();
             string jesonString = await client.GetStringAsync(GetNewsItemUri + value);
             NewsItemContrect result = JsonConvert.DeserializeObject<NewsItemContrect>(jesonString);
+            return result;
+        }
+        public async Task<MemberInfoContrect> GetMemberInfoAsync(string value)
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(GetMemberInfoUri + value);
+            MemberInfoContrect result = JsonConvert.DeserializeObject<MemberInfoContrect>(jesonString);
+            return result;
+        }
+        public async Task<WarasaInfoContrect> GetWarasaInfoAsync(string value)
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(GetWarasaInfoUri + value);
+            WarasaInfoContrect result = JsonConvert.DeserializeObject<WarasaInfoContrect>(jesonString);
             return result;
         }
     }

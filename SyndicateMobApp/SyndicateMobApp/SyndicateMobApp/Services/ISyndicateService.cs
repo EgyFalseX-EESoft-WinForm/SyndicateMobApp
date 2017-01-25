@@ -15,6 +15,8 @@ namespace SyndicateMobApp.Services
         string PostSubCommitteUri { get; }//subCommitteId={subCommitteId}&lat={lat}&Long={Long}
         string GetNewsFrontPageUri { get; }
         string GetNewsItemUri { get; }
+        string GetMemberInfoUri { get; }
+        string GetWarasaInfoUri { get; }
 
         Task<LoginMemberContrect> LoginMemberAsync(string value);
         Task<LoginWarasaContrect> LoginWarasaAsync(string value);
@@ -25,6 +27,8 @@ namespace SyndicateMobApp.Services
         void PostSubCommitteUriAsync(int subCommitteId, double lat, double Long);
         Task<ObservableCollection<NewsFrontPageContrect>> GetNewsFrontPageAsync();
         Task<NewsItemContrect> GetNewsItemAsync(string value);
+        Task<MemberInfoContrect> GetMemberInfoAsync(string value);
+        Task<WarasaInfoContrect> GetWarasaInfoAsync(string value);
 
     }
 }

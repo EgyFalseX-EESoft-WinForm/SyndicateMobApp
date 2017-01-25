@@ -22,6 +22,8 @@ namespace SyndicateMobApp.Services
         public string PostSubCommitteUri => SyndicateServiceUrl + "test?";//subCommitteId={subCommitteId}&lat={lat}&Long={Long}
         public string GetNewsFrontPageUri => SyndicateServiceUrl + "test";
         public string GetNewsItemUri => SyndicateServiceUrl + "test/";
+        public string GetMemberInfoUri => SyndicateServiceUrl + "test/";
+        public string GetWarasaInfoUri => SyndicateServiceUrl + "test/";
 
         public async Task<LoginMemberContrect> LoginMemberAsync(string value)
         {
@@ -133,6 +135,14 @@ namespace SyndicateMobApp.Services
                 {
                     return new NewsItemContrect(1, "test", "test", "test"); 
                 });
+        }
+        public async Task<MemberInfoContrect> GetMemberInfoAsync(string value)
+        {
+            return await new Task<MemberInfoContrect>(() => new MemberInfoContrect("test", "test", "test"));
+        }
+        public async Task<WarasaInfoContrect> GetWarasaInfoAsync(string value)
+        {
+            return await new Task<WarasaInfoContrect>(() => new WarasaInfoContrect("test", "test", "test"));
         }
     }
 }

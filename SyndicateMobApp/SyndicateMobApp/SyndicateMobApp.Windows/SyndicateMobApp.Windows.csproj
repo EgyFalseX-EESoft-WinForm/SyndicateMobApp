@@ -133,6 +133,7 @@
     <Content Include="bankmember.png" />
     <Content Include="bankwarasa.png" />
     <Content Include="home32.png" />
+    <Content Include="info.png" />
     <Content Include="logo.png" />
     <Content Include="bank32.png" />
     <Content Include="Assets\Logo.scale-100.png" />

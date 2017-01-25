@@ -20,7 +20,7 @@ namespace SyndicateMobApp.Droid
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            Thread.Sleep(4000);
+            //Thread.Sleep(1000);
             var intent = new Intent(this, typeof(MainActivity));
             StartActivity(intent);
             //Finish();

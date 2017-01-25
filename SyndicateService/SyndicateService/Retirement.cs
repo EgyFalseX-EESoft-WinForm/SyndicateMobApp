@@ -151,5 +151,34 @@ namespace SyndicateServiceLib
             }
             return returnItem;
         }
+
+        public MemberInfoContrect GetMemberInfo(string value)
+        {
+            MemberInfoContrect returnItem = null;
+            int id;
+            if (!int.TryParse(value, out id))
+                return null;
+            dsETSMobile.MemberInfoDataTable tbl = new MemberInfoTableAdapter().GetData(id);
+            if (tbl.Rows.Count > 0)
+            {
+                dsETSMobile.MemberInfoRow row = tbl[0];
+                returnItem = new MemberInfoContrect(row.MMashatName, row.Syndicate, row.SubCommitte);
+            }
+            return returnItem;
+        }
+        public WarasaInfoContrect GetWarasaInfo(string value)
+        {
+            WarasaInfoContrect returnItem = null;
+            int id;
+            if (!int.TryParse(value, out id))
+                return null;
+            dsETSMobile.WarasaInfoDataTable tbl = new WarasaInfoTableAdapter().GetData(id);
+            if (tbl.Rows.Count > 0)
+            {
+                dsETSMobile.WarasaInfoRow row = tbl[0];
+                returnItem = new WarasaInfoContrect(row.personName, row.Syndicate, row.SubCommitte);
+            }
+            return returnItem;
+        }
     }
 }

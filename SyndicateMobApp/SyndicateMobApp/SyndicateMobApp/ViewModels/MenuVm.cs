@@ -61,6 +61,22 @@ namespace SyndicateMobApp.ViewModels
                     PageKey = ViewModelLocator.GpsPageKey,
                     Visible = true,
                 },
+                new MasterPageItem
+                {
+                    Id = 5,
+                    Title = "بيانات الاعضاء",
+                    IconSource = "info.png",
+                    PageKey = ViewModelLocator.MemberInfoPageKey,
+                    Visible = true,
+                },
+                new MasterPageItem
+                {
+                    Id = 5,
+                    Title = "بيانات الورثة",
+                    IconSource = "info.png",
+                    PageKey = ViewModelLocator.WarasaInfoPageKey,
+                    Visible = true,
+                },
             };
         }
         // Public properties

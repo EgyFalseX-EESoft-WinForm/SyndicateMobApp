@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v16.2"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+             x:Class="SyndicateMobApp.Pages.MemberInfoPage"
+             BindingContext="{Binding MemberInfoInstance, Source={StaticResource Locator}}"
+             Title="{Binding Title}" Icon="{Binding Icon}"
+             >
+  <ContentPage.Content>
+     <StackLayout  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="1">
+       <Entry x:Name="EntyId" Text="{Binding InputString}" Placeholder="ادخل رقمك هنا" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"></Entry>
+       <Button x:Name="BtnGetInfo" Command="{Binding GetInfoCommand}" Text="عـــرض" HorizontalOptions="FillAndExpand" > </Button>
+       <StackLayout HorizontalOptions="End" Padding="10,10,10,10" Orientation="Horizontal">
+         <Label Text="{Binding Data.Name}"></Label>
+         <Label Text="الاسم:" WidthRequest="50" HorizontalTextAlignment="End"></Label>
+       </StackLayout>
+       <StackLayout  HorizontalOptions="End" Padding="10,10,10,10" Orientation="Horizontal">
+         <Label Text="{Binding Data.Syndicate}"></Label>
+         <Label Text="الفرعية:" WidthRequest="50" HorizontalTextAlignment="End"></Label>
+       </StackLayout>
+       <StackLayout  HorizontalOptions="End" Padding="10,10,10,10" Orientation="Horizontal">
+         <Label Text="{Binding Data.Subcommitte}"></Label>
+         <Label Text="اللجنــة:" WidthRequest="50" HorizontalTextAlignment="End"></Label>
+       </StackLayout>
+     </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -60,9 +60,11 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContracts\WarasaInfoContrect.cs" />
     <Compile Include="DataContracts\NewsItemContrect.cs" />
     <Compile Include="DataContracts\SubCommitteContrect.cs" />
     <Compile Include="DataContracts\NewsFrontPageContrect.cs" />
+    <Compile Include="DataContracts\MemberInfoContrect.cs" />
     <Compile Include="DataContracts\SyndicateContrect.cs" />
     <Compile Include="DataContracts\BankWarasaContrect.cs" />
     <Compile Include="DataContracts\BankMemberContrect.cs" />

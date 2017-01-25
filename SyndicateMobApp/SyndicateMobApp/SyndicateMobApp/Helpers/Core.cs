@@ -26,6 +26,8 @@ namespace SyndicateMobApp.Helpers
             MainNavigationService.Configure(ViewModelLocator.BankWarasaPageKey, typeof(BankWarasaPage));
             MainNavigationService.Configure(ViewModelLocator.UpdateCoordPageKey, typeof(UpdateCoordPage));
             MainNavigationService.Configure(ViewModelLocator.GpsPageKey, typeof(GpsPage));
+            MainNavigationService.Configure(ViewModelLocator.MemberInfoPageKey, typeof(MemberInfoPage));
+            MainNavigationService.Configure(ViewModelLocator.WarasaInfoPageKey, typeof(WarasaInfoPage));
             MainNavigationService.Initialize(navPage);
         }
         public static void InitializeDialogService(NavigationPage navPage)

@@ -6,9 +6,8 @@
              Title="{Binding Title}" Icon="{Binding Icon}">
   <ContentPage.Content>
     <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="1" >
-
-      <ListView x:Name="GroupedView"
-         SeparatorVisibility="Default" SeparatorColor="Accent"
+      <!--SeparatorVisibility="Default" SeparatorColor="Accent"-->
+      <ListView x:Name="GroupedView" RowHeight="300"
          ItemsSource="{Binding NewsFrontPageList}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
         <ListView.Header>
           <StackLayout Orientation="Horizontal" BackgroundColor="Accent">
@@ -21,19 +20,13 @@
         </ListView.Footer>
         <ListView.ItemTemplate>
           <DataTemplate>
-            <!--<ImageCell Text="{Binding subject}" ImageSource="{Binding image_path}" Height="300">
-            </ImageCell>-->
-            <ViewCell Height="300" >
+            <ViewCell>
               <ViewCell.View>
-                <ContentView HeightRequest="300">
-                  <StackLayout HeightRequest="300">
-                    <!--<Label Text="{Binding subject}"/>-->
-                    <Image Source="{Binding image_path}" WidthRequest="256" HeightRequest="256" Aspect="Fill"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <ContentView>
+                  <StackLayout>
+                    <Label Text="{Binding subject}" HorizontalTextAlignment="End"/>
+                    <Image Source="{Binding image_path}" WidthRequest="256" HeightRequest="256" Aspect="Fill"/>
                   </StackLayout>
-                  <!--<StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-                    <Label Text="{Binding subject}" VerticalTextAlignment="End"/>
-                    <Image Source="{Binding image_path}" VerticalOptions="End" WidthRequest="96" HeightRequest="96"/>
-                  </StackLayout>-->
                 </ContentView>
               </ViewCell.View>
             </ViewCell>
