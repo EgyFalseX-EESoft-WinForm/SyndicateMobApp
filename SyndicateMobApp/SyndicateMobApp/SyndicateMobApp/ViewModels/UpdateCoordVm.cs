@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
@@ -175,23 +176,20 @@ namespace SyndicateMobApp.ViewModels
         public bool ValidInput()
         {
             return true;
-            if (IsLoading)
-                return false;
-            if (SyndicateInx == -1 || SubCommitteInx == -1 || Lat.Equals(0) || Long.Equals(0))
-                return false;
-            return true;
+            //if (IsLoading)
+            //    return false;
+            //if (SyndicateInx == -1 || SubCommitteInx == -1 || Lat.Equals(0) || Long.Equals(0))
+            //    return false;
+            //return true;
         }
         public async void UpdateCoord()
         {
             IsLoading = true;
-            // Get current location before saving.
-            GetDeviceLocation();
-            
-            //ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
-            //srv.PostSubCommitteUriAsync(SubCommitteDataList[SubCommitteInx].SubCommitteId, _lat, _long);
-            //IDialogService dialog = ServiceLocator.Current.GetInstance<IDialogService>();
-            //await dialog.ShowError("تم حفـظ الاحداثيات", "تم الحفـــظ", "موافق", null);
-
+            await Task.Run(() =>
+            {
+                // Get current location before saving.
+                GetDeviceLocation();
+            });
             IsLoading = false;
         }
         private async void GetDeviceLocation()

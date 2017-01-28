@@ -1,0 +1,5 @@
+Ok, found the issue.
+For me it was the .NET Native tool chain disabled for the relative build configuration (x64).
+It's not easy to find out expecially if you usually build using Any CPU in debug.
+You have to open properties of the project, go in the build section and then from the drop down in the toolbar change to each build SOLUTION configuration in RELEASE (x86, x64, ARM) and check that for each one the Platform target correspond (so x86 > x86, x64 > x64, ARM > ARM) and .NET Native tool chain checkbox is checked.
+After done this the problem is gone.

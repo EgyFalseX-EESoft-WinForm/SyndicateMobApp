@@ -1,0 +1,3 @@
+MainPackage=E:\WorkArea\Projects\EESoft\TeacherUnionMobile\SyndicateMobApp\SyndicateMobApp\SyndicateMobApp.UWP\bin\ARM\Debug\SyndicateMobApp.UWP_1.0.6.0_ARM_Debug.appx
+SymbolPackage=E:\WorkArea\Projects\EESoft\TeacherUnionMobile\SyndicateMobApp\SyndicateMobApp\SyndicateMobApp.UWP\AppPackages\SyndicateMobApp.UWP_1.0.6.0_Debug_Test\SyndicateMobApp.UWP_1.0.6.0_ARM_Debug.appxsym
+ResourcePack=E:\WorkArea\Projects\EESoft\TeacherUnionMobile\SyndicateMobApp\SyndicateMobApp\SyndicateMobApp.UWP\bin\ARM\Debug\SyndicateMobApp.UWP_1.0.6.0_scale-100.appx

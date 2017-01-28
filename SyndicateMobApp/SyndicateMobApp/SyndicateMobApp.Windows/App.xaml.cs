@@ -63,7 +63,7 @@ namespace SyndicateMobApp.Windows
                 rootFrame.CacheSize = 1;
 
                 Xamarin.Forms.Forms.Init(e);
-                //Syncfusion.SfDataGrid.XForms.UWP.SfDataGridRenderer.Init();
+                Syncfusion.SfDataGrid.XForms.UWP.SfDataGridRenderer.Init();
 
                 Xamarin.FormsMaps.Init("INSERT_AUTHENTICATION_TOKEN_HERE");//Added to init Maps
 

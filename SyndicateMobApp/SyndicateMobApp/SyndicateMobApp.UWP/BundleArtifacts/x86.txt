@@ -1,0 +1,2 @@
+MainPackage=E:\WorkArea\Projects\EESoft\TeacherUnionMobile\SyndicateMobApp\SyndicateMobApp\SyndicateMobApp.UWP\bin\x86\Debug\SyndicateMobApp.UWP_1.0.6.0_x86_Debug.appx
+SymbolPackage=E:\WorkArea\Projects\EESoft\TeacherUnionMobile\SyndicateMobApp\SyndicateMobApp\SyndicateMobApp.UWP\AppPackages\SyndicateMobApp.UWP_1.0.6.0_Debug_Test\SyndicateMobApp.UWP_1.0.6.0_x86_Debug.appxsym
