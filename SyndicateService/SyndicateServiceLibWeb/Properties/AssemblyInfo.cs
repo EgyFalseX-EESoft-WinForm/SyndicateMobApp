@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SyndicateServiceLibWeb")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("EgyCS")]
 [assembly: AssemblyProduct("SyndicateServiceLibWeb")]
 [assembly: AssemblyCopyright("Copyright EgyCS 2016")]
 [assembly: AssemblyTrademark("")]

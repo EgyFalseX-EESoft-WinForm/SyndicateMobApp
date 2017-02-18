@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <items>
-  <item Text="Home" NavigateUrl="#" />
-  <item Text="Downloads" NavigateUrl="#"  />
+  <item Text="Home" NavigateUrl="~/" />
+  <item Text="Downloads" NavigateUrl="~/Download/Download.aspx"  />
   <item Text="Support" NavigateUrl="#"  />
 </items>

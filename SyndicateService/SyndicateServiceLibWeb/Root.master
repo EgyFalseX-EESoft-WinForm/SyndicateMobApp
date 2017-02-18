@@ -30,7 +30,7 @@
                                     <AnonymousTemplate>
                                         <a href="~/Account/Login.aspx" runat="server" id="loginLink">Log In</a> 
                                         | 
-                                        <a href="~/Account/Register.aspx" runat="server" id="registerLink">Register</a>
+                                        <%--<a href="~/Account/Register.aspx" runat="server" id="registerLink">Register</a>--%>
                                     </AnonymousTemplate>
                                     <LoggedInTemplate>
                                         Welcome <span class="bold">

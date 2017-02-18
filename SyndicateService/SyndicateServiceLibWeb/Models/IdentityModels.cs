@@ -29,8 +29,9 @@ namespace SyndicateServiceLibWeb.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("ApplicationServices", throwIfV1Schema: false)
+            : base("ETSMOBILEConnectionString", throwIfV1Schema: false)
         {
+            //ApplicationServices
         }
 
         public static ApplicationDbContext Create()

@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ETSMOBILEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblmemberbank">
+          <Key>
+            <PropertyRef Name="AutoId" />
+          </Key>
+          <Property Name="MMashatId" Type="int" Nullable="false" />
+          <Property Name="DofatSarfId" Type="int" Nullable="false" />
+          <Property Name="summony" Type="float" Nullable="false" />
+          <Property Name="sendbankdate" Type="date" />
+          <Property Name="amanatmony" Type="float" />
+          <Property Name="amanatwareddate" Type="date" />
+          <Property Name="AutoId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblNews">
+          <Key>
+            <PropertyRef Name="news_id" />
+          </Key>
+          <Property Name="news_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subject" Type="nvarchar" MaxLength="100" />
+          <Property Name="image_path" Type="nvarchar" MaxLength="255" />
+          <Property Name="contain" Type="nvarchar" MaxLength="1000" />
+          <Property Name="news_date" Type="datetime" />
+          <Property Name="user_in" Type="int" />
+          <Property Name="date_in" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblWarasabank">
+          <Key>
+            <PropertyRef Name="AutoId" />
+          </Key>
+          <Property Name="MMashatId" Type="int" Nullable="false" />
+          <Property Name="DofatSarfId" Type="int" Nullable="false" />
+          <Property Name="PersonId" Type="int" Nullable="false" />
+          <Property Name="visanumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SyndicateId" Type="int" Nullable="false" />
+          <Property Name="SubCommitteId" Type="int" Nullable="false" />
+          <Property Name="summony" Type="float" Nullable="false" />
+          <Property Name="sendbankdate" Type="date" />
+          <Property Name="amanatmony" Type="float" />
+          <Property Name="amanatwareddate" Type="date" />
+          <Property Name="datein" Type="datetime" Nullable="false" />
+          <Property Name="userin" Type="int" Nullable="false" />
+          <Property Name="newid" Type="int" Nullable="false" />
+          <Property Name="AutoId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_pass" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="ETSMOBILEModelStoreContainer">
+          <EntitySet Name="tblmemberbank" EntityType="Self.tblmemberbank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblNews" EntityType="Self.TblNews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblWarasabank" EntityType="Self.tblWarasabank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ETSMOBILEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblmemberbank">
+          <Key>
+            <PropertyRef Name="AutoId" />
+          </Key>
+          <Property Name="MMashatId" Type="Int32" Nullable="false" />
+          <Property Name="DofatSarfId" Type="Int32" Nullable="false" />
+          <Property Name="summony" Type="Double" Nullable="false" />
+          <Property Name="sendbankdate" Type="DateTime" Precision="0" />
+          <Property Name="amanatmony" Type="Double" />
+          <Property Name="amanatwareddate" Type="DateTime" Precision="0" />
+          <Property Name="AutoId" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblNew">
+          <Key>
+            <PropertyRef Name="news_id" />
+          </Key>
+          <Property Name="news_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="image_path" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="contain" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="news_date" Type="DateTime" Precision="3" />
+          <Property Name="user_in" Type="Int32" />
+          <Property Name="date_in" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="EtsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblmemberbanks" EntityType="Self.tblmemberbank" />
+          <EntitySet Name="TblNews" EntityType="Self.TblNew" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="tblWarasabanks" EntityType="ETSMOBILEModel.tblWarasabank" />
+        </EntityContainer>
+        <EntityType Name="tblWarasabank">
+          <Key>
+            <PropertyRef Name="AutoId" />
+          </Key>
+          <Property Name="MMashatId" Type="Int32" Nullable="false" />
+          <Property Name="DofatSarfId" Type="Int32" Nullable="false" />
+          <Property Name="PersonId" Type="Int32" Nullable="false" />
+          <Property Name="visanumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SyndicateId" Type="Int32" Nullable="false" />
+          <Property Name="SubCommitteId" Type="Int32" Nullable="false" />
+          <Property Name="summony" Type="Double" Nullable="false" />
+          <Property Name="sendbankdate" Type="DateTime" Precision="0" />
+          <Property Name="amanatmony" Type="Double" />
+          <Property Name="amanatwareddate" Type="DateTime" Precision="0" />
+          <Property Name="datein" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="userin" Type="Int32" Nullable="false" />
+          <Property Name="newid" Type="Int32" Nullable="false" />
+          <Property Name="AutoId" Type="Int64" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ETSMOBILEModelStoreContainer" CdmEntityContainer="EtsEntities">
+          <EntitySetMapping Name="tblmemberbanks">
+            <EntityTypeMapping TypeName="ETSMOBILEModel.tblmemberbank">
+              <MappingFragment StoreEntitySet="tblmemberbank">
+                <ScalarProperty Name="MMashatId" ColumnName="MMashatId" />
+                <ScalarProperty Name="DofatSarfId" ColumnName="DofatSarfId" />
+                <ScalarProperty Name="summony" ColumnName="summony" />
+                <ScalarProperty Name="sendbankdate" ColumnName="sendbankdate" />
+                <ScalarProperty Name="amanatmony" ColumnName="amanatmony" />
+                <ScalarProperty Name="amanatwareddate" ColumnName="amanatwareddate" />
+                <ScalarProperty Name="AutoId" ColumnName="AutoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblNews">
+            <EntityTypeMapping TypeName="ETSMOBILEModel.TblNew">
+              <MappingFragment StoreEntitySet="TblNews">
+                <ScalarProperty Name="news_id" ColumnName="news_id" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="image_path" ColumnName="image_path" />
+                <ScalarProperty Name="contain" ColumnName="contain" />
+                <ScalarProperty Name="news_date" ColumnName="news_date" />
+                <ScalarProperty Name="user_in" ColumnName="user_in" />
+                <ScalarProperty Name="date_in" ColumnName="date_in" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="ETSMOBILEModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_pass" ColumnName="user_pass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblWarasabanks">
+            <EntityTypeMapping TypeName="ETSMOBILEModel.tblWarasabank">
+              <MappingFragment StoreEntitySet="tblWarasabank">
+                <ScalarProperty Name="AutoId" ColumnName="AutoId" />
+                <ScalarProperty Name="newid" ColumnName="newid" />
+                <ScalarProperty Name="userin" ColumnName="userin" />
+                <ScalarProperty Name="datein" ColumnName="datein" />
+                <ScalarProperty Name="amanatwareddate" ColumnName="amanatwareddate" />
+                <ScalarProperty Name="amanatmony" ColumnName="amanatmony" />
+                <ScalarProperty Name="sendbankdate" ColumnName="sendbankdate" />
+                <ScalarProperty Name="summony" ColumnName="summony" />
+                <ScalarProperty Name="SubCommitteId" ColumnName="SubCommitteId" />
+                <ScalarProperty Name="SyndicateId" ColumnName="SyndicateId" />
+                <ScalarProperty Name="visanumber" ColumnName="visanumber" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="DofatSarfId" ColumnName="DofatSarfId" />
+                <ScalarProperty Name="MMashatId" ColumnName="MMashatId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
