@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="TeacherUnionSyndicate.Droid" android:installLocation="auto" android:versionCode="20161118" android:versionName="20161118">
-	<uses-sdk android:minSdkVersion="15" />
+	<uses-sdk android:minSdkVersion="17" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<application android:label="نقابة المهن التعليمية" android:icon="@drawable/icon">
-		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAE7FFPbNYx6EacTJiZUkKiZ0rD7LE1iwM" />
+		<!--<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAE7FFPbNYx6EacTJiZUkKiZ0rD7LE1iwM" />-->
+		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyD_samdXSx30id2u_WkvR66H47CDGVF7Y8" />
 		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 	</application>
 </manifest>
