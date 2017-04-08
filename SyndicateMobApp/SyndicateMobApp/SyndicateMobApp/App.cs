@@ -33,13 +33,15 @@ namespace SyndicateMobApp
 
             Core.InitializeNavigationService(navPage);
             Core.InitializeDialogService(navPage);
+
             
             MainPage = masterPage;
         }
 
-        protected override void OnStart()
+        protected override async void OnStart()
         {
             // Handle when your app starts
+            await Ads.LoadAdsAsync();
         }
 
         protected override void OnSleep()

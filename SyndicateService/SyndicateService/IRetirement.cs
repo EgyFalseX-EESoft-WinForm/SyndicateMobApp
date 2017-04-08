@@ -47,6 +47,10 @@ namespace SyndicateServiceLib
         [WebInvoke(Method = "GET", UriTemplate = "GetWarasaInfo/{value}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         WarasaInfoContrect GetWarasaInfo(string value);
 
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "GetAds", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        ObservableCollection<AdsContrect> GetAds();
+
     }
    
 }

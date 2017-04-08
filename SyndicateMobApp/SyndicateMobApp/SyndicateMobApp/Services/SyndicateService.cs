@@ -25,6 +25,7 @@ namespace SyndicateMobApp.Services
         public string GetNewsItemUri => SyndicateServiceUrl + "GetNewsItem/";
         public string GetMemberInfoUri => SyndicateServiceUrl + "GetMemberInfo/";
         public string GetWarasaInfoUri => SyndicateServiceUrl + "GetWarasaInfo/";
+        public string GetAdsUri => SyndicateServiceUrl + "GetAds";
 
         public async Task<LoginMemberContrect> LoginMemberAsync(string value)
         {
@@ -103,5 +104,14 @@ namespace SyndicateMobApp.Services
             WarasaInfoContrect result = JsonConvert.DeserializeObject<WarasaInfoContrect>(jesonString);
             return result;
         }
+
+        public async Task<ObservableCollection<AdsContrect>> GetAdsAsync()
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(GetAdsUri);
+            ObservableCollection<AdsContrect> result = JsonConvert.DeserializeObject<ObservableCollection<AdsContrect>>(jesonString);
+            return result;
+        }
+
     }
 }

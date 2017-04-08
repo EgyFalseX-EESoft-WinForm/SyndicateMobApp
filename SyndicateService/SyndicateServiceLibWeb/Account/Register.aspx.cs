@@ -12,7 +12,7 @@ using Microsoft.AspNet.Identity.Owin;
 namespace SyndicateServiceLibWeb {
     public partial class Register : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
-            //Response.Redirect("~/Account/Login.aspx");
+            Response.Redirect("~/Account/Login.aspx");
         }
 
         protected void btnCreateUser_Click(object sender, EventArgs e) {

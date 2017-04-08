@@ -1,12 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <menu>
-  <group Text="Import">
+  <!--<group Text="Import">
     <item Text="tblmemberbank" NavigateUrl="~/Import/Importtblmemberbank.aspx" />
     <item Text="tblWarasabank" NavigateUrl="~/Import/ImporttblWarasabank.aspx" />
     <item Text="TblNews" NavigateUrl="~/Import/ImportTblNews.aspx" />
-  </group>
-  <group Text="Empty">
-    <item Text="Empty" />
-  </group>
+  </group>-->
 
 </menu>

@@ -25513,16 +25513,16 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\_test\\TeacherUnionMobile\\SyndicateMobApp\\SyndicateMobApp\\SyndicateMobApp.UWP\\SyndicateMobApp.UWP.csproj",
+      "projectUniqueName": "C:\\!Activities\\2017-04-02\\TeacherUnionMobile\\SyndicateMobApp\\SyndicateMobApp\\SyndicateMobApp.UWP\\SyndicateMobApp.UWP.csproj",
       "projectName": "SyndicateMobApp.UWP",
-      "projectPath": "C:\\_test\\TeacherUnionMobile\\SyndicateMobApp\\SyndicateMobApp\\SyndicateMobApp.UWP\\SyndicateMobApp.UWP.csproj",
-      "projectJsonPath": "C:\\_test\\TeacherUnionMobile\\SyndicateMobApp\\SyndicateMobApp\\SyndicateMobApp.UWP\\project.json",
+      "projectPath": "C:\\!Activities\\2017-04-02\\TeacherUnionMobile\\SyndicateMobApp\\SyndicateMobApp\\SyndicateMobApp.UWP\\SyndicateMobApp.UWP.csproj",
+      "projectJsonPath": "C:\\!Activities\\2017-04-02\\TeacherUnionMobile\\SyndicateMobApp\\SyndicateMobApp\\SyndicateMobApp.UWP\\project.json",
       "projectStyle": "ProjectJson",
       "frameworks": {
         "uap10.0": {
           "projectReferences": {
-            "C:\\_test\\TeacherUnionMobile\\SyndicateMobApp\\SyndicateMobApp\\SyndicateMobApp\\SyndicateMobApp.csproj": {
-              "projectPath": "C:\\_test\\TeacherUnionMobile\\SyndicateMobApp\\SyndicateMobApp\\SyndicateMobApp\\SyndicateMobApp.csproj"
+            "C:\\!Activities\\2017-04-02\\TeacherUnionMobile\\SyndicateMobApp\\SyndicateMobApp\\SyndicateMobApp\\SyndicateMobApp.csproj": {
+              "projectPath": "C:\\!Activities\\2017-04-02\\TeacherUnionMobile\\SyndicateMobApp\\SyndicateMobApp\\SyndicateMobApp\\SyndicateMobApp.csproj"
             }
           }
         }

@@ -29,6 +29,7 @@ namespace SyndicateMobApp.Services
         Task<NewsItemContrect> GetNewsItemAsync(string value);
         Task<MemberInfoContrect> GetMemberInfoAsync(string value);
         Task<WarasaInfoContrect> GetWarasaInfoAsync(string value);
+        Task<ObservableCollection<AdsContrect>> GetAdsAsync();
 
     }
 }

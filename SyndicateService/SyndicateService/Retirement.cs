@@ -180,5 +180,15 @@ namespace SyndicateServiceLib
             }
             return returnItem;
         }
+
+        public ObservableCollection<AdsContrect> GetAds()
+        {
+            ObservableCollection<AdsContrect> lst = new ObservableCollection<AdsContrect>();
+            TblAdsTableAdapter adp = new TblAdsTableAdapter();
+            dsETSMobile.TblAdsDataTable tbl = adp.GetData();
+            foreach (dsETSMobile.TblAdsRow AdsRow in tbl)
+                lst.Add(new AdsContrect(AdsRow.ads_id, AdsRow.image_path));
+            return lst;
+        }
     }
 }

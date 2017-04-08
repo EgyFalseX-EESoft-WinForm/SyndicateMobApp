@@ -144,5 +144,23 @@ namespace SyndicateMobApp.Services
         {
             return await new Task<WarasaInfoContrect>(() => new WarasaInfoContrect("test", "test", "test"));
         }
+
+        public async Task<ObservableCollection<AdsContrect>> GetAdsAsync()
+        {
+            return await new Task<ObservableCollection<AdsContrect>>(
+                () =>
+                {
+                    ObservableCollection<AdsContrect> lst = new ObservableCollection<AdsContrect>
+                    {
+                        new AdsContrect(1, "test1"),
+                        new AdsContrect(2, "test2"),
+                        new AdsContrect(3, "test3"),
+                        new AdsContrect(4, "test4"),
+                        new AdsContrect(5, "test5")
+                    };
+                    return lst;
+                });
+        }
+
     }
 }
