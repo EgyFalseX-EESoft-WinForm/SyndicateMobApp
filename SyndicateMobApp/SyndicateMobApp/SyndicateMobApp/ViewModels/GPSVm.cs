@@ -30,6 +30,8 @@ namespace SyndicateMobApp.ViewModels
         double _lat;
         double _long;
         private bool _isLoading;
+        private string _title;
+        private string _ads;
         private ObservableCollection<SyndicateContrect> _syndicateDataList;
         private ObservableCollection<SubCommitteContrect> _subCommitteDataList;
         private ObservableCollection<Pin> _pinsList;
@@ -153,6 +155,7 @@ namespace SyndicateMobApp.ViewModels
             _geolocator = CrossGeolocator.Current;
             _geolocator.DesiredAccuracy = 50;
             LoadSyndicateDataList();
+            Ads = Helpers.Ads.GetAdsPath();
             //GetDeviceLocation();
         }
         public bool ValidInput()
@@ -225,7 +228,16 @@ namespace SyndicateMobApp.ViewModels
             }
             IsLoading = false;
         }
+        public string Ads
+        {
+            set
+            {
+                _ads = value;
+                RaisePropertyChanged();
+            }
 
+            get { return _ads; }
+        }
         #endregion
 
     }

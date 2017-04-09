@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v16.2"
              xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
 
              x:Class="SyndicateMobApp.Pages.BankMemberPage"
@@ -14,17 +13,18 @@
        <Button x:Name="BtnLogin" Command="{Binding LoginCommand}" Text="عـــرض" HorizontalOptions="FillAndExpand" > </Button>
         <syncfusion:SfDataGrid x:Name="SynGrid" ItemsSource="{Binding DataList}"
                                ColumnSizer="Star" AutoGenerateColumns="False" AllowSorting="True" IsBusy="{Binding IsLoading}" SelectionMode="Single" >
-          <syncfusion:SfDataGrid.Columns >
-          <syncfusion:GridTextColumn HeaderText="الارسال" 
+                <syncfusion:SfDataGrid.Columns >
+                    <syncfusion:GridTextColumn HeaderText="الارسال" 
                                      MappingName="Sendbankdate" Format="dd/MM/yyyy" />
-          <syncfusion:GridTextColumn HeaderText="المبلغ"
+                    <syncfusion:GridTextColumn HeaderText="المبلغ"
                                      MappingName="Summony" Format="n0"/>
-          <syncfusion:GridTextColumn HeaderText="تاريخ الامانات" 
+                    <syncfusion:GridTextColumn HeaderText="تاريخ الامانات" 
                                      MappingName="Amanatwareddate" Format="dd/MM/yyyy"/>
-          <syncfusion:GridTextColumn HeaderText="مبلغ الامانات"
+                    <syncfusion:GridTextColumn HeaderText="مبلغ الامانات"
                                      MappingName="Amanatmony" Format="n0"/>
-          </syncfusion:SfDataGrid.Columns>
-       </syncfusion:SfDataGrid>
-     </StackLayout>
+                </syncfusion:SfDataGrid.Columns>
+            </syncfusion:SfDataGrid>
+            <Image Source="{Binding Ads}" HorizontalOptions="Center" VerticalOptions="End" HeightRequest="20"></Image>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

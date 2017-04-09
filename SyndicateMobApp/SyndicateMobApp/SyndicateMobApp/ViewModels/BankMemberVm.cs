@@ -24,6 +24,7 @@ namespace SyndicateMobApp.ViewModels
         private ObservableCollection<BankMemberContrect> _dataList;
         private bool _isLoading = false;
         private string _title;
+        private string _ads;
         string _inputString = "";
         private RelayCommand _loginCommand;
         #endregion
@@ -95,6 +96,7 @@ namespace SyndicateMobApp.ViewModels
         {
             _navigationService = navigationService;
             Title = "بيـانـات البنــك اعضــاء";
+            Ads = Helpers.Ads.GetAdsPath();
             _dataList = new ObservableCollection<BankMemberContrect>();
         }
         public async void Login()
@@ -124,6 +126,16 @@ namespace SyndicateMobApp.ViewModels
             ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
             DataList = await srv.BankMemberAsync(UserManager.Id.ToString());
             IsLoading = false;
+        }
+        public string Ads
+        {
+            set
+            {
+                _ads = value;
+                RaisePropertyChanged();
+            }
+
+            get { return _ads; }
         }
         #endregion
 

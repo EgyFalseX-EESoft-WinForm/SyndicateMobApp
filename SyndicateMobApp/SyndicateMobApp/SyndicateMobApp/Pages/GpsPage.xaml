@@ -20,7 +20,7 @@
     </AbsoluteLayout>-->
 
     <maps:Map x:Name="MainMap" IsShowingUser="true" MapType="Street" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-    
-  </StackLayout>
+        <Image Source="{Binding Ads}" HorizontalOptions="Center" VerticalOptions="End" HeightRequest="20"></Image>
+    </StackLayout>
 
 </ContentPage>

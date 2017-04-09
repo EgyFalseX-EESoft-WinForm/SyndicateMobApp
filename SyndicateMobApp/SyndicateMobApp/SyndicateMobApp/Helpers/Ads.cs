@@ -18,7 +18,7 @@ namespace SyndicateMobApp.Helpers
         public static string GetAdsPath()
         {
             string outPut = DataList[_inx].ImagePath;
-            if (_inx++ >= DataList.Count)
+            if (_inx + 1 > DataList.Count)
                 _inx = 0;
             else
                 _inx++;

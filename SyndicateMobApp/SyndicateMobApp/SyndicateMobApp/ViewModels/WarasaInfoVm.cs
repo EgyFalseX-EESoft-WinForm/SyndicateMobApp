@@ -24,6 +24,7 @@ namespace SyndicateMobApp.ViewModels
         private WarasaInfoContrect _data;
         private bool _isLoading = false;
         private string _title;
+        private string _ads;
         string _inputString = "";
         private RelayCommand _getInfoCommand;
         #endregion
@@ -76,6 +77,16 @@ namespace SyndicateMobApp.ViewModels
 
             get { return _title; }
         }
+        public string Ads
+        {
+            set
+            {
+                _ads = value;
+                RaisePropertyChanged();
+            }
+
+            get { return _ads; }
+        }
         public bool IsLoading
         {
             get
@@ -96,6 +107,7 @@ namespace SyndicateMobApp.ViewModels
             _navigationService = navigationService;
             Title = "بيـانـات الورثـــة";
             _data = new WarasaInfoContrect(".", ".", ".");
+            Ads = Helpers.Ads.GetAdsPath();
         }
         public async void GetInfo()
         {

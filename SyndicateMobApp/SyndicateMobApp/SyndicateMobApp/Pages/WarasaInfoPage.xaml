@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v16.2"
              xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
              x:Class="SyndicateMobApp.Pages.WarasaInfoPage"
              BindingContext="{Binding WarasaInfoInstance, Source={StaticResource Locator}}"
@@ -23,6 +22,7 @@
          <Label Text="{Binding Data.Subcommitte}"></Label>
          <Label Text="اللجنــة:" WidthRequest="50" HorizontalTextAlignment="End"></Label>
        </StackLayout>
-     </StackLayout>
+            <Image Source="{Binding Ads}" HorizontalOptions="Center" VerticalOptions="End" HeightRequest="20"></Image>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

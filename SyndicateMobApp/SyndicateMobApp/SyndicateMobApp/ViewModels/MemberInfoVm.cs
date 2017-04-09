@@ -24,6 +24,7 @@ namespace SyndicateMobApp.ViewModels
         private MemberInfoContrect _data;
         private bool _isLoading = false;
         private string _title;
+        private string _ads;
         string _inputString = "";
         private RelayCommand _getInfoCommand;
         #endregion
@@ -96,6 +97,7 @@ namespace SyndicateMobApp.ViewModels
             _navigationService = navigationService;
             Title = "بيـانـات اعضــاء";
             _data = new MemberInfoContrect(".", ".", ".");
+            Ads = Helpers.Ads.GetAdsPath();
         }
         public async void GetInfo()
         {
@@ -113,6 +115,16 @@ namespace SyndicateMobApp.ViewModels
                 await dialog.ShowError("لا يوجد بيانات لهذا الرقم", "خطــــاء", "موافق", null);
             }
             IsLoading = false;
+        }
+        public string Ads
+        {
+            set
+            {
+                _ads = value;
+                RaisePropertyChanged();
+            }
+
+            get { return _ads; }
         }
         #endregion
 

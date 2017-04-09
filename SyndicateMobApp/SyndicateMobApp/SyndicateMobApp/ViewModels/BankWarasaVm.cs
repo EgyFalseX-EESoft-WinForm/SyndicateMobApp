@@ -24,6 +24,7 @@ namespace SyndicateMobApp.ViewModels
         private ObservableCollection<BankWarasaContrect> _dataList;
         private bool _isLoading = false;
         private string _title;
+        private string _ads;
         string _inputString = "";
         private RelayCommand _loginCommand;
         #endregion
@@ -96,6 +97,7 @@ namespace SyndicateMobApp.ViewModels
             _navigationService = navigationService;
             Title = "بيـانـات البنــك ورثــة";
             _dataList = new ObservableCollection<BankWarasaContrect>();
+            Ads = Helpers.Ads.GetAdsPath();
 
         }
         public async void Login()
@@ -126,7 +128,18 @@ namespace SyndicateMobApp.ViewModels
             DataList = await srv.BankWarasaAsync(UserManager.Id.ToString());
             IsLoading = false;
         }
+        public string Ads
+        {
+            set
+            {
+                _ads = value;
+                RaisePropertyChanged();
+            }
+
+            get { return _ads; }
+        }
+
         #endregion
-        
+
     }
 }
