@@ -14,11 +14,13 @@ using SyndicateMobApp.Helpers;
 using SyndicateMobApp.Services;
 using Xamarin.Forms;
 
+
+
 namespace SyndicateMobApp.ViewModels
 {
     public class BankMemberVm : ViewModelBase
     {
-
+        
         #region -  Variables  -
         private readonly INavigationService _navigationService;
         private ObservableCollection<BankMemberContrect> _dataList;
@@ -48,6 +50,8 @@ namespace SyndicateMobApp.ViewModels
         public RelayCommand LoginCommand => _loginCommand ?? (_loginCommand = new RelayCommand(Login, ValidInput));
         public bool ValidInput()
         {
+            //String aaa = "";
+
             if (IsLoading)
                 return false;
             if (InputString == string.Empty)

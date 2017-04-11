@@ -7,20 +7,23 @@
              BindingContext="{Binding GpsInstance, Source={StaticResource Locator}}"
              Icon="{Binding Icon}"
              >
-  
-  <StackLayout VerticalOptions="FillAndExpand">
-    <!--<Image Source="{Binding Icon}"></Image>-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
 
-    <controls:BindablePicker x:Name="SyndicatePicker" ItemsSource="{Binding SyndicateDataList}" SelectedIndex="{Binding SyndicateInx}" HorizontalOptions="Fill" Title="الفرعيـــة" ></controls:BindablePicker>
-    <controls:BindablePicker SelectedIndexChanged="SubCommittePicker_OnSelectedIndexChanged" x:Name="SubCommittePicker" ItemsSource="{Binding SubCommitteDataList}" SelectedIndex="{Binding SubCommitteInx}" HorizontalOptions="Fill" Title="اللجنـــة"></controls:BindablePicker>
-    <!--<AbsoluteLayout x:Name="MapAbsLayout" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-      <ContentView x:Name="Indicator" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"  AbsoluteLayout.LayoutFlags="All" IsVisible="{Binding IsLoading}" BackgroundColor="Transparent" Padding="10, 0">
-        <ActivityIndicator IsRunning="True" IsVisible="{Binding IsLoading}" Color="Lime" HorizontalOptions="Center" VerticalOptions="Center"/>
-      </ContentView>
-    </AbsoluteLayout>-->
-
-    <maps:Map x:Name="MainMap" IsShowingUser="true" MapType="Street" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-        <Image Source="{Binding Ads}" HorizontalOptions="Center" VerticalOptions="End" HeightRequest="20"></Image>
-    </StackLayout>
-
+        <StackLayout VerticalOptions="FillAndExpand" Grid.Row="0">
+        <!--<Image Source="{Binding Icon}"></Image>-->
+        <controls:BindablePicker x:Name="SyndicatePicker" ItemsSource="{Binding SyndicateDataList}" SelectedIndex="{Binding SyndicateInx}" HorizontalOptions="Fill" Title="الفرعيـــة" ></controls:BindablePicker>
+        <controls:BindablePicker SelectedIndexChanged="SubCommittePicker_OnSelectedIndexChanged" x:Name="SubCommittePicker" ItemsSource="{Binding SubCommitteDataList}" SelectedIndex="{Binding SubCommitteInx}" HorizontalOptions="Fill" Title="اللجنـــة"></controls:BindablePicker>
+        <!--<AbsoluteLayout x:Name="MapAbsLayout" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+          <ContentView x:Name="Indicator" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"  AbsoluteLayout.LayoutFlags="All" IsVisible="{Binding IsLoading}" BackgroundColor="Transparent" Padding="10, 0">
+            <ActivityIndicator IsRunning="True" IsVisible="{Binding IsLoading}" Color="Lime" HorizontalOptions="Center" VerticalOptions="Center"/>
+          </ContentView>
+        </AbsoluteLayout>-->
+        <maps:Map x:Name="MainMap" IsShowingUser="true" MapType="Street" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        </StackLayout>
+        <Image Source="{Binding Ads}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="1"></Image>
+    </Grid>
 </ContentPage>
