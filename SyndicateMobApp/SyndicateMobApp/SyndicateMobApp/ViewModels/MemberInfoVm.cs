@@ -53,7 +53,7 @@ namespace SyndicateMobApp.ViewModels
             if (InputString == string.Empty)
                 return false;
             int idValue;
-            if (!int.TryParse(InputString, out idValue)) return false;
+            if (!int.TryParse(InputString.NumericNormalize(), out idValue)) return false;
             if (idValue > 0) { return true; }
             return false;
         }
@@ -103,7 +103,7 @@ namespace SyndicateMobApp.ViewModels
         {
             IsLoading = true;
             ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
-            MemberInfoContrect result = await srv.GetMemberInfoAsync(_inputString);
+            MemberInfoContrect result = await srv.GetMemberInfoAsync(_inputString.NumericNormalize());
             if (result != null)
             {
                 Data = new MemberInfoContrect(result.Name, result.Syndicate, result.Subcommitte);

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.12
+VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyndicateMobApp.Droid", "SyndicateMobApp\SyndicateMobApp.Droid\SyndicateMobApp.Droid.csproj", "{ED197455-D195-4CE3-8AA5-59AABEBDDD4E}"
 EndProject
@@ -138,6 +138,7 @@ Global
 		{14F138DB-3C62-4AB8-90D8-E1DC0E04CE0B}.Debug|x64.ActiveCfg = Debug|iPhone
 		{14F138DB-3C62-4AB8-90D8-E1DC0E04CE0B}.Debug|x86.ActiveCfg = Debug|iPhone
 		{14F138DB-3C62-4AB8-90D8-E1DC0E04CE0B}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{14F138DB-3C62-4AB8-90D8-E1DC0E04CE0B}.Release|Any CPU.Build.0 = Release|iPhone
 		{14F138DB-3C62-4AB8-90D8-E1DC0E04CE0B}.Release|Any CPU.Deploy.0 = Release|iPhone
 		{14F138DB-3C62-4AB8-90D8-E1DC0E04CE0B}.Release|ARM.ActiveCfg = Release|iPhone
 		{14F138DB-3C62-4AB8-90D8-E1DC0E04CE0B}.Release|iPhone.ActiveCfg = Release|iPhone
@@ -290,6 +291,8 @@ Global
 		{17EEC12F-9CE8-41B9-9D30-75AC143ECF59}.Debug|x86.Build.0 = Debug|x86
 		{17EEC12F-9CE8-41B9-9D30-75AC143ECF59}.Debug|x86.Deploy.0 = Debug|x86
 		{17EEC12F-9CE8-41B9-9D30-75AC143ECF59}.Release|Any CPU.ActiveCfg = Release|x86
+		{17EEC12F-9CE8-41B9-9D30-75AC143ECF59}.Release|Any CPU.Build.0 = Release|x86
+		{17EEC12F-9CE8-41B9-9D30-75AC143ECF59}.Release|Any CPU.Deploy.0 = Release|x86
 		{17EEC12F-9CE8-41B9-9D30-75AC143ECF59}.Release|ARM.ActiveCfg = Release|ARM
 		{17EEC12F-9CE8-41B9-9D30-75AC143ECF59}.Release|ARM.Build.0 = Release|ARM
 		{17EEC12F-9CE8-41B9-9D30-75AC143ECF59}.Release|ARM.Deploy.0 = Release|ARM

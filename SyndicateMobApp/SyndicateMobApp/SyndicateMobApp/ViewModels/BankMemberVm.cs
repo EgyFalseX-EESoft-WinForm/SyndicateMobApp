@@ -51,13 +51,14 @@ namespace SyndicateMobApp.ViewModels
         public bool ValidInput()
         {
             //String aaa = "";
-
+            
             if (IsLoading)
                 return false;
             if (InputString == string.Empty)
                 return false;
+            
             int idValue;
-            if (!int.TryParse(InputString, out idValue)) return false;
+            if (!int.TryParse(InputString.NumericNormalize(), out idValue)) return false;
             if (idValue > 0) { return true; }
             return false;
         }
@@ -107,7 +108,7 @@ namespace SyndicateMobApp.ViewModels
         {
             IsLoading = true;
             ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
-            LoginMemberContrect mem = await srv.LoginMemberAsync(_inputString);
+            LoginMemberContrect mem = await srv.LoginMemberAsync(_inputString.NumericNormalize());
             if (mem != null)
             {
                 UserManager.Id = mem.MMashatId;

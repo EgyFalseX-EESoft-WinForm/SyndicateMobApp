@@ -53,7 +53,7 @@ namespace SyndicateMobApp.ViewModels
             if (InputString == string.Empty)
                 return false;
             int idValue;
-            if (!int.TryParse(InputString, out idValue)) return false;
+            if (!int.TryParse(InputString.NumericNormalize(), out idValue)) return false;
             if (idValue > 0) { return true; }
             return false;
         }
@@ -104,7 +104,7 @@ namespace SyndicateMobApp.ViewModels
         {
             IsLoading = true;
             ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
-            LoginWarasaContrect wsa = await srv.LoginWarasaAsync(_inputString);
+            LoginWarasaContrect wsa = await srv.LoginWarasaAsync(_inputString.NumericNormalize());
             if (wsa != null)
             {
                 UserManager.Id = wsa.Code60;
