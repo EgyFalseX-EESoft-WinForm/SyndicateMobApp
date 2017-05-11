@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.AspNet.Identity;
 
 namespace SyndicateServiceLibWeb.Import
 {
@@ -23,7 +24,6 @@ namespace SyndicateServiceLibWeb.Import
             }
             if (!IsPostBack)
                 Session["attach"] = null;
-
         }
         protected void ASPxUploadControlMain_FileUploadComplete(object sender, DevExpress.Web.FileUploadCompleteEventArgs e)
         {

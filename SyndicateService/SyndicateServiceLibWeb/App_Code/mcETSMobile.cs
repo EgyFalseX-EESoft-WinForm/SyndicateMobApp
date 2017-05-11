@@ -38,6 +38,8 @@ namespace SyndicateServiceLibWeb
         public static string ReportURL = @"http://LOCALHOST:8081/ReportServer";
         public static string ReportPath = @"/StoreReport/";
         public static string FilesPath = "Assets/";
+        public static string UploadedFiles = "~/App_Data/UploadedFiles/";
+        public static string SiteUrl = "http://egycstest.com/NewsFiles/";
 
         public mcETSMobile()
         {

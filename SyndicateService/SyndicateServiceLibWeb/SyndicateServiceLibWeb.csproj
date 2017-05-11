@@ -154,6 +154,8 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Admin\EditTblAds.aspx" />
+    <Content Include="Admin\EditTblNews.aspx" />
     <Content Include="App_Data\SideMenu.xml" />
     <Content Include="App_Data\TopMenu.xml" />
     <Content Include="Content\Images\android_logo32.png" />
@@ -168,9 +170,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Import\ImportTblNews.aspx" />
-    <Content Include="Import\ImporttblWarasabank.aspx" />
-    <Content Include="Import\Importtblmemberbank.aspx" />
+    <Content Include="Admin\ImportTblNews.aspx" />
+    <Content Include="Admin\ImporttblWarasabank.aspx" />
+    <Content Include="Admin\Importtblmemberbank.aspx" />
     <Content Include="ModelEtsMobile.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelEtsMobile.edmx</DependentUpon>
@@ -335,28 +337,42 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EditTblAds.aspx.cs">
+      <DependentUpon>EditTblAds.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditTblAds.aspx.designer.cs">
+      <DependentUpon>EditTblAds.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditTblNews.aspx.cs">
+      <DependentUpon>EditTblNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditTblNews.aspx.designer.cs">
+      <DependentUpon>EditTblNews.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Code\ExcelAPI.cs" />
     <Compile Include="App_Code\mcETSMobile.cs" />
     <Compile Include="App_Code\sessionETSMobile.cs" />
-    <Compile Include="Import\ImportTblNews.aspx.cs">
+    <Compile Include="Admin\ImportTblNews.aspx.cs">
       <DependentUpon>ImportTblNews.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Import\ImportTblNews.aspx.designer.cs">
+    <Compile Include="Admin\ImportTblNews.aspx.designer.cs">
       <DependentUpon>ImportTblNews.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Import\ImporttblWarasabank.aspx.cs">
+    <Compile Include="Admin\ImporttblWarasabank.aspx.cs">
       <DependentUpon>ImporttblWarasabank.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Import\ImporttblWarasabank.aspx.designer.cs">
+    <Compile Include="Admin\ImporttblWarasabank.aspx.designer.cs">
       <DependentUpon>ImporttblWarasabank.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Import\Importtblmemberbank.aspx.cs">
+    <Compile Include="Admin\Importtblmemberbank.aspx.cs">
       <DependentUpon>Importtblmemberbank.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Import\Importtblmemberbank.aspx.designer.cs">
+    <Compile Include="Admin\Importtblmemberbank.aspx.designer.cs">
       <DependentUpon>Importtblmemberbank.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModelEtsMobile.Context.cs">
@@ -400,7 +416,7 @@
     <Compile Include="Main.master.designer.cs">
       <DependentUpon>Main.master</DependentUpon>
     </Compile>
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Download\Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Root.master.cs">
       <DependentUpon>Root.master</DependentUpon>
@@ -440,9 +456,13 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Ads\" />
     <Folder Include="App_Data\ExcelFiles\" />
+    <Folder Include="App_Data\UploadedFiles\" />
     <Folder Include="Core\" />
     <Folder Include="Download\ExcelFiles\" />
+    <Folder Include="NewsFiles\" />
+    <Folder Include="UploadedFiles\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
