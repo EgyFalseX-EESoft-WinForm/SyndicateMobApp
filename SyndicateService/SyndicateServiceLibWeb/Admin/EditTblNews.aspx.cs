@@ -15,10 +15,10 @@ namespace SyndicateServiceLibWeb.Import
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!Request.IsAuthenticated)
-            //{
-            //    Response.Redirect("~/Account/Login.aspx?ReturnUrl=" + Server.UrlEncode(Request.Url.ToString()).ToString());
-            //}
+            if (!Request.IsAuthenticated)
+            {
+                Response.Redirect("~/Account/Login.aspx?ReturnUrl=" + Server.UrlEncode(Request.Url.ToString()).ToString());
+            }
             if (!IsPostBack)
                 Session["attach"] = null;
         }

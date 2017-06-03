@@ -1,2 +1,2 @@
-MainPackage=E:\WorkArea\Projects\EESoft\TeacherUnionMobile\SyndicateMobApp\SyndicateMobApp\SyndicateMobApp.UWP\bin\x64\Release\SyndicateMobApp.UWP_1.0.9.0_x64.appx
-SymbolPackage=E:\WorkArea\Projects\EESoft\TeacherUnionMobile\SyndicateMobApp\SyndicateMobApp\SyndicateMobApp.UWP\AppPackages\SyndicateMobApp.UWP_1.0.9.0_Test\SyndicateMobApp.UWP_1.0.9.0_x64.appxsym
+MainPackage=C:\TeacherUnionMobile\SyndicateMobApp\SyndicateMobApp\SyndicateMobApp.UWP\bin\x64\Release\SyndicateMobApp.UWP_1.0.10.0_x64.appx
+SymbolPackage=C:\TeacherUnionMobile\SyndicateMobApp\SyndicateMobApp\SyndicateMobApp.UWP\AppPackages\SyndicateMobApp.UWP_1.0.10.0_Test\SyndicateMobApp.UWP_1.0.10.0_x64.appxsym

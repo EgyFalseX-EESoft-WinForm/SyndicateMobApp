@@ -50,6 +50,7 @@ namespace SyndicateServiceLib
                 return null;
             ObservableCollection<BankMemberContrect> lst = new ObservableCollection<BankMemberContrect>();
             BankMemberTableAdapter adp = new BankMemberTableAdapter();
+            Misc.Misc.SetAllCommandTimeouts(adp, Misc.Misc.UnlimitedTimeOut);
             dsETSMobile.BankMemberDataTable tbl = adp.GetData(id);
             foreach (dsETSMobile.BankMemberRow bankMemberRow in tbl)
             {
@@ -71,6 +72,7 @@ namespace SyndicateServiceLib
                 return null;
             ObservableCollection<BankWarasaContrect> lst = new ObservableCollection<BankWarasaContrect>();
             BankWarasaTableAdapter adp = new BankWarasaTableAdapter();
+            Misc.Misc.SetAllCommandTimeouts(adp, Misc.Misc.UnlimitedTimeOut);
             dsETSMobile.BankWarasaDataTable tbl = adp.GetData(id);
             foreach (dsETSMobile.BankWarasaRow bankWarasaRow in tbl)
             {
@@ -88,6 +90,7 @@ namespace SyndicateServiceLib
         {
             ObservableCollection<SyndicateContrect> lst = new ObservableCollection<SyndicateContrect>();
             CDSyndicateTableAdapter adp = new CDSyndicateTableAdapter();
+            Misc.Misc.SetAllCommandTimeouts(adp, Misc.Misc.UnlimitedTimeOut);
             dsETSMobile.CDSyndicateDataTable tbl = adp.GetData();
             foreach (dsETSMobile.CDSyndicateRow cdSyndicateRow in tbl)
                 lst.Add(new SyndicateContrect(cdSyndicateRow.SyndicateId, cdSyndicateRow.Syndicate));
@@ -100,6 +103,7 @@ namespace SyndicateServiceLib
                 return null;
             ObservableCollection<SubCommitteContrect> lst = new ObservableCollection<SubCommitteContrect>();
             CDSubCommitteTableAdapter adp = new CDSubCommitteTableAdapter();
+            Misc.Misc.SetAllCommandTimeouts(adp, Misc.Misc.UnlimitedTimeOut);
             dsETSMobile.CDSubCommitteDataTable tbl = adp.GetDataBySyndicateId(id);
 
             foreach (dsETSMobile.CDSubCommitteRow cDSubCommitteRow in tbl)
@@ -124,6 +128,7 @@ namespace SyndicateServiceLib
         {
             ObservableCollection<NewsFrontPageContrect> lst = new ObservableCollection<NewsFrontPageContrect>();
             TblNewsTableAdapter adp = new TblNewsTableAdapter();
+            Misc.Misc.SetAllCommandTimeouts(adp, Misc.Misc.UnlimitedTimeOut);
             dsETSMobile.TblNewsDataTable tbl = adp.GetData();
             foreach (dsETSMobile.TblNewsRow tblNewsRow in tbl)
             {
@@ -185,6 +190,7 @@ namespace SyndicateServiceLib
         {
             ObservableCollection<AdsContrect> lst = new ObservableCollection<AdsContrect>();
             TblAdsTableAdapter adp = new TblAdsTableAdapter();
+            Misc.Misc.SetAllCommandTimeouts(adp, Misc.Misc.UnlimitedTimeOut);
             dsETSMobile.TblAdsDataTable tbl = adp.GetData();
             foreach (dsETSMobile.TblAdsRow AdsRow in tbl)
                 lst.Add(new AdsContrect(AdsRow.ads_id, AdsRow.image_path));
