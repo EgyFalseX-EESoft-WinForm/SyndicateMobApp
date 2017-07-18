@@ -25,6 +25,8 @@ namespace SyndicateMobApp.Services
         public string GetMemberInfoUri => SyndicateServiceUrl + "test/";
         public string GetWarasaInfoUri => SyndicateServiceUrl + "test/";
 
+        public string GetAppOptionUri => SyndicateServiceUrl + "test/";
+
         public async Task<LoginMemberContrect> LoginMemberAsync(string value)
         {
             return await new Task<LoginMemberContrect>(
@@ -157,6 +159,23 @@ namespace SyndicateMobApp.Services
                         new AdsContrect(3, "test3"),
                         new AdsContrect(4, "test4"),
                         new AdsContrect(5, "test5")
+                    };
+                    return lst;
+                });
+        }
+
+        public async Task<ObservableCollection<AppOptionContrect>> GetAppOptionAsync()
+        {
+            return await new Task<ObservableCollection<AppOptionContrect>>(
+                () =>
+                {
+                    ObservableCollection<AppOptionContrect> lst = new ObservableCollection<AppOptionContrect>
+                    {
+                        new AppOptionContrect("1", "test1"),
+                        new AppOptionContrect("2", "test2"),
+                        new AppOptionContrect("3", "test3"),
+                        new AppOptionContrect("4", "test4"),
+                        new AppOptionContrect("5", "test5")
                     };
                     return lst;
                 });

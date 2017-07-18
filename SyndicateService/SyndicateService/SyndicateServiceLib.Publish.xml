@@ -1,4 +1,18 @@
 <publishData>
+  <publishTarget publishUrl="ftp://132.148.83.93//httpdocs/bin">
+    <file relUrl="bin/SyndicateServiceLib.pdb" publishTime="07/17/2017 01:11:28" />
+    <file relUrl="SyndicateServiceLib.Retirement.svc" publishTime="07/17/2017 01:11:38" />
+    <file relUrl="bin/SyndicateServiceLib.dll" publishTime="07/17/2017 01:11:28" />
+    <file relUrl="bin/SyndicateServiceLib.dll.config" publishTime="09/29/2016 15:30:30" />
+    <file relUrl="Web.config" publishTime="09/29/2016 15:30:30" />
+  </publishTarget>
+  <publishTarget publishUrl="C:\!Activity\">
+    <file relUrl="bin/SyndicateServiceLib.pdb" publishTime="07/07/2017 10:23:59" />
+    <file relUrl="SyndicateServiceLib.Retirement.svc" publishTime="07/07/2017 10:24:47" />
+    <file relUrl="bin/SyndicateServiceLib.dll.config" publishTime="09/29/2016 15:30:30" />
+    <file relUrl="bin/SyndicateServiceLib.dll" publishTime="07/07/2017 10:23:59" />
+    <file relUrl="Web.config" publishTime="09/29/2016 15:30:30" />
+  </publishTarget>
   <publishTarget publishUrl="ftp://ftp.myasp.net/Syndicate/bin">
     <file relUrl="bin/SyndicateServiceLib.pdb" publishTime="12/27/2016 12:21:14" />
     <file relUrl="bin/SyndicateServiceLib.dll.config" publishTime="09/29/2016 15:30:30" />

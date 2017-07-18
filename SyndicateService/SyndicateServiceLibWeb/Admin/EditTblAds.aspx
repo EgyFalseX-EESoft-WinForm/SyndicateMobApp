@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeBehind="EditTblAds.aspx.cs" Inherits="SyndicateServiceLibWeb.Import.EditTblAds" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMain.master" AutoEventWireup="true" CodeBehind="EditTblAds.aspx.cs" Inherits="SyndicateServiceLibWeb.Import.EditTblAds" %>
 <%@ Register Assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <dx:ASPxGridView ID="ASPxGridViewMain" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceMain" EnableTheming="True" KeyFieldName="ads_id" Theme="Moderno" OnStartRowEditing="ASPxGridViewMain_StartRowEditing" Width="100%">
@@ -54,14 +54,18 @@
             </dx:GridViewDataDateColumn>
             <dx:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowInCustomizationForm="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowApplyFilterButton="True">
             </dx:GridViewCommandColumn>
-            <dx:GridViewDataImageColumn Caption="Image Path" FieldName="image_path" ShowInCustomizationForm="True" VisibleIndex="3">
+            <dx:GridViewDataTextColumn Caption="Image Path" FieldName="image_path" ShowInCustomizationForm="True" VisibleIndex="3">
+                <DataItemTemplate>
+                    <dx:ASPxImage ID="ASPxImage1" runat="server" ImageUrl='<%# Bind("image_path", "{0}") %>' ShowLoadingImage="True">
+                    </dx:ASPxImage>
+                </DataItemTemplate>
                 <EditItemTemplate>
                     <dx:ASPxUploadControl ID="ASPxUploadControlImagePath" runat="server" EnableTheming="True" OnFileUploadComplete="ASPxUploadControlImagePath_FileUploadComplete" ShowProgressPanel="True" ShowUploadButton="True" Theme="Moderno" UploadMode="Auto" UploadStorage="FileSystem" Width="280px">
                         <FileSystemSettings UploadFolder="~/Ads/" />
                     </dx:ASPxUploadControl>
                     <asp:HiddenField ID="HiddenFieldImagePath" runat="server" ClientIDMode="Static" Value='<%# Bind("image_path", "{0}") %>' />
                 </EditItemTemplate>
-            </dx:GridViewDataImageColumn>
+            </dx:GridViewDataTextColumn>
         </Columns>
     </dx:ASPxGridView>
     <asp:SqlDataSource ID="SqlDataSourceMain" runat="server" ConnectionString="<%$ ConnectionStrings:ETSMOBILEConnectionString %>" SelectCommand="SELECT [ads_id], [image_path], [user_in], [date_in] FROM [TblAds]" DeleteCommand="DELETE FROM [TblAds] WHERE [ads_id] = @ads_id" InsertCommand="INSERT INTO [TblAds] ([image_path], [user_in], [date_in]) VALUES (@image_path, @user_in, GetDate())" OnInserting="SqlDataSourceMain_Inserting" OnUpdating="SqlDataSourceMain_Updating" UpdateCommand="UPDATE [TblAds] SET [image_path] = @image_path, [user_in] = @user_in, [date_in] = GetDate() WHERE [ads_id] = @ads_id">

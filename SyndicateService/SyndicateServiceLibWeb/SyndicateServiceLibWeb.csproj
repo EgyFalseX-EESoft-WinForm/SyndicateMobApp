@@ -155,8 +155,10 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\EditTblAds.aspx" />
     <Content Include="Admin\EditTblNews.aspx" />
+    <Content Include="App_Data\AdminSideMenu.xml" />
     <Content Include="App_Data\SideMenu.xml" />
     <Content Include="App_Data\TopMenu.xml" />
     <Content Include="Content\Images\android_logo32.png" />
@@ -209,6 +211,7 @@
     <Content Include="ModelEtsMobile.edmx.diagram">
       <DependentUpon>ModelEtsMobile.edmx</DependentUpon>
     </Content>
+    <Content Include="Admin\AdminMain.master" />
     <None Include="Properties\PublishProfiles\132.148.83.93.pubxml" />
     <None Include="Properties\PublishProfiles\FalseX003-SyndicateServiceWeb.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
@@ -339,6 +342,13 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EditTblAds.aspx.cs">
       <DependentUpon>EditTblAds.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -352,6 +362,13 @@
     </Compile>
     <Compile Include="Admin\EditTblNews.aspx.designer.cs">
       <DependentUpon>EditTblNews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminMain.master.cs">
+      <DependentUpon>AdminMain.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminMain.master.designer.cs">
+      <DependentUpon>AdminMain.master</DependentUpon>
     </Compile>
     <Compile Include="App_Code\ExcelAPI.cs" />
     <Compile Include="App_Code\mcETSMobile.cs" />

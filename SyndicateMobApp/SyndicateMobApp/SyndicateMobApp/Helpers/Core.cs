@@ -3,6 +3,11 @@ using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using SyndicateMobApp.Pages;
 using Xamarin.Forms;
+using SyndicateMobApp.Services;
+using Microsoft.Practices.ServiceLocation;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace SyndicateMobApp.Helpers
 {
@@ -10,6 +15,8 @@ namespace SyndicateMobApp.Helpers
     {
         public static NavigationService MainNavigationService { get; set; }
         public static DialogService MainDialogService { get; set; }
+        public static Dictionary<string, string> AppOption { get; set; }
+
 
         public static void Startup()
         {
@@ -22,6 +29,7 @@ namespace SyndicateMobApp.Helpers
             MainNavigationService.Configure(ViewModelLocator.MenuPageKey, typeof(MenuPage));
             MainNavigationService.Configure(ViewModelLocator.RootPageKey, typeof(RootPage));
             MainNavigationService.Configure(ViewModelLocator.NewsPageKey, typeof(NewsPage));
+            MainNavigationService.Configure(ViewModelLocator.HomePageKey, typeof(HomePage));
             MainNavigationService.Configure(ViewModelLocator.NewsDetailsPageKey, typeof(NewsDetailsPage));
             MainNavigationService.Configure(ViewModelLocator.BankMemberPageKey, typeof(BankMemberPage));
             MainNavigationService.Configure(ViewModelLocator.BankWarasaPageKey, typeof(BankWarasaPage));
@@ -37,5 +45,16 @@ namespace SyndicateMobApp.Helpers
             SimpleIoc.Default.Register<IDialogService>(() => MainDialogService);
             MainDialogService.Initialize(navPage);
         }
+        
+        public static async Task LoadAppOptionAsync()
+        {
+            ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
+            AppOption = new Dictionary<string, string>();
+            foreach (AppOptionContrect option in await srv.GetAppOptionAsync())
+            {
+                AppOption.Add(option.option_name, option.option_value);
+            }
+        }
+
     }
 }

@@ -13,5 +13,12 @@ namespace SyndicateMobApp.Helpers
             Member,
             Warasa,
         }
+        public enum AppOption
+        {
+            AndoirdVersion,
+            IOSVersion,
+            WindowsVersion,
+            DefaultDofatSarfId,
+        }
     }
 }

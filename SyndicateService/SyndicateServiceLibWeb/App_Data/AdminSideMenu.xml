@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+  <group Text="Editors">
+    <item Text="Ads Editor" NavigateUrl="~/Admin/EditTblAds.aspx" />
+    <item Text="News Editor" NavigateUrl="~/Admin/EditTblNews.aspx" />
+  </group>
+
+</menu>

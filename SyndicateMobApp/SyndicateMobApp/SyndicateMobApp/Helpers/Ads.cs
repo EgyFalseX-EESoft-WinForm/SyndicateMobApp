@@ -19,11 +19,17 @@ namespace SyndicateMobApp.Helpers
         {
             if (DataList.Count == 0)
                 return string.Empty;
-            string outPut = DataList[_inx].ImagePath;
+            string outPut = string.Empty;
             if (_inx + 1 > DataList.Count)
+            {
                 _inx = 0;
+                outPut = DataList[_inx].ImagePath;
+            }
             else
+            {
+                outPut = DataList[_inx].ImagePath;
                 _inx++;
+            }
             return outPut;
         }
 

@@ -22,11 +22,11 @@
                         <syncfusion:GridTextColumn HeaderText="الارسال"
                                       MappingName="Sendbankdate" Format="dd/MM/yyyy" />
                         <syncfusion:GridTextColumn HeaderText="المبلغ"
-                                      MappingName="Summony" Format="n0"/>
+                                      MappingName="Summony" Format="f1"/>
                         <syncfusion:GridTextColumn HeaderText="تاريخ الامانات"
                                       MappingName="Amanatwareddate" Format="dd/MM/yyyy"/>
                         <syncfusion:GridTextColumn HeaderText="مبلغ الامانات"
-                                      MappingName="Amanatmony" Format="n0"/>
+                                      MappingName="Amanatmony" Format="f1"/>
                     </syncfusion:SfDataGrid.Columns>
                 </syncfusion:SfDataGrid>
             </StackLayout>

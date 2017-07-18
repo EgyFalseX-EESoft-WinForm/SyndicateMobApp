@@ -30,6 +30,7 @@ namespace SyndicateMobApp.Services
         Task<MemberInfoContrect> GetMemberInfoAsync(string value);
         Task<WarasaInfoContrect> GetWarasaInfoAsync(string value);
         Task<ObservableCollection<AdsContrect>> GetAdsAsync();
+        Task<ObservableCollection<AppOptionContrect>> GetAppOptionAsync();
 
     }
 }

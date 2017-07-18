@@ -42,7 +42,7 @@ namespace SyndicateMobApp
         {
             // Handle when your app starts
             await Ads.LoadAdsAsync();
-
+            await Core.LoadAppOptionAsync();
         }
 
         protected override void OnSleep()

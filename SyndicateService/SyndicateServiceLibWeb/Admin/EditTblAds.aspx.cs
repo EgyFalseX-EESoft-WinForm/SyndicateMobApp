@@ -26,7 +26,7 @@ namespace SyndicateServiceLibWeb.Import
         {
             ASPxUploadControl uploader = (ASPxUploadControl)sender;
             
-            Session["attach"] = mcETSMobile.SiteUrl + uploader.UploadedFiles[0].FileNameInStorage;
+            Session["attach"] = mcETSMobile.SiteUrl_Ads + uploader.UploadedFiles[0].FileNameInStorage;
         }
         protected void SqlDataSourceMain_Inserting(object sender, SqlDataSourceCommandEventArgs e)
         {

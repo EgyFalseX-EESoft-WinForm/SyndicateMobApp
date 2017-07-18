@@ -16,6 +16,9 @@ namespace SyndicateServiceLib
         [WebInvoke(Method = "GET", UriTemplate = "LoginWarasa/{value}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         LoginWarasaContrect LoginWarasa(string value);
         [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "Login/{user}!{pass}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        LoginContrect Login(string user, string pass);
+        [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "BankMember/{value}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         ObservableCollection<BankMemberContrect> BankMember(string value);
         [OperationContract]
@@ -50,6 +53,10 @@ namespace SyndicateServiceLib
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "GetAds", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         ObservableCollection<AdsContrect> GetAds();
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "GetAppOption", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        ObservableCollection<AppOptionContrect> GetAppOption();
 
     }
    

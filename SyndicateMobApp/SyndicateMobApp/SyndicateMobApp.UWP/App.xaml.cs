@@ -57,6 +57,7 @@ namespace SyndicateMobApp.UWP
                 rootFrame.NavigationFailed += OnNavigationFailed;
                 
                 Xamarin.Forms.Forms.Init(e);
+                Xamarin.Forms.DependencyService.Register<Helpers.DependencySrv>();
                 Syncfusion.SfDataGrid.XForms.UWP.SfDataGridRenderer.Init();
 
                 Xamarin.FormsMaps.Init("INSERT_AUTHENTICATION_TOKEN_HERE");//Added to init Maps

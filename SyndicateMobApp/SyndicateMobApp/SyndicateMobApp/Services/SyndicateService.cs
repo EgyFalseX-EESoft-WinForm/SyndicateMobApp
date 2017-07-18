@@ -16,6 +16,7 @@ namespace SyndicateMobApp.Services
 
         public string LoginMemberUri  => SyndicateServiceUrl + "LoginMember/";
         public string LoginWarasaUri => SyndicateServiceUrl + "LoginWarasa/";
+        public string LoginUri => SyndicateServiceUrl + "Login/";
         public string BankMemberUri => SyndicateServiceUrl + "BankMember/";
         public string BankWarasaUri => SyndicateServiceUrl + "BankWarasa/";
         public string GetSyndicateUri => SyndicateServiceUrl + "GetSyndicate";
@@ -26,6 +27,7 @@ namespace SyndicateMobApp.Services
         public string GetMemberInfoUri => SyndicateServiceUrl + "GetMemberInfo/";
         public string GetWarasaInfoUri => SyndicateServiceUrl + "GetWarasaInfo/";
         public string GetAdsUri => SyndicateServiceUrl + "GetAds";
+        public string GetAppOptionUri => SyndicateServiceUrl + "GetAppOption";
 
         public async Task<LoginMemberContrect> LoginMemberAsync(string value)
         {
@@ -41,10 +43,16 @@ namespace SyndicateMobApp.Services
             LoginWarasaContrect result = JsonConvert.DeserializeObject<LoginWarasaContrect>(jesonString);
             return result;
         }
+        public async Task<LoginContrect> LoginAsync(string user, string pass)
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(LoginWarasaUri + user + "!" + pass);
+            LoginContrect result = JsonConvert.DeserializeObject<LoginContrect>(jesonString);
+            return result;
+        }
         public async Task<ObservableCollection<BankMemberContrect>> BankMemberAsync(string value)
         {
             HttpClient client = new HttpClient();
-            string a = BankMemberUri + value;
             string jesonString = await client.GetStringAsync(BankMemberUri + value);
             ObservableCollection<BankMemberContrect> result = JsonConvert.DeserializeObject<ObservableCollection<BankMemberContrect>>(jesonString);
             return result;
@@ -110,6 +118,14 @@ namespace SyndicateMobApp.Services
             HttpClient client = new HttpClient();
             string jesonString = await client.GetStringAsync(GetAdsUri);
             ObservableCollection<AdsContrect> result = JsonConvert.DeserializeObject<ObservableCollection<AdsContrect>>(jesonString);
+            return result;
+        }
+
+        public async Task<ObservableCollection<AppOptionContrect>> GetAppOptionAsync()
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(GetAppOptionUri);
+            ObservableCollection<AppOptionContrect> result = JsonConvert.DeserializeObject<ObservableCollection<AppOptionContrect>>(jesonString);
             return result;
         }
 

@@ -61,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContracts\AdsContrect.cs" />
+    <Compile Include="DataContracts\AppOptionContrect.cs" />
+    <Compile Include="DataContracts\LoginContrect.cs" />
     <Compile Include="DataContracts\WarasaInfoContrect.cs" />
     <Compile Include="DataContracts\NewsItemContrect.cs" />
     <Compile Include="DataContracts\SubCommitteContrect.cs" />

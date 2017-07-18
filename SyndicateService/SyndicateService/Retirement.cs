@@ -43,6 +43,18 @@ namespace SyndicateServiceLib
             }
             return null;
         }
+        public LoginContrect Login(string user, string pass)
+        {
+            userTableAdapter adp = new userTableAdapter();
+            dsETSMobile.userDataTable tbl = adp.GetDataByUser_Pass(user, pass);
+            if (tbl.Count > 0)
+            {
+                dsETSMobile.userRow row = tbl[0];
+                return new LoginContrect(row.user_id, row.user_name, row.user_pass, row.SyndicateId);
+            }
+            return null;
+        }
+
         public ObservableCollection<BankMemberContrect> BankMember(string value)
         {
             int id;
@@ -194,6 +206,17 @@ namespace SyndicateServiceLib
             dsETSMobile.TblAdsDataTable tbl = adp.GetData();
             foreach (dsETSMobile.TblAdsRow AdsRow in tbl)
                 lst.Add(new AdsContrect(AdsRow.ads_id, AdsRow.image_path));
+            return lst;
+        }
+
+        public ObservableCollection<AppOptionContrect> GetAppOption()
+        {
+            ObservableCollection<AppOptionContrect> lst = new ObservableCollection<AppOptionContrect>();
+            AppOptionTableAdapter adp = new AppOptionTableAdapter();
+            Misc.Misc.SetAllCommandTimeouts(adp, Misc.Misc.UnlimitedTimeOut);
+            dsETSMobile.AppOptionDataTable tbl = adp.GetData();
+            foreach (dsETSMobile.AppOptionRow row in tbl)
+                lst.Add(new AppOptionContrect(row.option_name, row.option_value));
             return lst;
         }
     }

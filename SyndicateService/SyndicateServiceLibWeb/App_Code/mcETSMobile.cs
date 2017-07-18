@@ -40,6 +40,7 @@ namespace SyndicateServiceLibWeb
         public static string FilesPath = "Assets/";
         public static string UploadedFiles = "~/App_Data/UploadedFiles/";
         public static string SiteUrl = "http://egycstest.com/NewsFiles/";
+        public static string SiteUrl_Ads = "http://egycstest.com/Ads/";
 
         public mcETSMobile()
         {

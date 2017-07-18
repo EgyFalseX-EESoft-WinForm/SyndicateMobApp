@@ -1,0 +1,21 @@
+﻿
+
+Data Source=EGYCSTEST.COM\MSSQLSERVER2014;Initial Catalog=ETSMOBILE;User ID=ETSMOBILE_Admin;Password=AdmPass@123
+
+نقابة المهن التعليمية
+TeacherUnionSyndicate.Droid
+
+ceritf
+SynMobApp
+pass
+egycs@987654
+
+google account
+-----
+egycsdev@gmail.com
+0100136998
+
+--OAUTH CLIENT
+CLIENT ID:456245054874-ooqjlghug4nv66j69gkc2i88urrs5nie.apps.googleusercontent.com
+CLIENT SECRET:hNs43quk98-pML_0OEOwE7tW
+_________
