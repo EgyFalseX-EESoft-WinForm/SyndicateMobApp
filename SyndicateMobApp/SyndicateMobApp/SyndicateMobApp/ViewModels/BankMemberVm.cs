@@ -28,7 +28,7 @@ namespace SyndicateMobApp.ViewModels
         private string _title;
         private string _ads;
         string _inputString = "";
-        private RelayCommand _loginCommand;
+        private RelayCommand _executeCommand;
         #endregion
         #region -  Properties -
         public string InputString
@@ -39,7 +39,7 @@ namespace SyndicateMobApp.ViewModels
                 {
                     _inputString = value;
                     // Perhaps the login button must be enabled/disabled.
-                    _loginCommand.RaiseCanExecuteChanged();
+                    _executeCommand.RaiseCanExecuteChanged();
                     RaisePropertyChanged();
                 }
             }
@@ -47,7 +47,7 @@ namespace SyndicateMobApp.ViewModels
             get { return _inputString; }
         }
         public string Icon => "bank32.png";
-        public RelayCommand LoginCommand => _loginCommand ?? (_loginCommand = new RelayCommand(Login, ValidInput));
+        public RelayCommand ExecuteCommand => _executeCommand ?? (_executeCommand = new RelayCommand(ExecuteAsync, ValidInput));
         public bool ValidInput()
         {
             //String aaa = "";
@@ -106,30 +106,30 @@ namespace SyndicateMobApp.ViewModels
         }
         public async void Login()
         {
-            IsLoading = true;
-            ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
-            LoginMemberContrect mem = await srv.LoginMemberAsync(_inputString.NumericNormalize());
-            if (mem != null)
-            {
-                UserManager.Id = mem.MMashatId;
-                UserManager.Type = Types.UserType.Member;
-                UserManager.Member = mem;
-                RefreshAsync();
-            }
-            else
-            {
-                // Handle error when login
-                IDialogService dialog = ServiceLocator.Current.GetInstance<IDialogService>();
-                await dialog.ShowError("لا يوجد بيانات لهذا الرقم", "خطــــاء", "موافق", null);
-            }
-            IsLoading = false;
+            //IsLoading = true;
+            //ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
+            //LoginMemberContrect mem = await srv.LoginMemberAsync(_inputString.NumericNormalize());
+            //if (mem != null)
+            //{
+            //    UserManager.Id = mem.MMashatId;
+            //    UserManager.Type = Types.UserType.Member;
+            //    UserManager.Member = mem;
+            //    RefreshAsync();
+            //}
+            //else
+            //{
+            //    // Handle error when login
+            //    IDialogService dialog = ServiceLocator.Current.GetInstance<IDialogService>();
+            //    await dialog.ShowError("لا يوجد بيانات لهذا الرقم", "خطــــاء", "موافق", null);
+            //}
+            //IsLoading = false;
         }
-        public async void RefreshAsync()
+        public async void ExecuteAsync()
         {
             IsLoading = true;
             //DataList.Clear();
             ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
-            DataList = await srv.BankMemberAsync(UserManager.Id.ToString());
+            DataList = await srv.BankMemberAsync(_inputString);
             IsLoading = false;
         }
         public string Ads

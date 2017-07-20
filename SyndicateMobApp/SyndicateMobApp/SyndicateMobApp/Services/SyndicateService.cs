@@ -16,7 +16,7 @@ namespace SyndicateMobApp.Services
 
         public string LoginMemberUri  => SyndicateServiceUrl + "LoginMember/";
         public string LoginWarasaUri => SyndicateServiceUrl + "LoginWarasa/";
-        public string LoginUri => SyndicateServiceUrl + "Login/";
+        public string LoginUri => SyndicateServiceUrl + "Login?user={0}&pass={1}";//xxx&yyy
         public string BankMemberUri => SyndicateServiceUrl + "BankMember/";
         public string BankWarasaUri => SyndicateServiceUrl + "BankWarasa/";
         public string GetSyndicateUri => SyndicateServiceUrl + "GetSyndicate";
@@ -28,6 +28,7 @@ namespace SyndicateMobApp.Services
         public string GetWarasaInfoUri => SyndicateServiceUrl + "GetWarasaInfo/";
         public string GetAdsUri => SyndicateServiceUrl + "GetAds";
         public string GetAppOptionUri => SyndicateServiceUrl + "GetAppOption";
+        public string GetInsertMemberAmanatUri => SyndicateServiceUrl + "GetInsertMemberAmanat?MMashatId={0}&UserId={1}";
 
         public async Task<LoginMemberContrect> LoginMemberAsync(string value)
         {
@@ -46,7 +47,7 @@ namespace SyndicateMobApp.Services
         public async Task<LoginContrect> LoginAsync(string user, string pass)
         {
             HttpClient client = new HttpClient();
-            string jesonString = await client.GetStringAsync(LoginWarasaUri + user + "!" + pass);
+            string jesonString = await client.GetStringAsync(string.Format(LoginUri, user, pass));
             LoginContrect result = JsonConvert.DeserializeObject<LoginContrect>(jesonString);
             return result;
         }
@@ -126,6 +127,14 @@ namespace SyndicateMobApp.Services
             HttpClient client = new HttpClient();
             string jesonString = await client.GetStringAsync(GetAppOptionUri);
             ObservableCollection<AppOptionContrect> result = JsonConvert.DeserializeObject<ObservableCollection<AppOptionContrect>>(jesonString);
+            return result;
+        }
+
+        public async Task<string> GetInsertMemberAmanatAsync(string MMashatId)
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(string.Format(GetInsertMemberAmanatUri, MMashatId, Helpers.UserManager.CurrentUser.user_id));
+            string result = JsonConvert.DeserializeObject<string>(jesonString);
             return result;
         }
 

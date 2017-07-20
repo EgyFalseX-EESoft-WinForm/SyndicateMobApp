@@ -16,7 +16,7 @@
             </Grid.RowDefinitions>
             <StackLayout  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="1" Grid.Row="0">
                 <Entry x:Name="EntyId" Text="{Binding InputString}" Placeholder="ادخل رقمك هنا" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"></Entry>
-                <Button x:Name="BtnLogin" Command="{Binding LoginCommand}" Text="عـــرض" HorizontalOptions="FillAndExpand" ></Button>
+                <Button x:Name="BtnLogin" Command="{Binding ExecuteCommand}" Text="عـــرض" HorizontalOptions="FillAndExpand" ></Button>
                 <syncfusion:SfDataGrid x:Name="SynGrid" ItemsSource="{Binding DataList}"
                                ColumnSizer="Star" AutoGenerateColumns="False" AllowSorting="True" IsBusy="{Binding IsLoading}" SelectionMode="Single" >
                     <syncfusion:SfDataGrid.Columns >

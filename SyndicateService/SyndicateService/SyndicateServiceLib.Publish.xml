@@ -1,9 +1,17 @@
 <publishData>
-  <publishTarget publishUrl="ftp://132.148.83.93//httpdocs/bin">
-    <file relUrl="bin/SyndicateServiceLib.pdb" publishTime="07/17/2017 01:11:28" />
-    <file relUrl="SyndicateServiceLib.Retirement.svc" publishTime="07/17/2017 01:11:38" />
-    <file relUrl="bin/SyndicateServiceLib.dll" publishTime="07/17/2017 01:11:28" />
+  <publishTarget publishUrl="ftp://132.148.83.93//httpdocs/">
+    <file relUrl="bin/SyndicateServiceLib.pdb" publishTime="07/20/2017 02:29:28" />
+    <file relUrl="bin/SyndicateServiceLib.dll" publishTime="07/18/2017 17:44:41" />
+    <file relUrl="Web.config" publishTime="09/29/2016 15:30:30" />
+    <file relUrl="SyndicateServiceLib.Retirement.svc" publishTime="07/20/2017 02:31:57" />
     <file relUrl="bin/SyndicateServiceLib.dll.config" publishTime="09/29/2016 15:30:30" />
+    <file relUrl="bin/Web.config" publishTime="07/18/2017 17:51:46" />
+  </publishTarget>
+  <publishTarget publishUrl="ftp://132.148.83.93//httpdocs/bin">
+    <file relUrl="bin/SyndicateServiceLib.pdb" publishTime="07/18/2017 16:05:03" />
+    <file relUrl="SyndicateServiceLib.Retirement.svc" publishTime="07/18/2017 16:05:11" />
+    <file relUrl="bin/SyndicateServiceLib.dll.config" publishTime="09/29/2016 15:30:30" />
+    <file relUrl="bin/SyndicateServiceLib.dll" publishTime="07/18/2017 16:05:03" />
     <file relUrl="Web.config" publishTime="09/29/2016 15:30:30" />
   </publishTarget>
   <publishTarget publishUrl="C:\!Activity\">

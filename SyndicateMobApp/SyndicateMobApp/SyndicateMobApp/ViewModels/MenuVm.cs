@@ -77,6 +77,14 @@ namespace SyndicateMobApp.ViewModels
                     PageKey = ViewModelLocator.WarasaInfoPageKey,
                     Visible = true,
                 },
+                new MasterPageItem
+                {
+                    Id = 6,
+                    Title = "طلب امانات اعضاء",
+                    IconSource = "info.png",
+                    PageKey = ViewModelLocator.MemberAmanatPageKey,
+                    Visible = true,
+                },
             };
         }
         // Public properties
@@ -138,9 +146,20 @@ namespace SyndicateMobApp.ViewModels
             //    _navigationService.NavigateTo(ViewModelLocator.BankMemberPageKey);
             //this.Detail = new NavigationPage((Page)Activator.CreateInstance(((MasterPageItem)args.SelectedItem).TargetType));
             Master.IsPresented = false;
-            _navigationService.NavigateTo(_selectedItem.PageKey);
-
-
+            switch (_selectedItem.PageKey)
+            {
+                //Authentication required
+                case ViewModelLocator.MemberAmanatPageKey:
+                    if (UserManager.Authenticated)
+                        _navigationService.NavigateTo(_selectedItem.PageKey);
+                    else
+                        _navigationService.NavigateTo(ViewModelLocator.LoginPageKey);
+                    break;
+                default://Authentication not required
+                    _navigationService.NavigateTo(_selectedItem.PageKey);
+                    break;
+            }
+            
         }
         public void ActiveMenu(bool activate)
         {

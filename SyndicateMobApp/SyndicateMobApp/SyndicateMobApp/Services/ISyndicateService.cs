@@ -8,6 +8,7 @@ namespace SyndicateMobApp.Services
         string SyndicateServiceUrl { get; }
         string LoginMemberUri { get; }
         string LoginWarasaUri { get; }
+        string LoginUri { get; }
         string BankMemberUri { get; }
         string BankWarasaUri { get; }
         string GetSyndicateUri { get; }
@@ -17,9 +18,11 @@ namespace SyndicateMobApp.Services
         string GetNewsItemUri { get; }
         string GetMemberInfoUri { get; }
         string GetWarasaInfoUri { get; }
+        string GetInsertMemberAmanatUri { get; }
 
         Task<LoginMemberContrect> LoginMemberAsync(string value);
         Task<LoginWarasaContrect> LoginWarasaAsync(string value);
+        Task<LoginContrect> LoginAsync(string user, string pass);
         Task<ObservableCollection<BankMemberContrect>> BankMemberAsync(string value);
         Task<ObservableCollection<BankWarasaContrect>> BankWarasaAsync(string value);
         Task<ObservableCollection<SyndicateContrect>> GetSyndicateAsync();
@@ -31,6 +34,6 @@ namespace SyndicateMobApp.Services
         Task<WarasaInfoContrect> GetWarasaInfoAsync(string value);
         Task<ObservableCollection<AdsContrect>> GetAdsAsync();
         Task<ObservableCollection<AppOptionContrect>> GetAppOptionAsync();
-
+        Task<string> GetInsertMemberAmanatAsync(string Id);
     }
 }

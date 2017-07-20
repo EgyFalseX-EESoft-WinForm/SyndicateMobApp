@@ -10,7 +10,8 @@ namespace SyndicateMobApp.ViewModels
     public class LoginVm : ViewModelBase
     {
         private readonly INavigationService _navigationService;
-        string _inputString = "";
+        string _username = "";
+        string _password = "";
         private RelayCommand _loginCommand;
         private bool _isLoading;
 
@@ -20,13 +21,13 @@ namespace SyndicateMobApp.ViewModels
             
         }
         // Public properties
-        public string InputString
+        public string Username
         {
             set
             {
-                if (_inputString != value)
+                if (_username != value)
                 {
-                    _inputString = value;
+                    _username = value;
                     // Perhaps the login button must be enabled/disabled.
                     _loginCommand.RaiseCanExecuteChanged();
                     RaisePropertyChanged();
@@ -34,7 +35,23 @@ namespace SyndicateMobApp.ViewModels
                 }
             }
 
-            get { return _inputString; }
+            get { return _username; }
+        }
+        public string Password
+        {
+            set
+            {
+                if (_password != value)
+                {
+                    _password = value;
+                    // Perhaps the login button must be enabled/disabled.
+                    _loginCommand.RaiseCanExecuteChanged();
+                    RaisePropertyChanged();
+
+                }
+            }
+
+            get { return _password; }
         }
 
         public string Logo => "logo.png";
@@ -59,49 +76,31 @@ namespace SyndicateMobApp.ViewModels
         {
             if (IsLoading)
                 return false;
-            if (InputString == string.Empty)
+            if (_username == string.Empty || _password == string.Empty)
                 return false;
-            int idValue;
-            if (!int.TryParse(InputString, out idValue)) return false;
-            if (idValue > 0) { return true; }
-            return false;
+            return true;
         }
         public async void Login()
         {
             IsLoading = true;
             ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
-            LoginMemberContrect mem = await srv.LoginMemberAsync(_inputString);
-            if (mem != null)
+            try
             {
-                UserManager.Id = mem.MMashatId;
-                UserManager.Type = Types.UserType.Member;
-                UserManager.Member = mem;
-                ServiceLocator.Current.GetInstance<BankMemberVm>().RefreshAsync();
-                IsLoading = false;
-
-                ViewModelLocator.Instance.MenuInstance.ActiveMenu(true);
-                //_navigationService.NavigateTo(ViewModelLocator.NewsPageKey);
-                ((NavigationService)_navigationService).NavigateToclearPageStack(ViewModelLocator.NewsPageKey, true);
-                return;
+                LoginContrect loginCon = await srv.LoginAsync(Username, Password);
+                if (loginCon == null)
+                    await ServiceLocator.Current.GetInstance<IDialogService>().ShowError("خطـاء في اسم المستخدم او كلمة المرور", "خطــــاء", "موافق", null);
+                else
+                {
+                    ((NavigationService)_navigationService).NavigateToclearPageStack(ViewModelLocator.HomePageKey, true);
+                    UserManager.CurrentUser = loginCon;
+                    UserManager.Authenticated = true;
+                }
             }
-            LoginWarasaContrect wsa = await srv.LoginWarasaAsync(_inputString);
-            if (wsa != null)
+            catch (System.Exception ex)
             {
-                UserManager.Id = wsa.Code60;
-                UserManager.Type = Types.UserType.Warasa;
-                UserManager.Warasa = wsa;
-                ServiceLocator.Current.GetInstance<BankWarasaVm>().RefreshAsync();
-                IsLoading = false;
-
-                ViewModelLocator.Instance.MenuInstance.ActiveMenu(true);
-                //((NavigationService)_navigationService).RemovePage(ViewModelLocator.Instance.LoginInstance);
-                ((NavigationService)_navigationService).NavigateToclearPageStack(ViewModelLocator.NewsPageKey, true);
-                return;
+                // Handle error when login
+                await ServiceLocator.Current.GetInstance<IDialogService>().ShowError(ex.Message, "خطــــاء", "موافق", null);
             }
-            // Handle error when login
-            IDialogService dialog = ServiceLocator.Current.GetInstance<IDialogService>();
-            await dialog.ShowError("لا يوجد بيانات لهذا الرقم", "خطــــاء", "موافق", null);
-
             IsLoading = false;
         }
 

@@ -27,7 +27,11 @@ namespace SyndicateMobApp.ViewModels
         }
         private async void CheckForUpdate()
         {
-            await Task.Delay(2000);
+            do
+            {
+                await Task.Delay(2000);
+            } while (Core.AppOption == null);
+
             double localVersion = Xamarin.Forms.DependencyService.Get<Interfaces.IDependencySrv>().GetAppVersion();
             string serverVersion = string.Empty;
             //App.Current.Properties[""]

@@ -42,6 +42,7 @@ namespace SyndicateMobApp.Helpers
         public const string GpsPageKey = "Gps";
         public const string MemberInfoPageKey = "MemberInfo";
         public const string WarasaInfoPageKey = "WarasaInfo";
+        public const string MemberAmanatPageKey = "MemberAmanat";
 
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.
@@ -71,6 +72,7 @@ namespace SyndicateMobApp.Helpers
             SimpleIoc.Default.Register<GpsVm>();
             SimpleIoc.Default.Register<MemberInfoVm>();
             SimpleIoc.Default.Register<WarasaInfoVm>();
+            SimpleIoc.Default.Register<MemberAmanatVm>();
         }
         public static ViewModelLocator Instance => Application.Current.Resources["Locator"] as ViewModelLocator;
 
@@ -86,7 +88,7 @@ namespace SyndicateMobApp.Helpers
         public GpsVm GpsInstance => ServiceLocator.Current.GetInstance<GpsVm>();
         public MemberInfoVm MemberInfoInstance => ServiceLocator.Current.GetInstance<MemberInfoVm>();
         public WarasaInfoVm WarasaInfoInstance => ServiceLocator.Current.GetInstance<WarasaInfoVm>();
-
+        public MemberAmanatVm MemberAmanatInstance => ServiceLocator.Current.GetInstance<MemberAmanatVm>();
 
         public static void Cleanup()
         {

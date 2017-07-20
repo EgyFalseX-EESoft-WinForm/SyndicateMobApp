@@ -11,8 +11,13 @@ namespace SyndicateMobApp.Helpers
         private static int _inx;
         public static async Task LoadAdsAsync()
         {
-            ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
-            DataList = await srv.GetAdsAsync();
+            try
+            {
+                ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
+                DataList = await srv.GetAdsAsync();
+            }
+            catch (System.Exception)
+            { }
         }
 
         public static string GetAdsPath()

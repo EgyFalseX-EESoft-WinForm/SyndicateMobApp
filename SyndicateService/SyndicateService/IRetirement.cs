@@ -2,7 +2,7 @@
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using SyndicateServiceLib.DataContracts;
-
+using System;
 
 namespace SyndicateServiceLib
 {
@@ -16,7 +16,7 @@ namespace SyndicateServiceLib
         [WebInvoke(Method = "GET", UriTemplate = "LoginWarasa/{value}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         LoginWarasaContrect LoginWarasa(string value);
         [OperationContract]
-        [WebInvoke(Method = "GET", UriTemplate = "Login/{user}!{pass}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "GET", UriTemplate = "Login?user={user}&pass={pass}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         LoginContrect Login(string user, string pass);
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "BankMember/{value}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
@@ -57,6 +57,10 @@ namespace SyndicateServiceLib
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "GetAppOption", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         ObservableCollection<AppOptionContrect> GetAppOption();
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "GetInsertMemberAmanat?MMashatId={MMashatId}&UserId={UserId}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        string GetInsertMemberAmanat(int MMashatId, int UserId);
 
     }
    

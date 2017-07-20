@@ -37,6 +37,7 @@ namespace SyndicateMobApp.Helpers
             MainNavigationService.Configure(ViewModelLocator.GpsPageKey, typeof(GpsPage));
             MainNavigationService.Configure(ViewModelLocator.MemberInfoPageKey, typeof(MemberInfoPage));
             MainNavigationService.Configure(ViewModelLocator.WarasaInfoPageKey, typeof(WarasaInfoPage));
+            MainNavigationService.Configure(ViewModelLocator.MemberAmanatPageKey, typeof(MemberAmanatPage));
             MainNavigationService.Initialize(navPage);
         }
         public static void InitializeDialogService(NavigationPage navPage)
@@ -48,12 +49,17 @@ namespace SyndicateMobApp.Helpers
         
         public static async Task LoadAppOptionAsync()
         {
-            ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
-            AppOption = new Dictionary<string, string>();
-            foreach (AppOptionContrect option in await srv.GetAppOptionAsync())
+            try
             {
-                AppOption.Add(option.option_name, option.option_value);
+                ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
+                AppOption = new Dictionary<string, string>();
+                foreach (AppOptionContrect option in await srv.GetAppOptionAsync())
+                {
+                    AppOption.Add(option.option_name, option.option_value);
+                }
             }
+            catch (System.Exception)
+            { }
         }
 
     }

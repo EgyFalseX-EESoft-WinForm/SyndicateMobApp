@@ -50,7 +50,7 @@ namespace SyndicateServiceLib
             if (tbl.Count > 0)
             {
                 dsETSMobile.userRow row = tbl[0];
-                return new LoginContrect(row.user_id, row.user_name, row.user_pass, row.SyndicateId);
+                return new LoginContrect(row.user_id, row.user_name, row.user_pass, row.SyndicateId, row.subCommitteId);
             }
             return null;
         }
@@ -218,6 +218,20 @@ namespace SyndicateServiceLib
             foreach (dsETSMobile.AppOptionRow row in tbl)
                 lst.Add(new AppOptionContrect(row.option_name, row.option_value));
             return lst;
+        }
+
+        public string GetInsertMemberAmanat(int MMashatId, int UserId)
+        {
+            QueriesTableAdapter adp = new QueriesTableAdapter();
+            try
+            {
+                return (string)adp.RequestAmanat(MMashatId, UserId);
+            }
+            catch ( Exception ex)
+            {
+                return ex.Message;   
+            }
+            
         }
     }
 }

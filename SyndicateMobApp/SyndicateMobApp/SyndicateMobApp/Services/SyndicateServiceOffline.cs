@@ -15,6 +15,7 @@ namespace SyndicateMobApp.Services
 
         public string LoginMemberUri  => SyndicateServiceUrl + "test/";
         public string LoginWarasaUri => SyndicateServiceUrl + "test/";
+        public string LoginUri => SyndicateServiceUrl + "test/";
         public string BankMemberUri => SyndicateServiceUrl + "test/";
         public string BankWarasaUri => SyndicateServiceUrl + "BantestkWarasa/";
         public string GetSyndicateUri => SyndicateServiceUrl + "test";
@@ -24,8 +25,8 @@ namespace SyndicateMobApp.Services
         public string GetNewsItemUri => SyndicateServiceUrl + "test/";
         public string GetMemberInfoUri => SyndicateServiceUrl + "test/";
         public string GetWarasaInfoUri => SyndicateServiceUrl + "test/";
-
         public string GetAppOptionUri => SyndicateServiceUrl + "test/";
+        public string GetInsertMemberAmanatUri => SyndicateServiceUrl + "test/";
 
         public async Task<LoginMemberContrect> LoginMemberAsync(string value)
         {
@@ -43,6 +44,15 @@ namespace SyndicateMobApp.Services
                 {
                     LoginWarasaContrect result = new LoginWarasaContrect(1, 1, "test", true, true, 1, "test", "test",
                         "test", "test");
+                    return result;
+                });
+        }
+        public async Task<LoginContrect> LoginAsync(string user, string pass)
+        {
+            return await new Task<LoginContrect>(
+                () =>
+                {
+                    LoginContrect result = new LoginContrect(1, "test", "test", 1, 1);
                     return result;
                 });
         }
@@ -146,7 +156,6 @@ namespace SyndicateMobApp.Services
         {
             return await new Task<WarasaInfoContrect>(() => new WarasaInfoContrect("test", "test", "test"));
         }
-
         public async Task<ObservableCollection<AdsContrect>> GetAdsAsync()
         {
             return await new Task<ObservableCollection<AdsContrect>>(
@@ -163,7 +172,6 @@ namespace SyndicateMobApp.Services
                     return lst;
                 });
         }
-
         public async Task<ObservableCollection<AppOptionContrect>> GetAppOptionAsync()
         {
             return await new Task<ObservableCollection<AppOptionContrect>>(
@@ -180,6 +188,13 @@ namespace SyndicateMobApp.Services
                     return lst;
                 });
         }
-
+        public async Task<string> GetInsertMemberAmanatAsync(string MMashatId)
+        {
+            return await new Task<string>(
+                () =>
+                {
+                    return "test";
+                });
+        }
     }
 }
