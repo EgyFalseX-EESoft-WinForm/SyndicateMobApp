@@ -1,0 +1,35 @@
+13
+ÈíÞÑÈ
+____
+ÑÓÇáå ÊäÈíå áæÌæÏ ÇÕÏÇÑå ÌÏíÏÉ
+íÑÌí ÊÍÏíË ÇáÊØÈíÞ ãä ÌæÌá ÈáÇí
+
+
+user
+user_subcommit
+ÇÏÎÇá ÇãÇäÇÊ ÇáÇÚÖÇÁ
+________________________________________
+Create option table and update value DefaultDofatSarfId
+TblMemberAmanat
+
+check if
+1- mmashtid = a3da2
+2- amanat value != 0
+3- and not exists in TblMemberAmanat
+4- mmashtid must be in subcommit for this user
+
+[MMashatId]		tab
+DefaultDofatSarfId	tab
+[amanattypeid]		6
+[amanatmony]		tab
+[amanatrem]		null
+[estktaa]		0
+[mostahek]		null
+[DofatSarfId]		DefaultDofatSarfId->Option
+[sefa]			null
+[accReview]		1
+[dateReview]		Getdate()
+[useracc]		userin
+[amantvisa]		1
+[sarfcheek]		a3da2 = 0 warasa = 1
+

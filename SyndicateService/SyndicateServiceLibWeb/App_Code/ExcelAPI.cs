@@ -123,7 +123,7 @@ namespace SyndicateServiceLibWeb
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
                 obj = null;
             }
-            catch (Exception ex)
+            catch 
             {
                 obj = null;
                 //MessageBox.Show("Unable to release the Object " + ex.ToString());

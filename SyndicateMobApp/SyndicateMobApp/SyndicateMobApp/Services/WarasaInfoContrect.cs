@@ -15,12 +15,30 @@ namespace SyndicateMobApp.Services
             Name = ".";
             Syndicate = ".";
             Subcommitte = ".";
+            Hafzano = ".";
+            Hafzadate = ".";
+            Activate = ".";
+            ActivateDate = ".";
         }
-        public WarasaInfoContrect(string name, string syndicate, string subcommitte)
+        public WarasaInfoContrect(string name, string syndicate, string subcommitte, object hafzano, object hafzadate, object activate, object activateDate)
         {
             Name = name;
             Syndicate = syndicate;
             Subcommitte = subcommitte;
+            Hafzano = hafzano;
+            Hafzadate = hafzadate;
+            if (activate == null || activate.ToString() == string.Empty)
+                activate = "لا";
+            else
+            {
+                bool output;
+                if (bool.TryParse(activate.ToString(), out output))
+                    activate = output ? "نعم" : "لا";
+                else
+                    activate = "لا";
+            }
+            Activate = activate.ToString();
+            ActivateDate = activateDate;
         }
         [DataMember]
         public string Name { get; set; }
@@ -28,5 +46,13 @@ namespace SyndicateMobApp.Services
         public string Syndicate { get; set; }
         [DataMember]
         public string Subcommitte { get; set; }
+        [DataMember]
+        public object Hafzano { get; set; }
+        [DataMember]
+        public object Hafzadate { get; set; }
+        [DataMember]
+        public object Activate { get; set; }
+        [DataMember]
+        public object ActivateDate { get; set; }
     }
 }

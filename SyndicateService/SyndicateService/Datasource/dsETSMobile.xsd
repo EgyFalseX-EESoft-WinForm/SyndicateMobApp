@@ -12,8 +12,8 @@
               <DbSource ConnectionRef="ETSMOBILEConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        TBLMashat.MMashatId, TBLMashat.MMashatName, TBLMashat.SyndicateId, TBLMashat.SubCommitteId, TBLMashat.MashHalaId, TBLMashat.sarfnumber, TBLMashat.hafzano, TBLMashat.hafzadate, 
-                         CDSyndicate.Syndicate, CDSubCommitte.SubCommitte
+                    <CommandText>SELECT        TBLMashat.MMashatId, TBLMashat.MMashatName, TBLMashat.SyndicateId, TBLMashat.SubCommitteId, TBLMashat.MashHalaId, TBLMashat.sarfnumber, TBLMashat.hafzano, TBLMashat.hafzadate, CDSyndicate.Syndicate, 
+                         CDSubCommitte.SubCommitte, TBLMashat.Activate, TBLMashat.ActivateDate
 FROM            TBLMashat INNER JOIN
                          CDSyndicate ON TBLMashat.SyndicateId = CDSyndicate.SyndicateId INNER JOIN
                          CDSubCommitte ON TBLMashat.SubCommitteId = CDSubCommitte.SubCommitteId
@@ -36,6 +36,8 @@ WHERE        (TBLMashat.MMashatId = @Number)</CommandText>
               <Mapping SourceColumn="hafzadate" DataSetColumn="hafzadate" />
               <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
               <Mapping SourceColumn="SubCommitte" DataSetColumn="SubCommitte" />
+              <Mapping SourceColumn="Activate" DataSetColumn="Activate" />
+              <Mapping SourceColumn="ActivateDate" DataSetColumn="ActivateDate" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -45,7 +47,8 @@ WHERE        (TBLMashat.MMashatId = @Number)</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        TBLWarasa.PersonId, TBLWarasa.MMashatId, TBLWarasa.WarasaTypeId, TBLWarasa.personName, TBLWarasa.yasref, TBLWarasa.SyndicateId, TBLWarasa.SubCommitteId, TBLWarasa.responsiblesarf, 
-                         TBLWarasa.responsiblesarfId, TBLWarasa.code60, TBLMashat.MMashatName, CDSyndicate.Syndicate, CDSubCommitte.SubCommitte, TBLWarasa_1.personName AS ResPersonName
+                         TBLWarasa.responsiblesarfId, TBLWarasa.code60, TBLMashat.MMashatName, CDSyndicate.Syndicate, CDSubCommitte.SubCommitte, TBLWarasa_1.personName AS ResPersonName, TBLWarasa.Activate, 
+                         TBLWarasa.ActivateDate, TBLWarasa.hafza, TBLWarasa.hafzadate
 FROM            TBLWarasa INNER JOIN
                          CDSyndicate ON TBLWarasa.SyndicateId = CDSyndicate.SyndicateId INNER JOIN
                          CDSubCommitte ON TBLWarasa.SubCommitteId = CDSubCommitte.SubCommitteId INNER JOIN
@@ -74,6 +77,10 @@ WHERE        (TBLWarasa.code60 = @Number)</CommandText>
               <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
               <Mapping SourceColumn="SubCommitte" DataSetColumn="SubCommitte" />
               <Mapping SourceColumn="ResPersonName" DataSetColumn="ResPersonName" />
+              <Mapping SourceColumn="Activate" DataSetColumn="Activate" />
+              <Mapping SourceColumn="ActivateDate" DataSetColumn="ActivateDate" />
+              <Mapping SourceColumn="hafza" DataSetColumn="hafza" />
+              <Mapping SourceColumn="hafzadate" DataSetColumn="hafzadate" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -361,7 +368,7 @@ ORDER BY news_date DESC</CommandText>
               <DbSource ConnectionRef="ETSMOBILEConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        TBLMashat.MMashatId, TBLMashat.MMashatName, CDSyndicate.Syndicate, CDSubCommitte.SubCommitte
+                    <CommandText>SELECT        TBLMashat.MMashatId, TBLMashat.MMashatName, CDSyndicate.Syndicate, CDSubCommitte.SubCommitte, TBLMashat.hafzano, TBLMashat.hafzadate, TBLMashat.Activate, TBLMashat.ActivateDate
 FROM            TBLMashat INNER JOIN
                          CDSyndicate ON TBLMashat.SyndicateId = CDSyndicate.SyndicateId INNER JOIN
                          CDSubCommitte ON TBLMashat.SubCommitteId = CDSubCommitte.SubCommitteId
@@ -378,15 +385,19 @@ WHERE        (TBLMashat.MMashatId = @MMashatId)</CommandText>
               <Mapping SourceColumn="MMashatName" DataSetColumn="MMashatName" />
               <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
               <Mapping SourceColumn="SubCommitte" DataSetColumn="SubCommitte" />
+              <Mapping SourceColumn="hafzano" DataSetColumn="hafzano" />
+              <Mapping SourceColumn="hafzadate" DataSetColumn="hafzadate" />
+              <Mapping SourceColumn="Activate" DataSetColumn="Activate" />
+              <Mapping SourceColumn="ActivateDate" DataSetColumn="ActivateDate" />
             </Mappings>
             <Sources />
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="WarasaInfoTableAdapter" GeneratorDataComponentClassName="WarasaInfoTableAdapter" Name="WarasaInfo" UserDataComponentName="WarasaInfoTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ETSMOBILEConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ETSMOBILEConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        TBLWarasa.code60, TBLWarasa.personName, CDSubCommitte.SubCommitte, CDSyndicate.Syndicate
+                    <CommandText>SELECT        TBLWarasa.code60, TBLWarasa.personName, CDSubCommitte.SubCommitte, CDSyndicate.Syndicate, TBLWarasa.Activate, TBLWarasa.ActivateDate, TBLWarasa.hafza, TBLWarasa.hafzadate
 FROM            TBLWarasa INNER JOIN
                          CDSubCommitte ON TBLWarasa.SubCommitteId = CDSubCommitte.SubCommitteId INNER JOIN
                          CDSyndicate ON TBLWarasa.SyndicateId = CDSyndicate.SyndicateId
@@ -403,6 +414,10 @@ WHERE        (TBLWarasa.code60 = @code60)</CommandText>
               <Mapping SourceColumn="personName" DataSetColumn="personName" />
               <Mapping SourceColumn="SubCommitte" DataSetColumn="SubCommitte" />
               <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
+              <Mapping SourceColumn="Activate" DataSetColumn="Activate" />
+              <Mapping SourceColumn="ActivateDate" DataSetColumn="ActivateDate" />
+              <Mapping SourceColumn="hafza" DataSetColumn="hafza" />
+              <Mapping SourceColumn="hafzadate" DataSetColumn="hafzadate" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -734,6 +749,8 @@ SELECT MMashatId, DofatSarfAId, amanattypeid, amanatmony, amanatrem, userin, dat
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Activate" msprop:Generator_ColumnVarNameInTable="columnActivate" msprop:Generator_ColumnPropNameInRow="Activate" msprop:Generator_ColumnPropNameInTable="ActivateColumn" msprop:Generator_UserColumnName="Activate" type="xs:boolean" minOccurs="0" />
+              <xs:element name="ActivateDate" msprop:Generator_ColumnVarNameInTable="columnActivateDate" msprop:Generator_ColumnPropNameInRow="ActivateDate" msprop:Generator_ColumnPropNameInTable="ActivateDateColumn" msprop:Generator_UserColumnName="ActivateDate" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -784,6 +801,10 @@ SELECT MMashatId, DofatSarfAId, amanattypeid, amanatmony, amanatrem, userin, dat
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Activate" msprop:Generator_ColumnVarNameInTable="columnActivate" msprop:Generator_ColumnPropNameInRow="Activate" msprop:Generator_ColumnPropNameInTable="ActivateColumn" msprop:Generator_UserColumnName="Activate" type="xs:boolean" minOccurs="0" />
+              <xs:element name="ActivateDate" msprop:Generator_ColumnVarNameInTable="columnActivateDate" msprop:Generator_ColumnPropNameInRow="ActivateDate" msprop:Generator_ColumnPropNameInTable="ActivateDateColumn" msprop:Generator_UserColumnName="ActivateDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="hafza" msprop:Generator_ColumnVarNameInTable="columnhafza" msprop:Generator_ColumnPropNameInRow="hafza" msprop:Generator_ColumnPropNameInTable="hafzaColumn" msprop:Generator_UserColumnName="hafza" type="xs:int" minOccurs="0" />
+              <xs:element name="hafzadate" msprop:Generator_ColumnVarNameInTable="columnhafzadate" msprop:Generator_ColumnPropNameInRow="hafzadate" msprop:Generator_ColumnPropNameInTable="hafzadateColumn" msprop:Generator_UserColumnName="hafzadate" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -932,6 +953,10 @@ SELECT MMashatId, DofatSarfAId, amanattypeid, amanatmony, amanatrem, userin, dat
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="hafzano" msprop:Generator_ColumnVarNameInTable="columnhafzano" msprop:Generator_ColumnPropNameInRow="hafzano" msprop:Generator_ColumnPropNameInTable="hafzanoColumn" msprop:Generator_UserColumnName="hafzano" type="xs:int" minOccurs="0" />
+              <xs:element name="hafzadate" msprop:Generator_ColumnVarNameInTable="columnhafzadate" msprop:Generator_ColumnPropNameInRow="hafzadate" msprop:Generator_ColumnPropNameInTable="hafzadateColumn" msprop:Generator_UserColumnName="hafzadate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Activate" msprop:Generator_ColumnVarNameInTable="columnActivate" msprop:Generator_ColumnPropNameInRow="Activate" msprop:Generator_ColumnPropNameInTable="ActivateColumn" msprop:Generator_UserColumnName="Activate" type="xs:boolean" minOccurs="0" />
+              <xs:element name="ActivateDate" msprop:Generator_ColumnVarNameInTable="columnActivateDate" msprop:Generator_ColumnPropNameInRow="ActivateDate" msprop:Generator_ColumnPropNameInTable="ActivateDateColumn" msprop:Generator_UserColumnName="ActivateDate" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -960,6 +985,10 @@ SELECT MMashatId, DofatSarfAId, amanattypeid, amanatmony, amanatrem, userin, dat
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Activate" msprop:Generator_ColumnVarNameInTable="columnActivate" msprop:Generator_ColumnPropNameInRow="Activate" msprop:Generator_ColumnPropNameInTable="ActivateColumn" msprop:Generator_UserColumnName="Activate" type="xs:boolean" minOccurs="0" />
+              <xs:element name="ActivateDate" msprop:Generator_ColumnVarNameInTable="columnActivateDate" msprop:Generator_ColumnPropNameInRow="ActivateDate" msprop:Generator_ColumnPropNameInTable="ActivateDateColumn" msprop:Generator_UserColumnName="ActivateDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="hafza" msprop:Generator_ColumnVarNameInTable="columnhafza" msprop:Generator_ColumnPropNameInRow="hafza" msprop:Generator_ColumnPropNameInTable="hafzaColumn" msprop:Generator_UserColumnName="hafza" type="xs:int" minOccurs="0" />
+              <xs:element name="hafzadate" msprop:Generator_ColumnVarNameInTable="columnhafzadate" msprop:Generator_ColumnPropNameInRow="hafzadate" msprop:Generator_ColumnPropNameInTable="hafzadateColumn" msprop:Generator_UserColumnName="hafzadate" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

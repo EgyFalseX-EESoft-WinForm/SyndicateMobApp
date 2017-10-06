@@ -106,7 +106,7 @@ namespace SyndicateMobApp.ViewModels
         {
             _navigationService = navigationService;
             Title = "بيـانـات الورثـــة";
-            _data = new WarasaInfoContrect(".", ".", ".");
+            _data = new WarasaInfoContrect(".", ".", ".", "", "", "", "");
             Ads = Helpers.Ads.GetAdsPath();
         }
         public async void GetInfo()
@@ -116,7 +116,7 @@ namespace SyndicateMobApp.ViewModels
             WarasaInfoContrect result = await srv.GetWarasaInfoAsync(_inputString.NumericNormalize());
             if (result != null)
             {
-                Data = new WarasaInfoContrect(result.Name, result.Syndicate, result.Subcommitte);
+                Data = new WarasaInfoContrect(result.Name, result.Syndicate, result.Subcommitte, result.Hafzano, result.Hafzadate, result.Activate, result.ActivateDate);
             }
             else
             {

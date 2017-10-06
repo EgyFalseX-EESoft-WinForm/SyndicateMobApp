@@ -11,7 +11,8 @@ namespace SyndicateServiceLib.DataContracts
     [DataContract]
     public class LoginWarasaContrect
     {
-        public LoginWarasaContrect(int personId, int mMashatId, string personName, bool yasref, bool responsiblesarf, int code60, string mMashatName, string syndicate, string subCommitte, string resPersonName)
+        public LoginWarasaContrect(int personId, int mMashatId, string personName, bool yasref, bool responsiblesarf, int code60, string mMashatName, string syndicate, string subCommitte, string resPersonName
+            , int? hafzano, DateTime? hafzadate, bool activate, DateTime? activateDate)
         {
             PersonId = personId;
             MMashatId = mMashatId;
@@ -23,6 +24,10 @@ namespace SyndicateServiceLib.DataContracts
             Syndicate = syndicate;
             SubCommitte = subCommitte;
             ResPersonName = resPersonName;
+            Hafzano = hafzano;
+            Hafzadate = hafzadate;
+            Activate = activate;
+            ActivateDate = activateDate;
         }
         [DataMember]
         public int PersonId { get; set; }
@@ -44,5 +49,14 @@ namespace SyndicateServiceLib.DataContracts
         public string SubCommitte { get; set; }
         [DataMember]
         public string ResPersonName { get; set; }
+        [DataMember]
+        public int? Hafzano { get; set; }
+        [DataMember]
+        public DateTime? Hafzadate { get; set; }
+        [DataMember]
+        public bool Activate { get; set; }
+        [DataMember]
+        public DateTime? ActivateDate { get; set; }
+
     }
 }

@@ -24,8 +24,14 @@ namespace SyndicateServiceLib
                 DateTime? hafzadate = null;
                 if (!row.IshafzadateNull())
                     hafzadate = row.hafzadate;
+                bool active = false;
+                if (!row.IsActivateNull())
+                    active = row.Activate;
+                DateTime? activeDate = null;
+                if (!row.IsActivateDateNull())
+                    activeDate = row.ActivateDate;
 
-                return new LoginMemberContrect(row.MMashatId, row.MMashatName, row.sarfnumber, hafzano, hafzadate, row.Syndicate, row.SubCommitte);
+                return new LoginMemberContrect(row.MMashatId, row.MMashatName, row.sarfnumber, hafzano, hafzadate, row.Syndicate, row.SubCommitte, active, activeDate);
             }
             return null;
         }
@@ -39,7 +45,20 @@ namespace SyndicateServiceLib
             if (tbl.Count > 0)
             {
                 dsETSMobile.LoginWarasaRow row = tbl[0];
-                return new LoginWarasaContrect(row.PersonId, row.MMashatId, row.personName, row.yasref, row.responsiblesarf, row.code60, row.MMashatName, row.Syndicate, row.SubCommitte, row.ResPersonName);
+                int hafzano = 0;
+                if (!row.IshafzaNull())
+                    hafzano = row.hafza;
+                DateTime? hafzadate = null;
+                if (!row.IshafzadateNull())
+                    hafzadate = row.hafzadate;
+                bool active = false;
+                if (!row.IsActivateNull())
+                    active = row.Activate;
+                DateTime? activeDate = null;
+                if (!row.IsActivateDateNull())
+                    activeDate = row.ActivateDate;
+                return new LoginWarasaContrect(row.PersonId, row.MMashatId, row.personName, row.yasref, row.responsiblesarf, row.code60, row.MMashatName, row.Syndicate, row.SubCommitte
+                    , row.ResPersonName, hafzano, hafzadate, active, activeDate);
             }
             return null;
         }
@@ -179,7 +198,20 @@ namespace SyndicateServiceLib
             if (tbl.Rows.Count > 0)
             {
                 dsETSMobile.MemberInfoRow row = tbl[0];
-                returnItem = new MemberInfoContrect(row.MMashatName, row.Syndicate, row.SubCommitte);
+                int? hafzano = null;
+                if (!row.IshafzanoNull())
+                    hafzano = row.hafzano;
+                DateTime? hafzadate = null;
+                if (!row.IshafzadateNull())
+                    hafzadate = row.hafzadate;
+                bool activate = false;
+                if (!row.IsActivateNull())
+                    activate = row.Activate;
+                DateTime? activateDate = null;
+                if (!row.IsActivateDateNull())
+                    activateDate = row.ActivateDate;
+
+                returnItem = new MemberInfoContrect(row.MMashatName, row.Syndicate, row.SubCommitte, hafzano, hafzadate, activate, activateDate);
             }
             return returnItem;
         }
@@ -193,7 +225,21 @@ namespace SyndicateServiceLib
             if (tbl.Rows.Count > 0)
             {
                 dsETSMobile.WarasaInfoRow row = tbl[0];
-                returnItem = new WarasaInfoContrect(row.personName, row.Syndicate, row.SubCommitte);
+
+                int? hafza = null;
+                if (!row.IshafzaNull())
+                    hafza = row.hafza;
+                DateTime? hafzadate = null;
+                if (!row.IshafzadateNull())
+                    hafzadate = row.hafzadate;
+                bool activate = false;
+                if (!row.IsActivateNull())
+                    activate = row.Activate;
+                DateTime? activateDate = null;
+                if (!row.IsActivateDateNull())
+                    activateDate = row.ActivateDate;
+
+                returnItem = new WarasaInfoContrect(row.personName, row.Syndicate, row.SubCommitte, hafza, hafzadate, activate, activateDate);
             }
             return returnItem;
         }

@@ -16,16 +16,32 @@
                 <Entry x:Name="EntyId" Text="{Binding InputString}" Placeholder="ادخل رقمك هنا" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"></Entry>
                 <Button x:Name="BtnGetInfo" Command="{Binding GetInfoCommand}" Text="عـــرض" HorizontalOptions="FillAndExpand" ></Button>
                 <StackLayout HorizontalOptions="End" Padding="10,10,10,10" Orientation="Horizontal">
-                    <Label Text="{Binding Data.Name}"></Label>
-                    <Label Text="الاسم:" WidthRequest="50" HorizontalTextAlignment="End"></Label>
+                    <Label Text="{Binding Data.Name}" WidthRequest="150" HorizontalTextAlignment="End"></Label>
+                    <Label Text="الاسم:" WidthRequest="100" HorizontalTextAlignment="End"></Label>
                 </StackLayout>
                 <StackLayout  HorizontalOptions="End" Padding="10,10,10,10" Orientation="Horizontal">
-                    <Label Text="{Binding Data.Syndicate}"></Label>
-                    <Label Text="الفرعية:" WidthRequest="50" HorizontalTextAlignment="End"></Label>
+                    <Label Text="{Binding Data.Syndicate}" WidthRequest="150" HorizontalTextAlignment="End"></Label>
+                    <Label Text="الفرعية:" WidthRequest="100" HorizontalTextAlignment="End"></Label>
                 </StackLayout>
                 <StackLayout  HorizontalOptions="End" Padding="10,10,10,10" Orientation="Horizontal">
-                    <Label Text="{Binding Data.Subcommitte}"></Label>
-                    <Label Text="اللجنــة:" WidthRequest="50" HorizontalTextAlignment="End"></Label>
+                    <Label Text="{Binding Data.Subcommitte}" WidthRequest="150" HorizontalTextAlignment="End"></Label>
+                    <Label Text="اللجنــة:" WidthRequest="100" HorizontalTextAlignment="End"></Label>
+                </StackLayout>
+                <StackLayout HorizontalOptions="End" Padding="10,10,10,10" Orientation="Horizontal">
+                    <Label Text="{Binding Data.Hafzano}" WidthRequest="150" HorizontalTextAlignment="End"></Label>
+                    <Label Text="الحافظة:" WidthRequest="100" HorizontalTextAlignment="End"></Label>
+                </StackLayout>
+                <StackLayout HorizontalOptions="End" Padding="10,10,10,10" Orientation="Horizontal">
+                    <Label Text="{Binding Data.Hafzadate, StringFormat='{0:dd/MM/yyyy}'}" WidthRequest="150" HorizontalTextAlignment="End"></Label>
+                    <Label Text="تاريخ الحافظة:" WidthRequest="100" HorizontalTextAlignment="End"></Label>
+                </StackLayout>
+                <StackLayout HorizontalOptions="End" Padding="10,10,10,10" Orientation="Horizontal">
+                    <Label Text="{Binding Data.Activate}" WidthRequest="150" HorizontalTextAlignment="End"></Label>
+                    <Label Text="التفعيل:" WidthRequest="100" HorizontalTextAlignment="End"></Label>
+                </StackLayout>
+                <StackLayout HorizontalOptions="End" Padding="10,10,10,10" Orientation="Horizontal">
+                    <Label Text="{Binding Data.ActivateDate, StringFormat='{0:dd/MM/yyyy}'}" WidthRequest="150" HorizontalTextAlignment="End"></Label>
+                    <Label Text="تاريخ التفعيل:" WidthRequest="100" HorizontalTextAlignment="End"></Label>
                 </StackLayout>
             </StackLayout>
             <Image Source="{Binding Ads}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="1"></Image>

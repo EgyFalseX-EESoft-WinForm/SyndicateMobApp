@@ -33,7 +33,7 @@ namespace SyndicateMobApp.Services
             return await new Task<LoginMemberContrect>(
                 () =>
                 {
-                    LoginMemberContrect result = new LoginMemberContrect(1, "test", 1, 1, DateTime.Now, "test", "test");
+                    LoginMemberContrect result = new LoginMemberContrect(1, "test", 1, 1, DateTime.Now, "test", "test", "test", "test");
                     return result;
                 });
         }
@@ -43,7 +43,7 @@ namespace SyndicateMobApp.Services
                 () =>
                 {
                     LoginWarasaContrect result = new LoginWarasaContrect(1, 1, "test", true, true, 1, "test", "test",
-                        "test", "test");
+                        "test", "test", "test", "test","test", "test");
                     return result;
                 });
         }
@@ -150,11 +150,11 @@ namespace SyndicateMobApp.Services
         }
         public async Task<MemberInfoContrect> GetMemberInfoAsync(string value)
         {
-            return await new Task<MemberInfoContrect>(() => new MemberInfoContrect("test", "test", "test"));
+            return await new Task<MemberInfoContrect>(() => new MemberInfoContrect("test", "test", "test", "test", "test", "test", "test"));
         }
         public async Task<WarasaInfoContrect> GetWarasaInfoAsync(string value)
         {
-            return await new Task<WarasaInfoContrect>(() => new WarasaInfoContrect("test", "test", "test"));
+            return await new Task<WarasaInfoContrect>(() => new WarasaInfoContrect("test", "test", "test", "test", "test", "test", "test"));
         }
         public async Task<ObservableCollection<AdsContrect>> GetAdsAsync()
         {

@@ -96,7 +96,7 @@ namespace SyndicateMobApp.ViewModels
         {
             _navigationService = navigationService;
             Title = "بيـانـات اعضــاء";
-            _data = new MemberInfoContrect(".", ".", ".");
+            _data = new MemberInfoContrect(".", ".", ".", "", "", "", "");
             Ads = Helpers.Ads.GetAdsPath();
         }
         public async void GetInfo()
@@ -106,7 +106,7 @@ namespace SyndicateMobApp.ViewModels
             MemberInfoContrect result = await srv.GetMemberInfoAsync(_inputString.NumericNormalize());
             if (result != null)
             {
-                Data = new MemberInfoContrect(result.Name, result.Syndicate, result.Subcommitte);
+                Data = new MemberInfoContrect(result.Name, result.Syndicate, result.Subcommitte, result.Hafzano, result.Hafzadate, result.Activate, result.ActivateDate);
             }
             else
             {

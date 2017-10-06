@@ -91,7 +91,8 @@ namespace SyndicateMobApp.ViewModels
                     await ServiceLocator.Current.GetInstance<IDialogService>().ShowError("خطـاء في اسم المستخدم او كلمة المرور", "خطــــاء", "موافق", null);
                 else
                 {
-                    ((NavigationService)_navigationService).NavigateToclearPageStack(ViewModelLocator.HomePageKey, true);
+                    //((NavigationService)_navigationService).NavigateTo(ViewModelLocator.HomePageKey, true);
+                    ((NavigationService)_navigationService).GoBack();
                     UserManager.CurrentUser = loginCon;
                     UserManager.Authenticated = true;
                 }

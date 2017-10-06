@@ -10,7 +10,8 @@ namespace SyndicateMobApp.Services
     
     public class LoginWarasaContrect
     {
-        public LoginWarasaContrect(int personId, int mMashatId, string personName, bool yasref, bool responsiblesarf, int code60, string mMashatName, string syndicate, string subCommitte, string resPersonName)
+        public LoginWarasaContrect(int personId, int mMashatId, string personName, bool yasref, bool responsiblesarf, int code60, string mMashatName, string syndicate, string subCommitte, string resPersonName
+            , object hafzano, object hafzadate, object activate, object activateDate)
         {
             PersonId = personId;
             MMashatId = mMashatId;
@@ -22,6 +23,10 @@ namespace SyndicateMobApp.Services
             Syndicate = syndicate;
             SubCommitte = subCommitte;
             ResPersonName = resPersonName;
+            Hafzano = hafzano;
+            Hafzadate = hafzadate;
+            Activate = activate;
+            ActivateDate = activateDate;
         }
         public int PersonId { get; set; }
         public int MMashatId { get; set; }
@@ -33,5 +38,9 @@ namespace SyndicateMobApp.Services
         public string Syndicate { get; set; }
         public string SubCommitte { get; set; }
         public string ResPersonName { get; set; }
+        public object Hafzano { get; set; }
+        public object Hafzadate { get; set; }
+        public object Activate { get; set; }
+        public object ActivateDate { get; set; }
     }
 }

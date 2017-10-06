@@ -9,7 +9,7 @@ namespace SyndicateMobApp.Services
 {
     public class LoginMemberContrect
     {
-        public LoginMemberContrect(int mMashatId, string mMashatName, int sarfnumber, object hafzano, object hafzadate, string syndicate, string subCommitte)
+        public LoginMemberContrect(int mMashatId, string mMashatName, int sarfnumber, object hafzano, object hafzadate, string syndicate, string subCommitte, object activate, object activateDate)
         {
             MMashatId = mMashatId;
             MMashatName = mMashatName;
@@ -18,6 +18,8 @@ namespace SyndicateMobApp.Services
             Hafzadate = hafzadate;
             Syndicate = syndicate;
             SubCommitte = subCommitte;
+            Activate = activate;
+            ActivateDate = activateDate;
         }
         public int MMashatId { get; set; }
         public string MMashatName { get; set; }
@@ -26,5 +28,7 @@ namespace SyndicateMobApp.Services
         public object Hafzadate { get; set; }
         public string Syndicate { get; set; }
         public string SubCommitte { get; set; }
+        public object Activate { get; set; }
+        public object ActivateDate { get; set; }
     }
 }
