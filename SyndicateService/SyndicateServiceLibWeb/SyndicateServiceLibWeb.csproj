@@ -24,6 +24,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <UpgradeBackupLocation />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -157,6 +158,7 @@
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\EditTblAds.aspx" />
+    <Content Include="Admin\EditUsers.aspx" />
     <Content Include="Admin\EditTblNews.aspx" />
     <Content Include="App_Data\AdminSideMenu.xml" />
     <Content Include="App_Data\SideMenu.xml" />
@@ -355,6 +357,13 @@
     </Compile>
     <Compile Include="Admin\EditTblAds.aspx.designer.cs">
       <DependentUpon>EditTblAds.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditUsers.aspx.cs">
+      <DependentUpon>EditUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditUsers.aspx.designer.cs">
+      <DependentUpon>EditUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\EditTblNews.aspx.cs">
       <DependentUpon>EditTblNews.aspx</DependentUpon>

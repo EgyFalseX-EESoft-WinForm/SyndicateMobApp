@@ -3,6 +3,7 @@
   <group Text="Editors">
     <item Text="Ads Editor" NavigateUrl="~/Admin/EditTblAds.aspx" />
     <item Text="News Editor" NavigateUrl="~/Admin/EditTblNews.aspx" />
+    <item Text="Users Editor" NavigateUrl="~/Admin/EditUsers.aspx" />
   </group>
 
 </menu>
