@@ -69,7 +69,7 @@ namespace SyndicateServiceLib
             if (tbl.Count > 0)
             {
                 dsETSMobile.userRow row = tbl[0];
-                return new LoginContrect(row.user_id, row.user_name, row.user_pass, row.SyndicateId, row.subCommitteId);
+                return new LoginContrect(row.user_id, row.user_name, row.user_pass, row.IsSyndicateIdNull() ? 0 : row.SyndicateId, row.IssubCommitteIdNull() ? 0 : row.subCommitteId);
             }
             return null;
         }

@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight;
+﻿using System;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
@@ -68,6 +69,21 @@ namespace SyndicateMobApp.ViewModels
             ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
             try
             {
+                MemberInfoContrect member = await srv.GetMemberInfoAsync(_id);
+                if (member == null)
+                {
+                    await ServiceLocator.Current.GetInstance<IDialogService>().ShowError("رقم عضو خطــــاء", "لم نتمكن من الوصول للعضو", "موافق", null);
+                    IsLoading = false;
+                    return;
+                }
+                string confirmation = $"هل انت متأكد ارسال طلب الامانات للعضو {Environment.NewLine + member.Name}  ?";
+                if (await ServiceLocator.Current.GetInstance<IDialogService>()
+                        .ShowMessage(confirmation, "تأكيد", "موافق", "الغـــاء", null) == false)
+                {
+                    IsLoading = false;
+                    return;
+                }
+
                 string message = await srv.GetInsertMemberAmanatAsync(_id);
                 if (message == "1")
                     await ServiceLocator.Current.GetInstance<IDialogService>().ShowError("نجحت العملية", "تم اضافة الطلب", "موافق", null);
