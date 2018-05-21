@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:dxg="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v16.2"
+             xmlns:dxg="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v18.1"
              xmlns:local="clr-namespace:DevExpress.GridDemo;assembly=GridDemoApp"
 					   x:Class="DevExpress.GridDemo.RealTimeDataPage">
   <ContentPage.Resources>
@@ -24,7 +24,7 @@
                   <ColumnDefinition Width="auto" />
                   <ColumnDefinition Width="16" />
                 </Grid.ColumnDefinitions>
-                <Label Text="{Binding Value, StringFormat='{0:C2}'}"  TextColor="{Binding Path=IsSelected, Converter={StaticResource labelTextColorConverter}}"  
+                <Label Text="{Binding Value, StringFormat='{0:C2}'}" TextColor="{Binding Path=IsSelected, Converter={StaticResource labelTextColorConverter}}"  
                        Grid.Column="0" VerticalOptions="Center" PropertyChanged="OnLabelPropertyChanged" PropertyChanging="OnLabelPropertyChanging" />
                 <Image Source="Triangle_Undefined.png" Grid.Column="1" />
               </Grid>

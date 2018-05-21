@@ -88,8 +88,8 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include="DevExpress.Mobile.Grid.iOS.v16.2">
-      <HintPath>..\..\..\lib\ios-unified\DevExpress.Mobile.Grid.iOS.v16.2.dll</HintPath>
+    <Reference Include="DevExpress.Mobile.Grid.iOS.v18.1">
+      
     </Reference>
     <Reference Include="Xamarin.iOS" />
     <Reference Include="Xamarin.Forms.Core">

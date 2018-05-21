@@ -52,14 +52,14 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
-    <Reference Include="DevExpress.Mobile.Core.v16.2">
-      <HintPath>..\..\..\lib\pcl\DevExpress.Mobile.Core.v16.2.dll</HintPath>
+    <Reference Include="DevExpress.Mobile.Core.v18.1">
+      
     </Reference>
-    <Reference Include="DevExpress.Mobile.Core.Android.v16.2">
-      <HintPath>..\..\..\lib\android\DevExpress.Mobile.Core.Android.v16.2.dll</HintPath>
+    <Reference Include="DevExpress.Mobile.Core.Android.v18.1">
+      
     </Reference>
-    <Reference Include="DevExpress.Mobile.Grid.Android.v16.2">
-      <HintPath>..\..\..\lib\android\DevExpress.Mobile.Grid.Android.v16.2.dll</HintPath>
+    <Reference Include="DevExpress.Mobile.Grid.Android.v18.1">
+      
     </Reference>
     <Reference Include="Xamarin.Android.Support.v4">
       <HintPath>..\packages\Xamarin.Android.Support.v4.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v4.dll</HintPath>

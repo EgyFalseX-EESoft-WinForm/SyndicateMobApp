@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			x:Class="DevExpress.GridDemo.HorizontalScrollingPage"
-			xmlns:dxg="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v16.2"
-			xmlns:controls="clr-namespace:DevExpress.Mobile.DataGrid.Internal;assembly=DevExpress.Mobile.Grid.v16.2"
+			xmlns:dxg="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v18.1"
+			xmlns:controls="clr-namespace:DevExpress.Mobile.DataGrid.Internal;assembly=DevExpress.Mobile.Grid.v18.1"
 			xmlns:sys="clr-namespace:System;assembly=mscorlib">
 	<ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
@@ -11,8 +11,8 @@
     <ContentPage.Content>
     	<Grid>
     		<Grid.RowDefinitions>
-    			<RowDefinition Height="*"/>
-    			<RowDefinition Height="Auto"/>
+    			<RowDefinition Height="*" />
+    			<RowDefinition Height="Auto" />
     		</Grid.RowDefinitions>
     		<dxg:GridControl x:Name="grid" ColumnsAutoWidth="False" PopupMenuCustomization="OnPopupMenuCustomization" Grid.Row="0" ItemsSource="{Binding Orders}" RowHeight="100">
             <dxg:GridControl.RowHeight>
@@ -29,10 +29,10 @@
                 <dxg:TextColumn FieldName="Customer.Position" Caption="Position" ContentAlignment="Center" Width="170" IsReadOnly="true" />
                 <dxg:TextColumn FieldName="Customer.Phone" Caption="Phone" Width="150" ContentAlignment="Center" />
                 <dxg:TextColumn FieldName="Customer.Email" Caption="Email" Width="300" />
-                <dxg:DateColumn FieldName="Date" DisplayFormat="{}{0:d}"/>
-                <dxg:PickerColumn FieldName="Priority"/>
-                <dxg:SwitchColumn FieldName="Shipped"/>
-                <dxg:NumberColumn FieldName="Total" IsReadOnly="True" FixedStyle="Right" DisplayFormat="{}{0:C2}"/>
+                <dxg:DateColumn FieldName="Date" DisplayFormat="{}{0:d}" />
+                <dxg:PickerColumn FieldName="Priority" />
+                <dxg:SwitchColumn FieldName="Shipped" />
+                <dxg:NumberColumn FieldName="Total" IsReadOnly="True" FixedStyle="Right" DisplayFormat="{}{0:C2}" />
             </dxg:GridControl.Columns>
 
             <dxg:GridControl.TotalSummaries>
@@ -40,8 +40,8 @@
             </dxg:GridControl.TotalSummaries>
         </dxg:GridControl>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="1" Margin="0,4,0,4">
-        	<Label Text="Horizontal scrolling: "/>
-        	<controls:CheckEdit x:Name="horizontalScrollingCheckEdit" IsChecked="true"/>
+        	<Label Text="Horizontal scrolling: " />
+        	<controls:CheckEdit x:Name="horizontalScrollingCheckEdit" IsChecked="true" />
         </StackLayout>
     	</Grid>
     </ContentPage.Content>

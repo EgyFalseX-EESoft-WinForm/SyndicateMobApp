@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:dxg="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v16.2"
+             xmlns:dxg="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v18.1"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
 					   x:Class="DevExpress.GridDemo.FirstLookPage">
     <ContentPage.Padding>
@@ -20,10 +20,10 @@
                 </dxg:ImageColumn>
 
                 <dxg:TextColumn FieldName="Customer.Name" Caption="Name" IsReadOnly="true" AutoFilterValue="a" AutoFilterCondition="Contains" />
-                <dxg:DateColumn FieldName="Date" DisplayFormat="{}{0:d}"/>
-                <dxg:PickerColumn FieldName="Priority" SortOrder="Ascending"/>
-                <dxg:SwitchColumn FieldName="Shipped"/>
-                <dxg:NumberColumn FieldName="Total" IsReadOnly="True" DisplayFormat="{}{0:C2}"/>
+                <dxg:DateColumn FieldName="Date" DisplayFormat="{}{0:d}" />
+                <dxg:PickerColumn FieldName="Priority" SortOrder="Ascending" />
+                <dxg:SwitchColumn FieldName="Shipped" />
+                <dxg:NumberColumn FieldName="Total" IsReadOnly="True" DisplayFormat="{}{0:C2}" />
             </dxg:GridControl.Columns>
 
             <dxg:GridControl.TotalSummaries>

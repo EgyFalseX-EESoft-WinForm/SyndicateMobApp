@@ -180,8 +180,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Mobile.Grid.WinPhone.v16.2">
-      <HintPath>..\..\..\..\Bin\DevExpress.Mobile.Grid.WinPhone.v16.2.dll</HintPath>
+    <Reference Include="DevExpress.Mobile.Grid.WinPhone.v18.1">
+      
     </Reference>
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
