@@ -279,5 +279,38 @@ namespace SyndicateServiceLib
             }
             
         }
+
+        public string ActivateMemberVisa(string visa, string user)
+        {
+            int visaToActive;
+            int userToActive;
+            if (!int.TryParse(visa, out visaToActive) || !int.TryParse(user, out userToActive))
+                return "رقم غير صحيح";
+            QueriesTableAdapter adpQry = new QueriesTableAdapter();
+            bool active = Convert.ToBoolean(adpQry.IsMemberVisaActivated(visaToActive));
+            if (active)
+                return "تم التفعيل مسبقا";
+            int result = adpQry.ActivateMemberVisa(userToActive, visaToActive);
+            if (result > 0)
+                return "تم التفعيل";
+            else
+                return "لم يتم التفعيل";
+        }
+        public string ActivateWarasaVisa(string visa, string user)
+        {
+            int visaToActive;
+            int userToActive;
+            if (!int.TryParse(visa, out visaToActive) || !int.TryParse(user, out userToActive))
+                return "رقم غير صحيح";
+            QueriesTableAdapter adpQry = new QueriesTableAdapter();
+            bool active = Convert.ToBoolean(adpQry.IsWarasaVisaActivated(visaToActive));
+            if (active)
+                return "تم التفعيل مسبقا";
+            int result = adpQry.ActivateWarasaVisa(userToActive, visaToActive);
+            if (result > 0)
+                return "تم التفعيل";
+            else
+                return "لم يتم التفعيل";
+        }
     }
 }
