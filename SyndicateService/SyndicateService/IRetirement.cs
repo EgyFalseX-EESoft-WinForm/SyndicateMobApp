@@ -62,10 +62,6 @@ namespace SyndicateServiceLib
         [WebInvoke(Method = "GET", UriTemplate = "GetInsertMemberAmanat?MMashatId={MMashatId}&UserId={UserId}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         string GetInsertMemberAmanat(int MMashatId, int UserId);
 
-        //[OperationContract]
-        //[WebInvoke(Method = "POST", UriTemplate = "ActivateMemberVisa?visa={visa}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        //bool PostActivateMemberVisa(int subCommitteId, double lat, double Long);
-
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "ActivateMemberVisa?visa={visa}&user={user}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         string ActivateMemberVisa(string visa, string user);
@@ -73,6 +69,20 @@ namespace SyndicateServiceLib
         [WebInvoke(Method = "GET", UriTemplate = "ActivateWarasaVisa?visa={visa}&user={user}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         string ActivateWarasaVisa(string visa, string user);
 
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "GetMemberVisaByHafza/{value}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        ObservableCollection<ActivateVisaContrect> GetMemberVisaByHafza(string value);
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "GetWarasaVisaByHafza/{value}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        ObservableCollection<ActivateVisaContrect> GetWarasaVisaByHafza(string value);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "PostActiveMemberVisa?visa={visa}&user={user}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        string PostActiveMemberVisa(string visa, string user);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "PostActiveWarasaVisa?visa={visa}&user={user}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        string PostActiveWarasaVisa(string visa, string user);
 
     }
    

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="egycs.EgTeacherUnionService.Droid" android:installLocation="auto" android:versionCode="20171128" android:versionName="20171128">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="egycs.EgTeacherUnionService.Droid" android:installLocation="auto" android:versionCode="20180527" android:versionName="20180527">
 	<uses-sdk android:minSdkVersion="17" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />

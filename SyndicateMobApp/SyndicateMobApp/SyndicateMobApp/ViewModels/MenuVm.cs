@@ -85,6 +85,39 @@ namespace SyndicateMobApp.ViewModels
                     PageKey = ViewModelLocator.MemberAmanatPageKey,
                     Visible = true,
                 },
+
+                new MasterPageItem
+                {
+                    Id = 7,
+                    Title = "تفعيل فيزا اعضاء",
+                    IconSource = "info.png",
+                    PageKey = ViewModelLocator.ActivateMemberVisaPageKey,
+                    Visible = true,
+                },
+                new MasterPageItem
+                {
+                    Id = 8,
+                    Title = "تفعيل فيزا ورثة",
+                    IconSource = "info.png",
+                    PageKey = ViewModelLocator.ActivateWarasaVisaPageKey,
+                    Visible = true,
+                },
+                new MasterPageItem
+                {
+                    Id = 9,
+                    Title = "تفعيل فيزا حافظة اعضاء",
+                    IconSource = "info.png",
+                    PageKey = ViewModelLocator.MemberActivateVisaByHafzaPageKey,
+                    Visible = true,
+                },
+                new MasterPageItem
+                {
+                    Id = 10,
+                    Title = "تفعيل فيزا حافظة ورثة",
+                    IconSource = "info.png",
+                    PageKey = ViewModelLocator.WarasaActivateVisaByHafzaPageKey,
+                    Visible = true,
+                },
             };
         }
         // Public properties
@@ -150,6 +183,10 @@ namespace SyndicateMobApp.ViewModels
             {
                 //Authentication required
                 case ViewModelLocator.MemberAmanatPageKey:
+                case ViewModelLocator.ActivateMemberVisaPageKey:
+                case ViewModelLocator.ActivateWarasaVisaPageKey:
+                case ViewModelLocator.MemberActivateVisaByHafzaPageKey:
+                case ViewModelLocator.WarasaActivateVisaByHafzaPageKey:
                     if (UserManager.Authenticated)
                         _navigationService.NavigateTo(_selectedItem.PageKey);
                     else

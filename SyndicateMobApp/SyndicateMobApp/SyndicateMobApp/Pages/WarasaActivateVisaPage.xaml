@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SyndicateMobApp.Pages.WarasaActivateVisaPage"
+             BindingContext="{Binding ActivateWarasaVisaInstance, Source={StaticResource Locator}}"
+             >
+  
+  <StackLayout VerticalOptions="CenterAndExpand">
+    <Image Source="{Binding Logo}"></Image>
+        <Entry x:Name="EntyID" Text="{Binding Id}" Placeholder="ادخل رقم الفيزا" HorizontalTextAlignment="Center"></Entry>
+        <Button x:Name="BtnLogin" Command="{Binding ExecuteCommand}" Text="تفعيـــل" > </Button>
+    
+    <AbsoluteLayout x:Name="MapAbsLayout" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+      <ContentView x:Name="Indicator" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"  AbsoluteLayout.LayoutFlags="All" IsVisible="{Binding IsLoading}" BackgroundColor="Transparent" Padding="10, 0">
+        <ActivityIndicator IsRunning="True" IsVisible="{Binding IsLoading}" Color="Lime" HorizontalOptions="Center" VerticalOptions="Center"/>
+      </ContentView>
+    </AbsoluteLayout>
+  </StackLayout>
+
+</ContentPage>

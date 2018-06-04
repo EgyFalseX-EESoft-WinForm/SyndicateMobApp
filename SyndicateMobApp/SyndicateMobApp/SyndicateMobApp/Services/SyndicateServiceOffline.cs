@@ -28,6 +28,13 @@ namespace SyndicateMobApp.Services
         public string GetAppOptionUri => SyndicateServiceUrl + "test/";
         public string GetInsertMemberAmanatUri => SyndicateServiceUrl + "test/";
 
+        public string ActivateMemberVisaUri => SyndicateServiceUrl + "test/";
+        public string ActivateWarasaVisaUri => SyndicateServiceUrl + "test/";
+        public string GetMemberVisaByHafzaUri => SyndicateServiceUrl + "test/";
+        public string GetWarasaVisaByHafzaUri => SyndicateServiceUrl + "test/";
+        public string PostActiveMemberVisaUri => SyndicateServiceUrl + "test?";
+        public string PostActiveWarasaVisaUri => SyndicateServiceUrl + "test?";
+
         public async Task<LoginMemberContrect> LoginMemberAsync(string value)
         {
             return await new Task<LoginMemberContrect>(
@@ -195,6 +202,63 @@ namespace SyndicateMobApp.Services
                 {
                     return "test";
                 });
+        }
+
+        public async Task<string> ActivateMemberVisaAsync(string visa)
+        {
+            return await new Task<string>(
+                () =>
+                {
+                    return "test";
+                });
+        }
+        public async Task<string> ActivateWarasaVisaAsync(string visa)
+        {
+            return await new Task<string>(
+                () =>
+                {
+                    return "test";
+                });
+        }
+        public async Task<ObservableCollection<ActivateVisaContrect>> GetMemberVisaByHafzaAsync(string value)
+        {
+            return await new Task<ObservableCollection<ActivateVisaContrect>>(
+                () =>
+                {
+                    ObservableCollection<ActivateVisaContrect> lst = new ObservableCollection<ActivateVisaContrect>
+                    {
+                        new ActivateVisaContrect("test1", true),
+                        new ActivateVisaContrect("test1", true),
+                        new ActivateVisaContrect("test1", true),
+                        new ActivateVisaContrect("test1", true),
+                        new ActivateVisaContrect("test1", true)
+                    };
+                    return lst;
+                });
+        }
+        public async Task<ObservableCollection<ActivateVisaContrect>> GetWarasaVisaByHafzaAsync(string value)
+        {
+            return await new Task<ObservableCollection<ActivateVisaContrect>>(
+                () =>
+                {
+                    ObservableCollection<ActivateVisaContrect> lst = new ObservableCollection<ActivateVisaContrect>
+                    {
+                        new ActivateVisaContrect("test1", true),
+                        new ActivateVisaContrect("test1", true),
+                        new ActivateVisaContrect("test1", true),
+                        new ActivateVisaContrect("test1", true),
+                        new ActivateVisaContrect("test1", true)
+                    };
+                    return lst;
+                });
+        }
+        public async void PostActiveMemberVisaAsync(string visa)
+        {
+            await Task.Run(() => { });
+        }
+        public async void PostActiveWarasaVisaAsync(string visa)
+        {
+            await Task.Run(() => { });
         }
     }
 }

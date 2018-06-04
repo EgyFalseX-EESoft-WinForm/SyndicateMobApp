@@ -64,6 +64,7 @@
     <Compile Include="DataContracts\AppOptionContrect.cs" />
     <Compile Include="DataContracts\LoginContrect.cs" />
     <Compile Include="DataContracts\MemberAmanatContrect.cs" />
+    <Compile Include="DataContracts\ActivateVisaContrect.cs" />
     <Compile Include="DataContracts\WarasaInfoContrect.cs" />
     <Compile Include="DataContracts\NewsItemContrect.cs" />
     <Compile Include="DataContracts\SubCommitteContrect.cs" />
@@ -74,6 +75,9 @@
     <Compile Include="DataContracts\BankMemberContrect.cs" />
     <Compile Include="DataContracts\LoginWarasaContrect.cs" />
     <Compile Include="DataContracts\LoginMemberContrect.cs" />
+    <Compile Include="Datasource\dsETSMobile.cs">
+      <DependentUpon>dsETSMobile.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasource\dsETSMobile1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -37,8 +37,8 @@ namespace SyndicateServiceLib.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=ETSMOBILE;Persist Security Info=True;User ID=sa;Pas" +
-            "sword=2491983")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQL16;Initial Catalog=ETSMOBILE;Persist Security Info=True;User ID=" +
+            "sa;Password=2491983")]
         public string ETSMOBILEConnectionString {
             get {
                 return ((string)(this["ETSMOBILEConnectionString"]));

@@ -38,6 +38,12 @@ namespace SyndicateMobApp.Helpers
             MainNavigationService.Configure(ViewModelLocator.MemberInfoPageKey, typeof(MemberInfoPage));
             MainNavigationService.Configure(ViewModelLocator.WarasaInfoPageKey, typeof(WarasaInfoPage));
             MainNavigationService.Configure(ViewModelLocator.MemberAmanatPageKey, typeof(MemberAmanatPage));
+            MainNavigationService.Configure(ViewModelLocator.ActivateMemberVisaPageKey, typeof(MemberActivateVisaPage));
+            MainNavigationService.Configure(ViewModelLocator.ActivateWarasaVisaPageKey, typeof(WarasaActivateVisaPage));
+
+            MainNavigationService.Configure(ViewModelLocator.MemberActivateVisaByHafzaPageKey, typeof(MemberActivateVisaByHafzaPage));
+            MainNavigationService.Configure(ViewModelLocator.WarasaActivateVisaByHafzaPageKey, typeof(WarasaActivateVisaByHafzaPage));
+
             MainNavigationService.Initialize(navPage);
         }
         public static void InitializeDialogService(NavigationPage navPage)

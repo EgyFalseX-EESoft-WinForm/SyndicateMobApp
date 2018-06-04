@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+
+             x:Class="SyndicateMobApp.Pages.WarasaActivateVisaByHafzaPage"
+             BindingContext="{Binding WarasaActivateVisaByHafzaInstance, Source={StaticResource Locator}}"
+             Title="{Binding Title}" Icon="{Binding Icon}">
+  
+  <ContentPage.Content>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+            <StackLayout  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="1" Grid.Row="0">
+                <Entry x:Name="EntyId" Text="{Binding InputString}" Placeholder="ادخل رقمك هنا" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"></Entry>
+                <Button x:Name="BtnSearch" Command="{Binding SearchCommand}" Text="عـــرض" HorizontalOptions="FillAndExpand" ></Button>
+                <syncfusion:SfDataGrid x:Name="SynGrid" ItemsSource="{Binding DataList}"
+                               ColumnSizer="Star" AutoGenerateColumns="False" AllowSorting="True" IsBusy="{Binding IsLoading}" SelectionMode="Single" >
+                    <syncfusion:SfDataGrid.Columns >
+                        <syncfusion:GridTextColumn HeaderText="فيـــزا" MappingName="Visa" />
+                        <syncfusion:GridSwitchColumn HeaderText="تفعيـــل" MappingName="Active" AllowEditing="True"/>
+                    </syncfusion:SfDataGrid.Columns>
+                </syncfusion:SfDataGrid>
+                <Button x:Name="BtnActive" Command="{Binding ExecuteCommand}" Text="تفعيـــل" HorizontalOptions="FillAndExpand" ></Button>
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

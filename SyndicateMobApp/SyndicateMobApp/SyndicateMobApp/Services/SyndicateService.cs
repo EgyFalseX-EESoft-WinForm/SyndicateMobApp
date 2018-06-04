@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Runtime.Serialization.Json;
+
 
 namespace SyndicateMobApp.Services
 {
@@ -13,6 +15,7 @@ namespace SyndicateMobApp.Services
     {
         //public string SyndicateServiceUrl => "http://falsex-001-site3.atempurl.com/SyndicateService.svc/rest/";
         public string SyndicateServiceUrl => "http://egycstest.com/SyndicateService.svc/rest/";
+        //public string SyndicateServiceUrl => "http://10.0.0.99/SyndicateService/SyndicateService.svc/rest/";
 
         public string LoginMemberUri  => SyndicateServiceUrl + "LoginMember/";
         public string LoginWarasaUri => SyndicateServiceUrl + "LoginWarasa/";
@@ -29,6 +32,14 @@ namespace SyndicateMobApp.Services
         public string GetAdsUri => SyndicateServiceUrl + "GetAds";
         public string GetAppOptionUri => SyndicateServiceUrl + "GetAppOption";
         public string GetInsertMemberAmanatUri => SyndicateServiceUrl + "GetInsertMemberAmanat?MMashatId={0}&UserId={1}";
+
+        public string ActivateMemberVisaUri => SyndicateServiceUrl + "ActivateMemberVisa?visa={0}&user={1}";
+        public string ActivateWarasaVisaUri => SyndicateServiceUrl + "ActivateWarasaVisa?visa={0}&user={1}";
+        public string GetMemberVisaByHafzaUri => SyndicateServiceUrl + "GetMemberVisaByHafza/{0}";
+        public string GetWarasaVisaByHafzaUri => SyndicateServiceUrl + "GetWarasaVisaByHafza/{0}";
+        public string PostActiveMemberVisaUri => SyndicateServiceUrl + "PostActiveMemberVisa?visa={0}&user={1}";
+        public string PostActiveWarasaVisaUri => SyndicateServiceUrl + "PostActiveWarasaVisa?visa={0}&user={1}";
+
 
         public async Task<LoginMemberContrect> LoginMemberAsync(string value)
         {
@@ -113,7 +124,6 @@ namespace SyndicateMobApp.Services
             WarasaInfoContrect result = JsonConvert.DeserializeObject<WarasaInfoContrect>(jesonString);
             return result;
         }
-
         public async Task<ObservableCollection<AdsContrect>> GetAdsAsync()
         {
             HttpClient client = new HttpClient();
@@ -121,7 +131,6 @@ namespace SyndicateMobApp.Services
             ObservableCollection<AdsContrect> result = JsonConvert.DeserializeObject<ObservableCollection<AdsContrect>>(jesonString);
             return result;
         }
-
         public async Task<ObservableCollection<AppOptionContrect>> GetAppOptionAsync()
         {
             HttpClient client = new HttpClient();
@@ -129,7 +138,6 @@ namespace SyndicateMobApp.Services
             ObservableCollection<AppOptionContrect> result = JsonConvert.DeserializeObject<ObservableCollection<AppOptionContrect>>(jesonString);
             return result;
         }
-
         public async Task<string> GetInsertMemberAmanatAsync(string MMashatId)
         {
             HttpClient client = new HttpClient();
@@ -138,5 +146,49 @@ namespace SyndicateMobApp.Services
             return result;
         }
 
+        public async Task<string> ActivateMemberVisaAsync(string visa)
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(string.Format(ActivateMemberVisaUri, visa, Helpers.UserManager.CurrentUser.user_id));
+            string result = JsonConvert.DeserializeObject<string>(jesonString);
+            return result;
+        }
+        public async Task<string> ActivateWarasaVisaAsync(string visa)
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(string.Format(ActivateWarasaVisaUri, visa, Helpers.UserManager.CurrentUser.user_id));
+            string result = JsonConvert.DeserializeObject<string>(jesonString);
+            return result;
+        }
+
+        public async Task<ObservableCollection<ActivateVisaContrect>> GetMemberVisaByHafzaAsync(string value)
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(string.Format(GetMemberVisaByHafzaUri, value));
+            ObservableCollection<ActivateVisaContrect> result = JsonConvert.DeserializeObject<ObservableCollection<ActivateVisaContrect>>(jesonString);
+            return result;
+        }
+        public async Task<ObservableCollection<ActivateVisaContrect>> GetWarasaVisaByHafzaAsync(string value)
+        {
+            HttpClient client = new HttpClient();
+            string tmp = string.Format(GetWarasaVisaByHafzaUri, value);
+            string jesonString = await client.GetStringAsync(string.Format(GetWarasaVisaByHafzaUri, value));
+            ObservableCollection<ActivateVisaContrect> result = JsonConvert.DeserializeObject<ObservableCollection<ActivateVisaContrect>>(jesonString);
+            return result;
+        }
+
+        public async void PostActiveMemberVisaAsync(string visa)
+        {
+            HttpClient client = new HttpClient();
+            StringContent content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
+            HttpResponseMessage result = await client.PostAsync(string.Format(PostActiveMemberVisaUri, visa, Helpers.UserManager.CurrentUser.user_id), content);
+        }
+        public async void PostActiveWarasaVisaAsync(string visa)
+        {
+            HttpClient client = new HttpClient();
+            StringContent content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
+            HttpResponseMessage result = await client.PostAsync(string.Format(PostActiveWarasaVisaUri, visa, Helpers.UserManager.CurrentUser.user_id), content);
+            
+        }
     }
 }

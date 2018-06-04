@@ -312,5 +312,69 @@ namespace SyndicateServiceLib
             else
                 return "لم يتم التفعيل";
         }
+
+        public ObservableCollection<ActivateVisaContrect> GetMemberVisaByHafza(string value)
+        {
+            ObservableCollection<ActivateVisaContrect> returnItem = new ObservableCollection<ActivateVisaContrect>();
+            int id;
+            if (!int.TryParse(value, out id))
+                return null;
+            dsETSMobile.DisactiveMemberVisaDataTable tbl = new DisactiveMemberVisaTableAdapter().GetData(id);
+            foreach (dsETSMobile.DisactiveMemberVisaRow item in tbl)
+                returnItem.Add(new ActivateVisaContrect(item.MMashatId.ToString(), false));
+            return returnItem;
+        }
+        public ObservableCollection<ActivateVisaContrect> GetWarasaVisaByHafza(string value)
+        {
+            ObservableCollection<ActivateVisaContrect> returnItem = new ObservableCollection<ActivateVisaContrect>();
+            int id;
+            if (!int.TryParse(value, out id))
+                return null;
+            dsETSMobile.DisactiveWarasaVisaDataTable tbl = new DisactiveWarasaVisaTableAdapter().GetData(id);
+            foreach (dsETSMobile.DisactiveWarasaVisaRow item in tbl)
+                returnItem.Add(new ActivateVisaContrect(item.code60.ToString(), false));
+            return returnItem;
+        }
+
+        public string PostActiveMemberVisa(string visa, string user)
+        {
+            if (visa.Trim() == string.Empty)
+                return "رقم غير صحيح";
+
+            int user_number;
+            if (!int.TryParse(user, out user_number))
+                return "رقم غير صحيح";
+
+            string[] visaList = visa.Split('|');
+            QueriesTableAdapter adpQry = new QueriesTableAdapter();
+            foreach (string item in visaList)
+            {
+                int number;
+                if (!int.TryParse(item, out number))
+                    continue;
+                int aa = adpQry.ActivateMemberVisa(user_number, number);
+            }
+            return "تم التفعيل";
+        }
+        public string PostActiveWarasaVisa(string visa, string user)
+        {
+            if (visa.Trim() == string.Empty)
+                return "رقم غير صحيح";
+
+            int user_number;
+            if (!int.TryParse(user, out user_number))
+                return "رقم غير صحيح";
+
+            string[] visaList = visa.Split('|');
+            QueriesTableAdapter adpQry = new QueriesTableAdapter();
+            foreach (string item in visaList)
+            {
+                int number;
+                if (!int.TryParse(item, out number))
+                    continue;
+                adpQry.ActivateWarasaVisa(user_number, number);
+            }
+            return "تم التفعيل";
+        }
     }
 }

@@ -53,6 +53,18 @@
     <Compile Include="Interfaces\ILocation.cs" />
     <Compile Include="Interfaces\IMapModel.cs" />
     <Compile Include="Models\Location.cs" />
+    <Compile Include="Pages\WarasaActivateVisaByHafzaPage.xaml.cs">
+      <DependentUpon>WarasaActivateVisaByHafzaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MemberActivateVisaByHafzaPage.xaml.cs">
+      <DependentUpon>MemberActivateVisaByHafzaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WarasaActivateVisaPage.xaml.cs">
+      <DependentUpon>WarasaActivateVisaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MemberActivateVisaPage.xaml.cs">
+      <DependentUpon>MemberActivateVisaPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MemberAmanatPage.xaml.cs">
       <DependentUpon>MemberAmanatPage.xaml</DependentUpon>
     </Compile>
@@ -90,27 +102,32 @@
     <Compile Include="Pages\RootPage.xaml.cs">
       <DependentUpon>RootPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Services\AdsContrect.cs" />
-    <Compile Include="Services\AppOptionContrect.cs" />
-    <Compile Include="Services\BankMemberContrect.cs" />
-    <Compile Include="Services\BankWarasaContrect.cs" />
-    <Compile Include="Services\ISyndicateService.cs" />
-    <Compile Include="Services\LoginContrect.cs" />
-    <Compile Include="Services\LoginWarasaContrect.cs" />
-    <Compile Include="Services\MemberInfoContrect.cs" />
-    <Compile Include="Services\NewsFrontPageContrect.cs" />
-    <Compile Include="Services\NewsItemContrect.cs" />
-    <Compile Include="Services\SubCommitteContrect.cs" />
-    <Compile Include="Services\SyndicateContrect.cs" />
+    <Compile Include="Services\Contrect\ActivateVisaContrect.cs" />
+    <Compile Include="Services\Contrect\AdsContrect.cs" />
+    <Compile Include="Services\Contrect\AppOptionContrect.cs" />
+    <Compile Include="Services\Contrect\BankMemberContrect.cs" />
+    <Compile Include="Services\Contrect\BankWarasaContrect.cs" />
+    <Compile Include="Services\Contrect\ISyndicateService.cs" />
+    <Compile Include="Services\Contrect\LoginContrect.cs" />
+    <Compile Include="Services\Contrect\LoginWarasaContrect.cs" />
+    <Compile Include="Services\Contrect\MemberInfoContrect.cs" />
+    <Compile Include="Services\Contrect\NewsFrontPageContrect.cs" />
+    <Compile Include="Services\Contrect\NewsItemContrect.cs" />
+    <Compile Include="Services\Contrect\SubCommitteContrect.cs" />
+    <Compile Include="Services\Contrect\SyndicateContrect.cs" />
     <Compile Include="Services\SyndicateServiceOffline.cs" />
     <Compile Include="Services\SyndicateService.cs" />
-    <Compile Include="Services\LoginMemberContrect.cs" />
+    <Compile Include="Services\Contrect\LoginMemberContrect.cs" />
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\WarasaInfoContrect.cs" />
+    <Compile Include="Services\Contrect\WarasaInfoContrect.cs" />
+    <Compile Include="ViewModels\WarasaActivateVisaByHafzaVm.cs" />
+    <Compile Include="ViewModels\MemberActivateVisaByHafzaVm.cs" />
     <Compile Include="ViewModels\HomeVm.cs" />
+    <Compile Include="ViewModels\WarasaActivateVisaVm.cs" />
+    <Compile Include="ViewModels\MemberActivateVisaVm.cs" />
     <Compile Include="ViewModels\MemberAmanatVm.cs" />
     <Compile Include="ViewModels\WarasaInfoVm.cs" />
     <Compile Include="ViewModels\MemberInfoVm.cs" />
@@ -272,6 +289,30 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\MemberAmanatPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\MemberActivateVisaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\WarasaActivateVisaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\MemberActivateVisaByHafzaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\WarasaActivateVisaByHafzaPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
