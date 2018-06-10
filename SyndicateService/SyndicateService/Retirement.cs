@@ -290,6 +290,10 @@ namespace SyndicateServiceLib
             bool active = Convert.ToBoolean(adpQry.IsMemberVisaActivated(visaToActive));
             if (active)
                 return "تم التفعيل مسبقا";
+            string userAuth = adpQry.CheckUserActiveMemAuth(visaToActive, userToActive).ToString();
+            if (userAuth != "1")
+                return userAuth;
+
             int result = adpQry.ActivateMemberVisa(userToActive, visaToActive);
             if (result > 0)
                 return "تم التفعيل";
@@ -306,6 +310,9 @@ namespace SyndicateServiceLib
             bool active = Convert.ToBoolean(adpQry.IsWarasaVisaActivated(visaToActive));
             if (active)
                 return "تم التفعيل مسبقا";
+            string userAuth = adpQry.CheckUserActiveWarasaAuth(visaToActive, userToActive).ToString();
+            if (userAuth != "1")
+                return userAuth;
             int result = adpQry.ActivateWarasaVisa(userToActive, visaToActive);
             if (result > 0)
                 return "تم التفعيل";
@@ -352,6 +359,10 @@ namespace SyndicateServiceLib
                 int number;
                 if (!int.TryParse(item, out number))
                     continue;
+                //check for user authorization
+                string userAuth = adpQry.CheckUserActiveMemAuth(number, user_number).ToString();
+                if (userAuth != "1")
+                    return userAuth;
                 int aa = adpQry.ActivateMemberVisa(user_number, number);
             }
             return "تم التفعيل";
@@ -372,6 +383,9 @@ namespace SyndicateServiceLib
                 int number;
                 if (!int.TryParse(item, out number))
                     continue;
+                string userAuth = adpQry.CheckUserActiveWarasaAuth(number, user_number).ToString();
+                if (userAuth != "1")
+                    return userAuth;
                 adpQry.ActivateWarasaVisa(user_number, number);
             }
             return "تم التفعيل";
