@@ -32,6 +32,7 @@ namespace SyndicateMobApp.Helpers
     {
         public const string LoginPageKey = "Login";
         public const string MenuPageKey = "Menu";
+        public const string MenuSubAdminPageKey = "MenuSubAdmin";
         public const string RootPageKey = "Root";
         public const string HomePageKey = "Home";
         public const string BankMemberPageKey = "BankMember";
@@ -68,6 +69,7 @@ namespace SyndicateMobApp.Helpers
             SimpleIoc.Default.Register<LoginVm>();
             SimpleIoc.Default.Register<RootVm>();
             SimpleIoc.Default.Register<MenuVm>();
+            SimpleIoc.Default.Register<MenuSubAdminVm>();
             SimpleIoc.Default.Register<HomeVm>();
             SimpleIoc.Default.Register<BankMemberVm>();
             SimpleIoc.Default.Register<BankWarasaVm>();
@@ -89,6 +91,7 @@ namespace SyndicateMobApp.Helpers
         public LoginVm LoginInstance => ServiceLocator.Current.GetInstance<LoginVm>();
         public RootVm RootInstance => ServiceLocator.Current.GetInstance<RootVm>();
         public MenuVm MenuInstance => ServiceLocator.Current.GetInstance<MenuVm>();
+        public MenuSubAdminVm MenuSubAmdinInstance => ServiceLocator.Current.GetInstance<MenuSubAdminVm>();
         public HomeVm HomeInstance => ServiceLocator.Current.GetInstance<HomeVm>();
         public NewsVm NewsInstance => ServiceLocator.Current.GetInstance<NewsVm>();
         public NewsDetailsVm NewsDetailsInstance => ServiceLocator.Current.GetInstance<NewsDetailsVm>();

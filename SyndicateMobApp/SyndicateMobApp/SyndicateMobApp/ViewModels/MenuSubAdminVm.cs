@@ -29,54 +29,6 @@ namespace SyndicateMobApp.ViewModels
         {
             _dataList = new ObservableCollection<MasterPageItem>()
             {
-                 new MasterPageItem
-                {
-                     Id = 1,
-                     Title = "الاخبـار",
-                     IconSource = "news.png",
-                     PageKey = ViewModelLocator.NewsPageKey,
-                     Visible = true,
-                },
-                new MasterPageItem
-                {
-                    Id = 2,
-                    Title = "بيانات البنك اعضاء",
-                    IconSource = "bank32.png",
-                    PageKey = ViewModelLocator.BankMemberPageKey,
-                    Visible = true,
-                },
-                new MasterPageItem
-                {
-                    Id = 3,
-                    Title = "بيانات البنك ورثة",
-                    IconSource = "bank32.png",
-                    PageKey = ViewModelLocator.BankWarasaPageKey,
-                    Visible = true,
-                },
-                new MasterPageItem
-                {
-                    Id = 4,
-                    Title = "خريطة الفرعيات و اللجان",
-                    IconSource = "map.png",
-                    PageKey = ViewModelLocator.GpsPageKey,
-                    Visible = true,
-                },
-                new MasterPageItem
-                {
-                    Id = 5,
-                    Title = "بيانات الاعضاء",
-                    IconSource = "info.png",
-                    PageKey = ViewModelLocator.MemberInfoPageKey,
-                    Visible = true,
-                },
-                new MasterPageItem
-                {
-                    Id = 5,
-                    Title = "بيانات الورثة",
-                    IconSource = "info.png",
-                    PageKey = ViewModelLocator.WarasaInfoPageKey,
-                    Visible = true,
-                },
                 new MasterPageItem
                 {
                     Id = 6,
@@ -175,10 +127,7 @@ namespace SyndicateMobApp.ViewModels
             {
                 return;
             }
-            //if (_selectedItem == typeof(string))
-            //    _navigationService.NavigateTo(ViewModelLocator.BankMemberPageKey);
-            //this.Detail = new NavigationPage((Page)Activator.CreateInstance(((MasterPageItem)args.SelectedItem).TargetType));
-            Master.IsPresented = false;
+            //Master.IsPresented = false;
             switch (_selectedItem.PageKey)
             {
                 //Authentication required
@@ -201,10 +150,6 @@ namespace SyndicateMobApp.ViewModels
         public void ActiveMenu(bool activate)
         {
             return;
-            //foreach (MasterPageItem masterPageItem in _dataList.Where(masterPageItem => masterPageItem.Id != 1))
-            //{
-            //    masterPageItem.Visible = activate;
-            //}
         }
     }
 }

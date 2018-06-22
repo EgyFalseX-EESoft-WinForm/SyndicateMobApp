@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:SyndicateMobApp.Helpers;assembly=SyndicateMobApp"
+             x:Class="SyndicateMobApp.Pages.MenuSubAdminPage"
+             BindingContext="{Binding MenuSubAmdinInstance, Source={StaticResource Locator}}"
+             Title="{Binding Title}"  Icon="{Binding Icon}">
+  <ContentPage.Content>
+     <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="1" >
+       
+       <ListView x:Name="GroupedView" BackgroundColor="#2196F3" RowHeight="35"
+          SeparatorVisibility="Default" SeparatorColor="White"
+          ItemsSource="{Binding DataList}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+         <ListView.Header>
+           <StackLayout Orientation="Vertical" HeightRequest="100" Padding="10,10,10,10">
+             <Image Source="logo" HeightRequest="48" WidthRequest="48"/>
+             <Label x:Name="WebsiteLabel" Text="موقع نقابة المهـن التعلـميـة" TextColor="Lime" HorizontalTextAlignment="Center" Style="{StaticResource MenuLabel}"/>
+           </StackLayout>
+         </ListView.Header>
+         <ListView.Footer>
+           <StackLayout Orientation="Horizontal">
+             <!--Insert Information Here-->
+           </StackLayout>
+         </ListView.Footer>
+         <ListView.ItemTemplate>
+           <DataTemplate>
+             <ViewCell>
+               <ViewCell.View>
+                 <ContentView>
+                   <StackLayout Padding="10,0,20,10" Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                     <Label Text="{Binding Title}" Style="{StaticResource MenuLabel}" TextColor="White" />
+                     <Image Source="{Binding IconSource}"/>
+                   </StackLayout>
+                 </ContentView>
+               </ViewCell.View>
+             </ViewCell>
+           </DataTemplate>
+         </ListView.ItemTemplate>
+       </ListView>
+       
+     </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

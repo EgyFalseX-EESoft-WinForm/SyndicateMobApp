@@ -80,42 +80,9 @@ namespace SyndicateMobApp.ViewModels
                 new MasterPageItem
                 {
                     Id = 6,
-                    Title = "طلب امانات اعضاء",
+                    Title = "خاص بالفرعيات",
                     IconSource = "info.png",
-                    PageKey = ViewModelLocator.MemberAmanatPageKey,
-                    Visible = true,
-                },
-
-                new MasterPageItem
-                {
-                    Id = 7,
-                    Title = "تفعيل فيزا اعضاء",
-                    IconSource = "info.png",
-                    PageKey = ViewModelLocator.ActivateMemberVisaPageKey,
-                    Visible = true,
-                },
-                new MasterPageItem
-                {
-                    Id = 8,
-                    Title = "تفعيل فيزا ورثة",
-                    IconSource = "info.png",
-                    PageKey = ViewModelLocator.ActivateWarasaVisaPageKey,
-                    Visible = true,
-                },
-                new MasterPageItem
-                {
-                    Id = 9,
-                    Title = "تفعيل فيزا حافظة اعضاء",
-                    IconSource = "info.png",
-                    PageKey = ViewModelLocator.MemberActivateVisaByHafzaPageKey,
-                    Visible = true,
-                },
-                new MasterPageItem
-                {
-                    Id = 10,
-                    Title = "تفعيل فيزا حافظة ورثة",
-                    IconSource = "info.png",
-                    PageKey = ViewModelLocator.WarasaActivateVisaByHafzaPageKey,
+                    PageKey = ViewModelLocator.MenuSubAdminPageKey,
                     Visible = true,
                 },
             };
@@ -182,11 +149,7 @@ namespace SyndicateMobApp.ViewModels
             switch (_selectedItem.PageKey)
             {
                 //Authentication required
-                case ViewModelLocator.MemberAmanatPageKey:
-                case ViewModelLocator.ActivateMemberVisaPageKey:
-                case ViewModelLocator.ActivateWarasaVisaPageKey:
-                case ViewModelLocator.MemberActivateVisaByHafzaPageKey:
-                case ViewModelLocator.WarasaActivateVisaByHafzaPageKey:
+                case ViewModelLocator.MenuSubAdminPageKey:
                     if (UserManager.Authenticated)
                         _navigationService.NavigateTo(_selectedItem.PageKey);
                     else
@@ -196,7 +159,6 @@ namespace SyndicateMobApp.ViewModels
                     _navigationService.NavigateTo(_selectedItem.PageKey);
                     break;
             }
-            
         }
         public void ActiveMenu(bool activate)
         {
