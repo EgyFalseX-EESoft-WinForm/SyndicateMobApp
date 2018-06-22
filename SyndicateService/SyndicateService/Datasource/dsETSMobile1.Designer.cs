@@ -9672,7 +9672,7 @@ WHERE        (TBLWarasa.code60 = @Number)";
 FROM            tblmemberbank INNER JOIN
                          TBLDofatSarf ON tblmemberbank.DofatSarfId = TBLDofatSarf.DofatSarfId
 WHERE        (tblmemberbank.MMashatId = @Number)
-ORDER BY tblmemberbank.sendbankdate";
+ORDER BY tblmemberbank.sendbankdate DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Number", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "MMashatId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -9861,7 +9861,8 @@ ORDER BY tblmemberbank.sendbankdate";
 FROM            tblWarasabank INNER JOIN
                          TBLWarasa ON tblWarasabank.PersonId = TBLWarasa.PersonId INNER JOIN
                          TBLDofatSarf ON tblWarasabank.DofatSarfId = TBLDofatSarf.DofatSarfId
-WHERE        (TBLWarasa.code60 = @Number)";
+WHERE        (TBLWarasa.code60 = @Number)
+ORDER BY tblWarasabank.sendbankdate DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Number", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "code60", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
