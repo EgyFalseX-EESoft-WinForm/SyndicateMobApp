@@ -13238,18 +13238,22 @@ FROM            TblMemberAmanat";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        MMashatId\r\nFROM            TBLMashat\r\nWHERE        (hafzano = @hafz" +
-                "ano) AND (Activate <> 1) AND (ActivateFromMobile IS NULL OR\r\n                   " +
-                "      ActivateFromMobile = 0)\r\nORDER BY trteep";
+            this._commandCollection[0].CommandText = @"SELECT        MMashatId
+FROM            TBLMashat
+WHERE        (hafzano = @hafzano) AND (Activate <> 1) AND (ActivateFromMobile IS NULL OR ActivateFromMobile = 0)
+AND EXISTS(SELECT [user_id] FROM [dbo].[user] WHERE [user_id] = @user AND (syndicateId = TBLMashat.SyndicateId OR subCommitteId = TBLMashat.SubCommitteId))
+ORDER BY trteep
+";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hafzano", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "hafzano", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsETSMobile.DisactiveMemberVisaDataTable dataTable, global::System.Nullable<int> hafzano) {
+        public virtual int Fill(dsETSMobile.DisactiveMemberVisaDataTable dataTable, global::System.Nullable<int> hafzano, int user) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((hafzano.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(hafzano.Value));
@@ -13257,6 +13261,7 @@ FROM            TblMemberAmanat";
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(user));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -13268,7 +13273,7 @@ FROM            TblMemberAmanat";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsETSMobile.DisactiveMemberVisaDataTable GetData(global::System.Nullable<int> hafzano) {
+        public virtual dsETSMobile.DisactiveMemberVisaDataTable GetData(global::System.Nullable<int> hafzano, int user) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((hafzano.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(hafzano.Value));
@@ -13276,6 +13281,7 @@ FROM            TblMemberAmanat";
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(user));
             dsETSMobile.DisactiveMemberVisaDataTable dataTable = new dsETSMobile.DisactiveMemberVisaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -13420,18 +13426,21 @@ FROM            TblMemberAmanat";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        code60\r\nFROM            TBLWarasa\r\nWHERE        (hafza = @hafza) AN" +
-                "D (Activate <> 1) AND (ActivateFromMobile IS NULL OR ActivateFromMobile = 0)\r\nGR" +
-                "OUP BY code60";
+            this._commandCollection[0].CommandText = @"SELECT        code60
+FROM            TBLWarasa
+WHERE        (hafza = @hafza) AND (Activate <> 1) AND (ActivateFromMobile IS NULL OR ActivateFromMobile = 0)
+AND EXISTS(SELECT [user_id] FROM [dbo].[user] WHERE [user_id] = @user AND (syndicateId = TBLWarasa.SyndicateId OR subCommitteId = TBLWarasa.SubCommitteId))
+GROUP BY code60";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hafza", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "hafza", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsETSMobile.DisactiveWarasaVisaDataTable dataTable, global::System.Nullable<int> hafza) {
+        public virtual int Fill(dsETSMobile.DisactiveWarasaVisaDataTable dataTable, global::System.Nullable<int> hafza, int user) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((hafza.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(hafza.Value));
@@ -13439,6 +13448,7 @@ FROM            TblMemberAmanat";
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(user));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -13450,7 +13460,7 @@ FROM            TblMemberAmanat";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsETSMobile.DisactiveWarasaVisaDataTable GetData(global::System.Nullable<int> hafza) {
+        public virtual dsETSMobile.DisactiveWarasaVisaDataTable GetData(global::System.Nullable<int> hafza, int user) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((hafza.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(hafza.Value));
@@ -13458,6 +13468,7 @@ FROM            TblMemberAmanat";
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(user));
             dsETSMobile.DisactiveWarasaVisaDataTable dataTable = new dsETSMobile.DisactiveWarasaVisaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

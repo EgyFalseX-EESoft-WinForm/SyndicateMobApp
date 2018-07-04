@@ -24,6 +24,7 @@
                         <syncfusion:GridSwitchColumn HeaderText="تفعيـــل" MappingName="Active" AllowEditing="True"/>
                     </syncfusion:SfDataGrid.Columns>
                 </syncfusion:SfDataGrid>
+                <Label Text="{Binding HafzaCount}"></Label>
                 <Button x:Name="BtnActive" Command="{Binding ExecuteCommand}" Text="تفعيـــل" HorizontalOptions="FillAndExpand" ></Button>
             </StackLayout>
 

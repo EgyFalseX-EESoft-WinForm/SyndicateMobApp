@@ -70,11 +70,11 @@ namespace SyndicateServiceLib
         string ActivateWarasaVisa(string visa, string user);
 
         [OperationContract]
-        [WebInvoke(Method = "GET", UriTemplate = "GetMemberVisaByHafza/{value}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        ObservableCollection<ActivateVisaContrect> GetMemberVisaByHafza(string value);
+        [WebInvoke(Method = "GET", UriTemplate = "GetMemberVisaByHafza?hafza={hafza}&user={user}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        ObservableCollection<ActivateVisaContrect> GetMemberVisaByHafza(string hafza, string user);
         [OperationContract]
-        [WebInvoke(Method = "GET", UriTemplate = "GetWarasaVisaByHafza/{value}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        ObservableCollection<ActivateVisaContrect> GetWarasaVisaByHafza(string value);
+        [WebInvoke(Method = "GET", UriTemplate = "GetWarasaVisaByHafza?hafza={hafza}&user={user}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        ObservableCollection<ActivateVisaContrect> GetWarasaVisaByHafza(string hafza, string user);
 
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "PostActiveMemberVisa?visa={visa}&user={user}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]

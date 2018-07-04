@@ -14,8 +14,6 @@ using SyndicateMobApp.Helpers;
 using SyndicateMobApp.Services;
 using Xamarin.Forms;
 
-
-
 namespace SyndicateMobApp.ViewModels
 {
     public class MemberActivateVisaByHafzaVm : ViewModelBase
@@ -94,6 +92,14 @@ namespace SyndicateMobApp.ViewModels
 
             }
         }
+        public int HafzaCount
+        {
+            set
+            {
+                RaisePropertyChanged();
+            }
+            get { return DataList.Count; }
+        }
         #endregion
         #region -  Functions  -
         public MemberActivateVisaByHafzaVm(INavigationService navigationService)
@@ -107,6 +113,7 @@ namespace SyndicateMobApp.ViewModels
             IsLoading = true;
             ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
             DataList = await srv.GetMemberVisaByHafzaAsync(_inputString);
+            HafzaCount = DataList.Count;
             IsLoading = false;
         }
         public async void ExecuteAsync()

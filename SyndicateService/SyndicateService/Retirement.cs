@@ -320,24 +320,30 @@ namespace SyndicateServiceLib
                 return "لم يتم التفعيل";
         }
 
-        public ObservableCollection<ActivateVisaContrect> GetMemberVisaByHafza(string value)
+        public ObservableCollection<ActivateVisaContrect> GetMemberVisaByHafza(string hafza, string user)
         {
             ObservableCollection<ActivateVisaContrect> returnItem = new ObservableCollection<ActivateVisaContrect>();
-            int id;
-            if (!int.TryParse(value, out id))
+            int hafzaNumber;
+            if (!int.TryParse(hafza, out hafzaNumber))
                 return null;
-            dsETSMobile.DisactiveMemberVisaDataTable tbl = new DisactiveMemberVisaTableAdapter().GetData(id);
+            int userNumber;
+            if (!int.TryParse(user, out userNumber))
+                return null;
+            dsETSMobile.DisactiveMemberVisaDataTable tbl = new DisactiveMemberVisaTableAdapter().GetData(hafzaNumber, userNumber);
             foreach (dsETSMobile.DisactiveMemberVisaRow item in tbl)
                 returnItem.Add(new ActivateVisaContrect(item.MMashatId.ToString(), false));
             return returnItem;
         }
-        public ObservableCollection<ActivateVisaContrect> GetWarasaVisaByHafza(string value)
+        public ObservableCollection<ActivateVisaContrect> GetWarasaVisaByHafza(string hafza, string user)
         {
             ObservableCollection<ActivateVisaContrect> returnItem = new ObservableCollection<ActivateVisaContrect>();
-            int id;
-            if (!int.TryParse(value, out id))
+            int hafzaNumber;
+            if (!int.TryParse(hafza, out hafzaNumber))
                 return null;
-            dsETSMobile.DisactiveWarasaVisaDataTable tbl = new DisactiveWarasaVisaTableAdapter().GetData(id);
+            int userNumber;
+            if (!int.TryParse(user, out userNumber))
+                return null;
+            dsETSMobile.DisactiveWarasaVisaDataTable tbl = new DisactiveWarasaVisaTableAdapter().GetData(hafzaNumber, userNumber);
             foreach (dsETSMobile.DisactiveWarasaVisaRow item in tbl)
                 returnItem.Add(new ActivateVisaContrect(item.code60.ToString(), false));
             return returnItem;

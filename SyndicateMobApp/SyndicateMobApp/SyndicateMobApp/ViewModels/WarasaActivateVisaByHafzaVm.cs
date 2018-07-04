@@ -94,6 +94,14 @@ namespace SyndicateMobApp.ViewModels
 
             }
         }
+        public int HafzaCount
+        {
+            set
+            {
+                RaisePropertyChanged();
+            }
+            get { return DataList.Count; }
+        }
         #endregion
         #region -  Functions  -
         public WarasaActivateVisaByHafzaVm(INavigationService navigationService)
@@ -107,6 +115,7 @@ namespace SyndicateMobApp.ViewModels
             IsLoading = true;
             ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
             DataList = await srv.GetWarasaVisaByHafzaAsync(_inputString);
+            HafzaCount = DataList.Count;
             IsLoading = false;
         }
         public async void ExecuteAsync()

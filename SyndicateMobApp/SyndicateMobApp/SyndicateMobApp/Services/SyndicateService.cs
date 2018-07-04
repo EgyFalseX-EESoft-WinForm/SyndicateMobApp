@@ -35,8 +35,8 @@ namespace SyndicateMobApp.Services
 
         public string ActivateMemberVisaUri => SyndicateServiceUrl + "ActivateMemberVisa?visa={0}&user={1}";
         public string ActivateWarasaVisaUri => SyndicateServiceUrl + "ActivateWarasaVisa?visa={0}&user={1}";
-        public string GetMemberVisaByHafzaUri => SyndicateServiceUrl + "GetMemberVisaByHafza/{0}";
-        public string GetWarasaVisaByHafzaUri => SyndicateServiceUrl + "GetWarasaVisaByHafza/{0}";
+        public string GetMemberVisaByHafzaUri => SyndicateServiceUrl + "GetMemberVisaByHafza?hafza={0}&user={1}";
+        public string GetWarasaVisaByHafzaUri => SyndicateServiceUrl + "GetWarasaVisaByHafza?hafza={0}&user={1}";
         public string PostActiveMemberVisaUri => SyndicateServiceUrl + "PostActiveMemberVisa?visa={0}&user={1}";
         public string PostActiveWarasaVisaUri => SyndicateServiceUrl + "PostActiveWarasaVisa?visa={0}&user={1}";
 
@@ -161,18 +161,17 @@ namespace SyndicateMobApp.Services
             return result;
         }
 
-        public async Task<ObservableCollection<ActivateVisaContrect>> GetMemberVisaByHafzaAsync(string value)
+        public async Task<ObservableCollection<ActivateVisaContrect>> GetMemberVisaByHafzaAsync(string hafza)
         {
             HttpClient client = new HttpClient();
-            string jesonString = await client.GetStringAsync(string.Format(GetMemberVisaByHafzaUri, value));
+            string jesonString = await client.GetStringAsync(string.Format(GetMemberVisaByHafzaUri, hafza, Helpers.UserManager.CurrentUser.user_id));
             ObservableCollection<ActivateVisaContrect> result = JsonConvert.DeserializeObject<ObservableCollection<ActivateVisaContrect>>(jesonString);
             return result;
         }
-        public async Task<ObservableCollection<ActivateVisaContrect>> GetWarasaVisaByHafzaAsync(string value)
+        public async Task<ObservableCollection<ActivateVisaContrect>> GetWarasaVisaByHafzaAsync(string hafza)
         {
             HttpClient client = new HttpClient();
-            string tmp = string.Format(GetWarasaVisaByHafzaUri, value);
-            string jesonString = await client.GetStringAsync(string.Format(GetWarasaVisaByHafzaUri, value));
+            string jesonString = await client.GetStringAsync(string.Format(GetWarasaVisaByHafzaUri, hafza, Helpers.UserManager.CurrentUser.user_id));
             ObservableCollection<ActivateVisaContrect> result = JsonConvert.DeserializeObject<ObservableCollection<ActivateVisaContrect>>(jesonString);
             return result;
         }
