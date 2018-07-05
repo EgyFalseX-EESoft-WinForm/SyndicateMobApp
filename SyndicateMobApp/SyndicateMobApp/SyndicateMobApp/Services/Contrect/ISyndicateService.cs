@@ -27,6 +27,12 @@ namespace SyndicateMobApp.Services
         string PostActiveMemberVisaUri { get; }
         string PostActiveWarasaVisaUri { get; }
 
+        string GetActiveMemberVisaUri { get; }
+        string GetActiveWarasaVisaUri { get; }
+
+        string GetStopMemberVisaUri { get; }
+        string GetStopWarasaVisaUri { get; }
+
         Task<LoginMemberContrect> LoginMemberAsync(string value);
         Task<LoginWarasaContrect> LoginWarasaAsync(string value);
         Task<LoginContrect> LoginAsync(string user, string pass);
@@ -49,6 +55,8 @@ namespace SyndicateMobApp.Services
         Task<ObservableCollection<ActivateVisaContrect>> GetWarasaVisaByHafzaAsync(string value);
         void PostActiveMemberVisaAsync(string visa);
         void PostActiveWarasaVisaAsync(string visa);
+        Task<string> GetStopVisaMemberAsync(string visa, string user);
+        Task<string> GetStopVisaWarasaAsync(string visa, string user);
 
     }
 }

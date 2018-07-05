@@ -396,5 +396,47 @@ namespace SyndicateServiceLib
             }
             return "تم التفعيل";
         }
+
+        public string GetStopVisaMember(string visa, string user)
+        {
+            int visaToStop;
+            int userToStop;
+            if (!int.TryParse(visa, out visaToStop) || !int.TryParse(user, out userToStop))
+                return "رقم غير صحيح";
+
+            StopVisaMemberTableAdapter adp = new StopVisaMemberTableAdapter();
+            if (adp.RecordExist(visaToStop) > 0)
+                return "تم الايقاف مسبقا";
+            QueriesTableAdapter adpQry = new QueriesTableAdapter();
+            string userAuth = adpQry.CheckUserActiveMemAuth(visaToStop, userToStop).ToString();
+            if (userAuth != "1")
+                return userAuth;
+            int result = adp.Insert(visaToStop, userToStop, DateTime.Now);
+            if (result > 0)
+                return "تم الايقاف";
+            else
+                return "لم يتم الايقاف";
+        }
+
+        public string GetStopVisaWarasa(string visa, string user)
+        {
+            int visaToStop;
+            int userToStop;
+            if (!int.TryParse(visa, out visaToStop) || !int.TryParse(user, out userToStop))
+                return "رقم غير صحيح";
+
+            StopVisaWarasaTableAdapter adp = new StopVisaWarasaTableAdapter();
+            if (adp.RecordExist(visaToStop) > 0)
+                return "تم الايقاف مسبقا";
+            QueriesTableAdapter adpQry = new QueriesTableAdapter();
+            string userAuth = adpQry.CheckUserActiveMemAuth(visaToStop, userToStop).ToString();
+            if (userAuth != "1")
+                return userAuth;
+            int result = adp.Insert(visaToStop, userToStop, DateTime.Now);
+            if (result > 0)
+                return "تم الايقاف";
+            else
+                return "لم يتم الايقاف";
+        }
     }
 }

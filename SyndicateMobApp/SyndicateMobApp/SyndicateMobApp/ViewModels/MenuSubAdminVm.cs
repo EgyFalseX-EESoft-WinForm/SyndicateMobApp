@@ -70,6 +70,22 @@ namespace SyndicateMobApp.ViewModels
                     PageKey = ViewModelLocator.WarasaActivateVisaByHafzaPageKey,
                     Visible = true,
                 },
+                //new MasterPageItem
+                //{
+                //    Id = 11,
+                //    Title = "ايقاف فيزا اعضاء",
+                //    IconSource = "info.png",
+                //    PageKey = ViewModelLocator.StopMemberVisaPageKey,
+                //    Visible = true,
+                //},
+                //new MasterPageItem
+                //{
+                //    Id = 12,
+                //    Title = "ايقاف فيزا ورثة",
+                //    IconSource = "info.png",
+                //    PageKey = ViewModelLocator.StopWarasaVisaPageKey,
+                //    Visible = true,
+                //},
             };
         }
         // Public properties
@@ -136,6 +152,9 @@ namespace SyndicateMobApp.ViewModels
                 case ViewModelLocator.ActivateWarasaVisaPageKey:
                 case ViewModelLocator.MemberActivateVisaByHafzaPageKey:
                 case ViewModelLocator.WarasaActivateVisaByHafzaPageKey:
+                case ViewModelLocator.StopMemberVisaPageKey:
+                case ViewModelLocator.StopWarasaVisaPageKey:
+
                     if (UserManager.Authenticated)
                         _navigationService.NavigateTo(_selectedItem.PageKey);
                     else

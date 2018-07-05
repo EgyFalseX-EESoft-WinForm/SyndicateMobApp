@@ -79,11 +79,16 @@ namespace SyndicateServiceLib
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "PostActiveMemberVisa?visa={visa}&user={user}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         string PostActiveMemberVisa(string visa, string user);
-
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "PostActiveWarasaVisa?visa={visa}&user={user}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         string PostActiveWarasaVisa(string visa, string user);
 
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "GetStopVisaMember?visa={visa}&user={user}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        string GetStopVisaMember(string visa, string user);
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "GetStopVisaWarasa?visa={visa}&user={user}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        string GetStopVisaWarasa(string visa, string user);
     }
    
 }

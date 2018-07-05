@@ -44,11 +44,13 @@ namespace SyndicateMobApp.Helpers
         public const string MemberInfoPageKey = "MemberInfo";
         public const string WarasaInfoPageKey = "WarasaInfo";
         public const string MemberAmanatPageKey = "MemberAmanat";
-
         public const string ActivateMemberVisaPageKey = "ActivateMemberVisa";
         public const string ActivateWarasaVisaPageKey = "ActivateWarasaVisa";
         public const string MemberActivateVisaByHafzaPageKey = "MemberActivateVisaByHafza";
         public const string WarasaActivateVisaByHafzaPageKey = "WarasaActivateVisaByHafza";
+
+        public const string StopMemberVisaPageKey = "StopMemberVisa";
+        public const string StopWarasaVisaPageKey = "StopWarasaVisa";
 
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.
@@ -80,11 +82,13 @@ namespace SyndicateMobApp.Helpers
             SimpleIoc.Default.Register<MemberInfoVm>();
             SimpleIoc.Default.Register<WarasaInfoVm>();
             SimpleIoc.Default.Register<MemberAmanatVm>();
-
             SimpleIoc.Default.Register<MemberActivateVisaVm>();
             SimpleIoc.Default.Register<WarasaActivateVisaVm>();
             SimpleIoc.Default.Register<MemberActivateVisaByHafzaVm>();
             SimpleIoc.Default.Register<WarasaActivateVisaByHafzaVm>();
+
+            SimpleIoc.Default.Register<StopVisaMemberVm>();
+            SimpleIoc.Default.Register<StopVisaWarasaVm>();
         }
         public static ViewModelLocator Instance => Application.Current.Resources["Locator"] as ViewModelLocator;
 
@@ -102,11 +106,13 @@ namespace SyndicateMobApp.Helpers
         public MemberInfoVm MemberInfoInstance => ServiceLocator.Current.GetInstance<MemberInfoVm>();
         public WarasaInfoVm WarasaInfoInstance => ServiceLocator.Current.GetInstance<WarasaInfoVm>();
         public MemberAmanatVm MemberAmanatInstance => ServiceLocator.Current.GetInstance<MemberAmanatVm>();
-
         public MemberActivateVisaVm ActivateMemberVisaInstance => ServiceLocator.Current.GetInstance<MemberActivateVisaVm>();
         public WarasaActivateVisaVm ActivateWarasaVisaInstance => ServiceLocator.Current.GetInstance<WarasaActivateVisaVm>();
         public MemberActivateVisaByHafzaVm MemberActivateVisaByHafzaInstance => ServiceLocator.Current.GetInstance<MemberActivateVisaByHafzaVm>();
         public WarasaActivateVisaByHafzaVm WarasaActivateVisaByHafzaInstance => ServiceLocator.Current.GetInstance<WarasaActivateVisaByHafzaVm>();
+
+        public StopVisaMemberVm StopMemberVisaInstance => ServiceLocator.Current.GetInstance<StopVisaMemberVm>();
+        public StopVisaWarasaVm StopWarasaVisaInstance => ServiceLocator.Current.GetInstance<StopVisaWarasaVm>();
 
         public static void Cleanup()
         {

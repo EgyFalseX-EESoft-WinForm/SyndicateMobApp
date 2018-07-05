@@ -27,13 +27,19 @@ namespace SyndicateMobApp.Services
         public string GetWarasaInfoUri => SyndicateServiceUrl + "test/";
         public string GetAppOptionUri => SyndicateServiceUrl + "test/";
         public string GetInsertMemberAmanatUri => SyndicateServiceUrl + "test/";
-
         public string ActivateMemberVisaUri => SyndicateServiceUrl + "test/";
         public string ActivateWarasaVisaUri => SyndicateServiceUrl + "test/";
         public string GetMemberVisaByHafzaUri => SyndicateServiceUrl + "test/";
         public string GetWarasaVisaByHafzaUri => SyndicateServiceUrl + "test/";
         public string PostActiveMemberVisaUri => SyndicateServiceUrl + "test?";
         public string PostActiveWarasaVisaUri => SyndicateServiceUrl + "test?";
+        public string GetStopVisaMemberUri => SyndicateServiceUrl + "test?";
+        public string GetStopVisaWarasaUri => SyndicateServiceUrl + "test?";
+
+        public string GetActiveMemberVisaUri => SyndicateServiceUrl + "test?";
+        public string GetActiveWarasaVisaUri => SyndicateServiceUrl + "test?";
+        public string GetStopMemberVisaUri => SyndicateServiceUrl + "test?";
+        public string GetStopWarasaVisaUri => SyndicateServiceUrl + "test?";
 
         public async Task<LoginMemberContrect> LoginMemberAsync(string value)
         {
@@ -260,5 +266,22 @@ namespace SyndicateMobApp.Services
         {
             await Task.Run(() => { });
         }
+        public async Task<string> GetStopVisaMemberAsync(string visa, string user)
+        {
+            return await new Task<string>(
+                () =>
+                {
+                    return "test";
+                });
+        }
+        public async Task<string> GetStopVisaWarasaAsync(string visa, string user)
+        {
+            return await new Task<string>(
+                () =>
+                {
+                    return "test";
+                });
+        }
+
     }
 }

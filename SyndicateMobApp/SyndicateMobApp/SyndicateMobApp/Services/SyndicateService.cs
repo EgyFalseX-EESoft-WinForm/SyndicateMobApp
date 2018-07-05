@@ -39,7 +39,12 @@ namespace SyndicateMobApp.Services
         public string GetWarasaVisaByHafzaUri => SyndicateServiceUrl + "GetWarasaVisaByHafza?hafza={0}&user={1}";
         public string PostActiveMemberVisaUri => SyndicateServiceUrl + "PostActiveMemberVisa?visa={0}&user={1}";
         public string PostActiveWarasaVisaUri => SyndicateServiceUrl + "PostActiveWarasaVisa?visa={0}&user={1}";
-
+        public string GetStopVisaMemberUri => SyndicateServiceUrl + "GetStopVisaMember?visa={0}&user={1}";
+        public string GetStopVisaWarasaUri => SyndicateServiceUrl + "GetStopVisaWarasa?visa={0}&user={1}";
+        public string GetActiveMemberVisaUri => SyndicateServiceUrl + "GetStopVisaMember?visa={0}&user={1}";
+        public string GetActiveWarasaVisaUri => SyndicateServiceUrl + "GetStopVisaMember?visa={0}&user={1}";
+        public string GetStopMemberVisaUri => SyndicateServiceUrl + "GetStopVisaMember?visa={0}&user={1}";
+        public string GetStopWarasaVisaUri => SyndicateServiceUrl + "GetStopVisaMember?visa={0}&user={1}";
 
         public async Task<LoginMemberContrect> LoginMemberAsync(string value)
         {
@@ -188,6 +193,21 @@ namespace SyndicateMobApp.Services
             StringContent content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
             HttpResponseMessage result = await client.PostAsync(string.Format(PostActiveWarasaVisaUri, visa, Helpers.UserManager.CurrentUser.user_id), content);
             
+        }
+
+        public async Task<string> GetStopVisaMemberAsync(string visa, string user)
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(string.Format(GetStopVisaMemberUri, visa, Helpers.UserManager.CurrentUser.user_id));
+            string result = JsonConvert.DeserializeObject<string>(jesonString);
+            return result;
+        }
+        public async Task<string> GetStopVisaWarasaAsync(string visa, string user)
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(string.Format(GetStopVisaWarasaUri, visa, Helpers.UserManager.CurrentUser.user_id));
+            string result = JsonConvert.DeserializeObject<string>(jesonString);
+            return result;
         }
     }
 }
