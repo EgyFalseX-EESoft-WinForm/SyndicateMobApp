@@ -429,7 +429,7 @@ namespace SyndicateServiceLib
             if (adp.RecordExist(visaToStop) > 0)
                 return "تم الايقاف مسبقا";
             QueriesTableAdapter adpQry = new QueriesTableAdapter();
-            string userAuth = adpQry.CheckUserActiveMemAuth(visaToStop, userToStop).ToString();
+            string userAuth = adpQry.CheckUserActiveWarasaAuth(visaToStop, userToStop).ToString();
             if (userAuth != "1")
                 return userAuth;
             int result = adp.Insert(visaToStop, userToStop, DateTime.Now);

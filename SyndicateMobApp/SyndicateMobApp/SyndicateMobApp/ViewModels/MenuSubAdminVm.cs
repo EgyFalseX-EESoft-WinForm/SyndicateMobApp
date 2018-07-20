@@ -70,22 +70,22 @@ namespace SyndicateMobApp.ViewModels
                     PageKey = ViewModelLocator.WarasaActivateVisaByHafzaPageKey,
                     Visible = true,
                 },
-                //new MasterPageItem
-                //{
-                //    Id = 11,
-                //    Title = "ايقاف فيزا اعضاء",
-                //    IconSource = "info.png",
-                //    PageKey = ViewModelLocator.StopMemberVisaPageKey,
-                //    Visible = true,
-                //},
-                //new MasterPageItem
-                //{
-                //    Id = 12,
-                //    Title = "ايقاف فيزا ورثة",
-                //    IconSource = "info.png",
-                //    PageKey = ViewModelLocator.StopWarasaVisaPageKey,
-                //    Visible = true,
-                //},
+                new MasterPageItem
+                {
+                    Id = 11,
+                    Title = "ايقاف فيزا اعضاء",
+                    IconSource = "info.png",
+                    PageKey = ViewModelLocator.StopMemberVisaPageKey,
+                    Visible = true,
+                },
+                new MasterPageItem
+                {
+                    Id = 12,
+                    Title = "ايقاف فيزا ورثة",
+                    IconSource = "info.png",
+                    PageKey = ViewModelLocator.StopWarasaVisaPageKey,
+                    Visible = true,
+                },
             };
         }
         // Public properties
