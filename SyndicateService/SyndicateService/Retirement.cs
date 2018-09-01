@@ -62,6 +62,7 @@ namespace SyndicateServiceLib
             }
             return null;
         }
+        
         public LoginContrect Login(string user, string pass)
         {
             userTableAdapter adp = new userTableAdapter();
@@ -417,7 +418,6 @@ namespace SyndicateServiceLib
             else
                 return "لم يتم الايقاف";
         }
-
         public string GetStopVisaWarasa(string visa, string user)
         {
             int visaToStop;
@@ -437,6 +437,51 @@ namespace SyndicateServiceLib
                 return "تم الايقاف";
             else
                 return "لم يتم الايقاف";
+        }
+
+        public string GetReprintMember(string visa, string user)
+        {
+            int visaToPrint;
+            int userToPrint;
+            if (!int.TryParse(visa, out visaToPrint) || !int.TryParse(user, out userToPrint))
+                return "رقم غير صحيح";
+
+            TBLReprintMemberTableAdapter adp = new TBLReprintMemberTableAdapter();
+            
+            if (adp.CheckForExists(visaToPrint, DateTime.Now.AddDays(-45), DateTime.Now) > 0)
+                return "تم الادخال مسبقا";
+            QueriesTableAdapter adpQry = new QueriesTableAdapter();
+            string userAuth = adpQry.CheckUserActiveMemAuth(visaToPrint, userToPrint).ToString();
+            if (userAuth != "1")
+                return userAuth;
+            
+            int result = adp.Insert(DateTime.Now, visaToPrint, userToPrint, DateTime.Now);
+            if (result > 0)
+                return "تم الاضافة";
+            else
+                return "لم يتم الاضافة";
+        }
+        public string GetReprintWarasa(string visa, string user)
+        {
+            int visaToPrint;
+            int userToPrint;
+            if (!int.TryParse(visa, out visaToPrint) || !int.TryParse(user, out userToPrint))
+                return "رقم غير صحيح";
+
+            TBLReprintWarasaTableAdapter adp = new TBLReprintWarasaTableAdapter();
+
+            if (adp.CheckForExists(visaToPrint, DateTime.Now.AddDays(-45), DateTime.Now) > 0)
+                return "تم الادخال مسبقا";
+            QueriesTableAdapter adpQry = new QueriesTableAdapter();
+            string userAuth = adpQry.CheckUserActiveWarasaAuth(visaToPrint, userToPrint).ToString();
+            if (userAuth != "1")
+                return userAuth;
+
+            int result = adp.Insert(DateTime.Now, visaToPrint, userToPrint, DateTime.Now);
+            if (result > 0)
+                return "تم الاضافة";
+            else
+                return "لم يتم الاضافة";
         }
     }
 }

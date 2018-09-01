@@ -68,6 +68,20 @@ namespace SyndicateMobApp.ViewModels
             ISyndicateService srv = ServiceLocator.Current.GetInstance<ISyndicateService>();
             try
             {
+                LoginWarasaContrect member = await srv.LoginWarasaAsync(_id);
+                if (member == null)
+                {
+                    await ServiceLocator.Current.GetInstance<IDialogService>().ShowError("رقم فيزا خطــــاء", "لم نتمكن من الوصول للفيزا", "موافق", null);
+                    IsLoading = false;
+                    return;
+                }
+                string confirmation = $"هل انت متأكد الايقاف للعضو {Environment.NewLine + member.MMashatName}  ?";
+                if (await ServiceLocator.Current.GetInstance<IDialogService>().ShowMessage(confirmation, "تأكيد", "موافق", "الغـــاء", null) == false)
+                {
+                    IsLoading = false;
+                    return;
+                }
+
                 string result = await srv.GetStopVisaWarasaAsync(_id, UserManager.CurrentUser.user_id.ToString());
                 if (result == null)
                 {
