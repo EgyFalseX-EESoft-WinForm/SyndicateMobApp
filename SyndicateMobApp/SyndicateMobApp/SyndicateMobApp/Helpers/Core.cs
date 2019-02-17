@@ -48,6 +48,9 @@ namespace SyndicateMobApp.Helpers
             MainNavigationService.Configure(ViewModelLocator.StopMemberVisaPageKey, typeof(MemberStopVisaPage));
             MainNavigationService.Configure(ViewModelLocator.StopWarasaVisaPageKey, typeof(WarasaStopVisaPage));
 
+            MainNavigationService.Configure(ViewModelLocator.ReprintMemberPageKey, typeof(ReprintMemberPage));
+            MainNavigationService.Configure(ViewModelLocator.ReprintWarasaPageKey, typeof(ReprintWarasaPage));
+
             MainNavigationService.Initialize(navPage);
         }
         public static void InitializeDialogService(NavigationPage navPage)

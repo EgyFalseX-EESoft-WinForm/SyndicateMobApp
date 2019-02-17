@@ -35,11 +35,14 @@ namespace SyndicateMobApp.Services
         public string PostActiveWarasaVisaUri => SyndicateServiceUrl + "test?";
         public string GetStopVisaMemberUri => SyndicateServiceUrl + "test?";
         public string GetStopVisaWarasaUri => SyndicateServiceUrl + "test?";
-
         public string GetActiveMemberVisaUri => SyndicateServiceUrl + "test?";
         public string GetActiveWarasaVisaUri => SyndicateServiceUrl + "test?";
         public string GetStopMemberVisaUri => SyndicateServiceUrl + "test?";
         public string GetStopWarasaVisaUri => SyndicateServiceUrl + "test?";
+
+        public string GetRePrintResonUri => SyndicateServiceUrl + "test?";
+        public string GetReprintMemberUri => SyndicateServiceUrl + "test?";
+        public string GetReprintWarasaUri => SyndicateServiceUrl + "test?";
 
         public async Task<LoginMemberContrect> LoginMemberAsync(string value)
         {
@@ -275,6 +278,39 @@ namespace SyndicateMobApp.Services
                 });
         }
         public async Task<string> GetStopVisaWarasaAsync(string visa, string user)
+        {
+            return await new Task<string>(
+                () =>
+                {
+                    return "test";
+                });
+        }
+
+        public async Task<ObservableCollection<RePrintResonContrect>> GetRePrintResonAsync()
+        {
+            return await new Task<ObservableCollection<RePrintResonContrect>>(
+                () =>
+                {
+                    ObservableCollection<RePrintResonContrect> lst = new ObservableCollection<RePrintResonContrect>
+                    {
+                        new RePrintResonContrect(1, "test1"),
+                        new RePrintResonContrect(2, "test2"),
+                        new RePrintResonContrect(3, "test3"),
+                        new RePrintResonContrect(4, "test4"),
+                        new RePrintResonContrect(5, "test5")
+                    };
+                    return lst;
+                });
+        }
+        public async Task<string> GetReprintMemberAsync(string visa, string user, string type)
+        {
+            return await new Task<string>(
+                () =>
+                {
+                    return "test";
+                });
+        }
+        public async Task<string> GetReprintWarasaAsync(string visa, string user, string type)
         {
             return await new Task<string>(
                 () =>

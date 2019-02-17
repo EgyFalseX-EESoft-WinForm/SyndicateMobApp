@@ -46,6 +46,10 @@ namespace SyndicateMobApp.Services
         public string GetStopMemberVisaUri => SyndicateServiceUrl + "GetStopVisaMember?visa={0}&user={1}";
         public string GetStopWarasaVisaUri => SyndicateServiceUrl + "GetStopVisaMember?visa={0}&user={1}";
 
+        public string GetRePrintResonUri => SyndicateServiceUrl + "GetRePrintReson";
+        public string GetReprintMemberUri => SyndicateServiceUrl + "GetReprintMember?visa={0}&user={1}&type={2}";
+        public string GetReprintWarasaUri => SyndicateServiceUrl + "GetReprintWarasa?visa={0}&user={1}&type={2}";
+
         public async Task<LoginMemberContrect> LoginMemberAsync(string value)
         {
             HttpClient client = new HttpClient();
@@ -206,6 +210,28 @@ namespace SyndicateMobApp.Services
         {
             HttpClient client = new HttpClient();
             string jesonString = await client.GetStringAsync(string.Format(GetStopVisaWarasaUri, visa, Helpers.UserManager.CurrentUser.user_id));
+            string result = JsonConvert.DeserializeObject<string>(jesonString);
+            return result;
+        }
+
+        public async Task<ObservableCollection<RePrintResonContrect>> GetRePrintResonAsync()
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(GetRePrintResonUri);
+            ObservableCollection<RePrintResonContrect> result = JsonConvert.DeserializeObject<ObservableCollection<RePrintResonContrect>>(jesonString);
+            return result;
+        }
+        public async Task<string> GetReprintMemberAsync(string visa, string user, string type)
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(string.Format(GetReprintMemberUri, visa, Helpers.UserManager.CurrentUser.user_id, type));
+            string result = JsonConvert.DeserializeObject<string>(jesonString);
+            return result;
+        }
+        public async Task<string> GetReprintWarasaAsync(string visa, string user, string type)
+        {
+            HttpClient client = new HttpClient();
+            string jesonString = await client.GetStringAsync(string.Format(GetReprintWarasaUri, visa, Helpers.UserManager.CurrentUser.user_id, type));
             string result = JsonConvert.DeserializeObject<string>(jesonString);
             return result;
         }

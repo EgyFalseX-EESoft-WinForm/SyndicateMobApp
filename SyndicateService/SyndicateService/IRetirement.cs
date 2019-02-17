@@ -90,12 +90,19 @@ namespace SyndicateServiceLib
         [WebInvoke(Method = "GET", UriTemplate = "GetStopVisaWarasa?visa={visa}&user={user}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         string GetStopVisaWarasa(string visa, string user);
 
+
+        //[OperationContract]
+        //[WebInvoke(Method = "GET", UriTemplate = "GetSyndicate", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        //ObservableCollection<SyndicateContrect> GetSyndicate();
         [OperationContract]
-        [WebInvoke(Method = "GET", UriTemplate = "GetReprintMember?visa={visa}&user={user}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        string GetReprintMember(string visa, string user);
+        [WebInvoke(Method = "GET", UriTemplate = "GetRePrintReson", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        ObservableCollection<RePrintResonContrect> GetRePrintReson();
         [OperationContract]
-        [WebInvoke(Method = "GET", UriTemplate = "GetReprintWarasa?visa={visa}&user={user}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        string GetReprintWarasa(string visa, string user);
+        [WebInvoke(Method = "GET", UriTemplate = "GetReprintMember?visa={visa}&user={user}&type={type}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        string GetReprintMember(string visa, string user, string type);
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "GetReprintWarasa?visa={visa}&user={user}&type={type}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        string GetReprintWarasa(string visa, string user, string type);
     }
    
 }

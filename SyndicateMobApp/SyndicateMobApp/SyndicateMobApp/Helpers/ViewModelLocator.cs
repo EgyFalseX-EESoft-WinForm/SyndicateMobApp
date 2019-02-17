@@ -48,9 +48,11 @@ namespace SyndicateMobApp.Helpers
         public const string ActivateWarasaVisaPageKey = "ActivateWarasaVisa";
         public const string MemberActivateVisaByHafzaPageKey = "MemberActivateVisaByHafza";
         public const string WarasaActivateVisaByHafzaPageKey = "WarasaActivateVisaByHafza";
-
         public const string StopMemberVisaPageKey = "StopMemberVisa";
         public const string StopWarasaVisaPageKey = "StopWarasaVisa";
+
+        public const string ReprintMemberPageKey = "ReprintMember";
+        public const string ReprintWarasaPageKey = "ReprintWarasa";
 
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.
@@ -86,9 +88,11 @@ namespace SyndicateMobApp.Helpers
             SimpleIoc.Default.Register<WarasaActivateVisaVm>();
             SimpleIoc.Default.Register<MemberActivateVisaByHafzaVm>();
             SimpleIoc.Default.Register<WarasaActivateVisaByHafzaVm>();
-
             SimpleIoc.Default.Register<StopVisaMemberVm>();
             SimpleIoc.Default.Register<StopVisaWarasaVm>();
+
+            SimpleIoc.Default.Register<ReprintMemberVm>();
+            SimpleIoc.Default.Register<ReprintWarasaVm>();
         }
         public static ViewModelLocator Instance => Application.Current.Resources["Locator"] as ViewModelLocator;
 
@@ -110,9 +114,11 @@ namespace SyndicateMobApp.Helpers
         public WarasaActivateVisaVm ActivateWarasaVisaInstance => ServiceLocator.Current.GetInstance<WarasaActivateVisaVm>();
         public MemberActivateVisaByHafzaVm MemberActivateVisaByHafzaInstance => ServiceLocator.Current.GetInstance<MemberActivateVisaByHafzaVm>();
         public WarasaActivateVisaByHafzaVm WarasaActivateVisaByHafzaInstance => ServiceLocator.Current.GetInstance<WarasaActivateVisaByHafzaVm>();
-
         public StopVisaMemberVm StopMemberVisaInstance => ServiceLocator.Current.GetInstance<StopVisaMemberVm>();
         public StopVisaWarasaVm StopWarasaVisaInstance => ServiceLocator.Current.GetInstance<StopVisaWarasaVm>();
+
+        public ReprintMemberVm ReprintMemberInstance => ServiceLocator.Current.GetInstance<ReprintMemberVm>();
+        public ReprintWarasaVm ReprintWarasaInstance => ServiceLocator.Current.GetInstance<ReprintWarasaVm>();
 
         public static void Cleanup()
         {

@@ -439,11 +439,23 @@ namespace SyndicateServiceLib
                 return "لم يتم الايقاف";
         }
 
-        public string GetReprintMember(string visa, string user)
+
+        public ObservableCollection<RePrintResonContrect> GetRePrintReson()
+        {
+            ObservableCollection<RePrintResonContrect> lst = new ObservableCollection<RePrintResonContrect>();
+            CDreprintresonTableAdapter adp = new CDreprintresonTableAdapter();
+            Misc.Misc.SetAllCommandTimeouts(adp, Misc.Misc.UnlimitedTimeOut);
+            dsETSMobile.CDreprintresonDataTable tbl = adp.GetData();
+            foreach (dsETSMobile.CDreprintresonRow cdSyndicateRow in tbl)
+                lst.Add(new RePrintResonContrect(cdSyndicateRow.reprintresonid, cdSyndicateRow.reprintreson));
+            return lst;
+        }
+        public string GetReprintMember(string visa, string user, string type)
         {
             int visaToPrint;
             int userToPrint;
-            if (!int.TryParse(visa, out visaToPrint) || !int.TryParse(user, out userToPrint))
+            byte typeToPrint;
+            if (!int.TryParse(visa, out visaToPrint) || !int.TryParse(user, out userToPrint) || !byte.TryParse(type, out typeToPrint))
                 return "رقم غير صحيح";
 
             TBLReprintMemberTableAdapter adp = new TBLReprintMemberTableAdapter();
@@ -455,17 +467,18 @@ namespace SyndicateServiceLib
             if (userAuth != "1")
                 return userAuth;
             
-            int result = adp.Insert(DateTime.Now, visaToPrint, userToPrint, DateTime.Now);
+            int result = adp.Insert(typeToPrint, DateTime.Now, visaToPrint, userToPrint, DateTime.Now);
             if (result > 0)
                 return "تم الاضافة";
             else
                 return "لم يتم الاضافة";
         }
-        public string GetReprintWarasa(string visa, string user)
+        public string GetReprintWarasa(string visa, string user, string type)
         {
             int visaToPrint;
             int userToPrint;
-            if (!int.TryParse(visa, out visaToPrint) || !int.TryParse(user, out userToPrint))
+            byte typeToPrint;
+            if (!int.TryParse(visa, out visaToPrint) || !int.TryParse(user, out userToPrint) || !byte.TryParse(type, out typeToPrint))
                 return "رقم غير صحيح";
 
             TBLReprintWarasaTableAdapter adp = new TBLReprintWarasaTableAdapter();
@@ -477,7 +490,7 @@ namespace SyndicateServiceLib
             if (userAuth != "1")
                 return userAuth;
 
-            int result = adp.Insert(DateTime.Now, visaToPrint, userToPrint, DateTime.Now);
+            int result = adp.Insert(typeToPrint, DateTime.Now, visaToPrint, userToPrint, DateTime.Now);
             if (result > 0)
                 return "تم الاضافة";
             else

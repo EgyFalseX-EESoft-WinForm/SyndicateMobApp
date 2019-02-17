@@ -19,19 +19,19 @@ namespace SyndicateMobApp.Services
         string GetMemberInfoUri { get; }
         string GetWarasaInfoUri { get; }
         string GetInsertMemberAmanatUri { get; }
-
         string ActivateMemberVisaUri { get; }
         string ActivateWarasaVisaUri { get; }
         string GetMemberVisaByHafzaUri { get; }
         string GetWarasaVisaByHafzaUri { get; }
         string PostActiveMemberVisaUri { get; }
         string PostActiveWarasaVisaUri { get; }
-
         string GetActiveMemberVisaUri { get; }
         string GetActiveWarasaVisaUri { get; }
-
         string GetStopMemberVisaUri { get; }
         string GetStopWarasaVisaUri { get; }
+
+        string GetReprintMemberUri { get; }
+        string GetReprintWarasaUri { get; }
 
         Task<LoginMemberContrect> LoginMemberAsync(string value);
         Task<LoginWarasaContrect> LoginWarasaAsync(string value);
@@ -57,6 +57,9 @@ namespace SyndicateMobApp.Services
         void PostActiveWarasaVisaAsync(string visa);
         Task<string> GetStopVisaMemberAsync(string visa, string user);
         Task<string> GetStopVisaWarasaAsync(string visa, string user);
+        Task<ObservableCollection<RePrintResonContrect>> GetRePrintResonAsync();
+        Task<string> GetReprintMemberAsync(string visa, string user, string type);
+        Task<string> GetReprintWarasaAsync(string visa, string user, string type);
 
     }
 }

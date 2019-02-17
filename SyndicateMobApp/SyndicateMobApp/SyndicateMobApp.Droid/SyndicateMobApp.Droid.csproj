@@ -17,8 +17,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
@@ -266,12 +265,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\map.png" />
   </ItemGroup>
-  <ItemGroup>
-    <XamarinComponentReference Include="devexpress-grid">
-      <Visible>False</Visible>
-      <Version>16.2.1.0</Version>
-    </XamarinComponentReference>
-  </ItemGroup>
+  
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\bank32.png" />
   </ItemGroup>

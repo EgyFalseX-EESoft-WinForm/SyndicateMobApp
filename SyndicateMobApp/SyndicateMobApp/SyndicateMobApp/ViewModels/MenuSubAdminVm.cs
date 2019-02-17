@@ -86,6 +86,22 @@ namespace SyndicateMobApp.ViewModels
                     PageKey = ViewModelLocator.StopWarasaVisaPageKey,
                     Visible = true,
                 },
+                new MasterPageItem
+                {
+                    Id = 13,
+                    Title = "طلب اعادة الاصدار - اعضاء",
+                    IconSource = "info.png",
+                    PageKey = ViewModelLocator.ReprintMemberPageKey,
+                    Visible = true,
+                },
+                new MasterPageItem
+                {
+                    Id = 14,
+                    Title = "طلب اعادة الاصدار - ورثة",
+                    IconSource = "info.png",
+                    PageKey = ViewModelLocator.ReprintWarasaPageKey,
+                    Visible = true,
+                },
             };
         }
         // Public properties
@@ -154,6 +170,8 @@ namespace SyndicateMobApp.ViewModels
                 case ViewModelLocator.WarasaActivateVisaByHafzaPageKey:
                 case ViewModelLocator.StopMemberVisaPageKey:
                 case ViewModelLocator.StopWarasaVisaPageKey:
+                case ViewModelLocator.ReprintMemberPageKey:
+                case ViewModelLocator.ReprintWarasaPageKey:
 
                     if (UserManager.Authenticated)
                         _navigationService.NavigateTo(_selectedItem.PageKey);

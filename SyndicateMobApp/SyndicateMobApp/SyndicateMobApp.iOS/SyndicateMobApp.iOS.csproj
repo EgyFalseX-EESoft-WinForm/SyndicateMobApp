@@ -213,12 +213,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\icon%403x.png" />
   </ItemGroup>
-  <ItemGroup>
-    <XamarinComponentReference Include="devexpress-grid">
-      <Visible>False</Visible>
-      <Version>16.2.1.0</Version>
-    </XamarinComponentReference>
-  </ItemGroup>
+  
   <ItemGroup>
     <BundleResource Include="Resources\bank32%402x.png" />
   </ItemGroup>
