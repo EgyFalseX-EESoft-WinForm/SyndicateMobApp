@@ -3513,9 +3513,9 @@ namespace SyndicateServiceLib.Datasource {
                 this.columnnews_id.AllowDBNull = false;
                 this.columnnews_id.ReadOnly = true;
                 this.columnnews_id.Unique = true;
-                this.columnsubject.MaxLength = 100;
+                this.columnsubject.MaxLength = 200;
                 this.columnimage_path.MaxLength = 255;
-                this.columncontain.MaxLength = 1000;
+                this.columncontain.MaxLength = 2000;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
