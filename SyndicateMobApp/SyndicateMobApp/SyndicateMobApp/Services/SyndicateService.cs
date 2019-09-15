@@ -14,8 +14,8 @@ namespace SyndicateMobApp.Services
     public class SyndicateService : ISyndicateService
     {
         //public string SyndicateServiceUrl => "http://falsex-001-site3.atempurl.com/SyndicateService.svc/rest/";
-        public string SyndicateServiceUrl => "http://egycstest.com/SyndicateService.svc/rest/";
-        //public string SyndicateServiceUrl => "http://localhost/SyndicateService/SyndicateService.svc/rest/";
+        //public string SyndicateServiceUrl => "http://egycstest.com/SyndicateService.svc/rest/";
+        public string SyndicateServiceUrl => "http://localhost/SyndicateService/SyndicateService.svc/rest/";
 
         public string LoginMemberUri  => SyndicateServiceUrl + "LoginMember/";
         public string LoginWarasaUri => SyndicateServiceUrl + "LoginWarasa/";

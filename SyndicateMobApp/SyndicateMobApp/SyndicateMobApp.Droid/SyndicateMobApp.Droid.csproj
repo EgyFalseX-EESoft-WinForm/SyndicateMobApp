@@ -90,21 +90,9 @@
     <Reference Include="Plugin.Permissions.Abstractions, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Plugin.Permissions.1.2.1\lib\MonoAndroid10\Plugin.Permissions.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Data.Portable, Version=14.4451.0.15, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.SfDataGrid.XForms.Android, Version=15.2451.0.40, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\15.2.0.40\Xamarin\lib\pcl\Syncfusion.Data.Portable.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.GridCommon.Portable, Version=14.4451.0.15, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\15.2.0.40\Xamarin\lib\pcl\Syncfusion.GridCommon.Portable.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfDataGrid.XForms, Version=14.4451.0.15, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\15.2.0.40\Xamarin\lib\pcl\Syncfusion.SfDataGrid.XForms.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfDataGrid.XForms.Android, Version=14.4451.0.15, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\15.2.0.40\Xamarin\lib\android\Syncfusion.SfDataGrid.XForms.Android.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.4.0.42\Xamarin\lib\android\Syncfusion.SfDataGrid.XForms.Android.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -265,7 +253,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\map.png" />
   </ItemGroup>
-  
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\bank32.png" />
   </ItemGroup>

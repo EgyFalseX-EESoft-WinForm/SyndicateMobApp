@@ -131,16 +131,16 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Syncfusion.Data.Portable">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\15.2.0.40\Xamarin\lib\pcl\Syncfusion.Data.Portable.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.4.0.42\Xamarin\lib\pcl\Syncfusion.Data.Portable.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.GridCommon.Portable">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\15.2.0.40\Xamarin\lib\pcl\Syncfusion.GridCommon.Portable.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.4.0.42\Xamarin\lib\pcl\Syncfusion.GridCommon.Portable.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfDataGrid.XForms">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\15.2.0.40\Xamarin\lib\pcl\Syncfusion.SfDataGrid.XForms.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.4.0.42\Xamarin\lib\pcl\Syncfusion.SfDataGrid.XForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfDataGrid.XForms.iOS">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\15.2.0.40\Xamarin\lib\ios-unified\Syncfusion.SfDataGrid.XForms.iOS.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.4.0.42\Xamarin\lib\ios-unified\Syncfusion.SfDataGrid.XForms.iOS.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -213,7 +213,6 @@
   <ItemGroup>
     <BundleResource Include="Resources\icon%403x.png" />
   </ItemGroup>
-  
   <ItemGroup>
     <BundleResource Include="Resources\bank32%402x.png" />
   </ItemGroup>
