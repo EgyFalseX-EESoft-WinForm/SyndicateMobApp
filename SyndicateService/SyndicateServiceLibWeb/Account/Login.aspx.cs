@@ -25,16 +25,20 @@ namespace SyndicateServiceLibWeb {
 
                 switch(result) {
                     case SignInStatus.Success:
-                        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                        if (tbUserName.Text == "usereditor")
+                            Response.Redirect("../User/UserEditUsers.aspx");
+                        else
+                            IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+
                         break;
                     case SignInStatus.LockedOut:
                         Response.Redirect("~/Account/Lockout.aspx");
                         break;
                     case SignInStatus.RequiresVerification:
                         Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn.aspx?ReturnUrl={0}&RememberMe={1}",
-                                                        Request.QueryString["ReturnUrl"],
-                                                        false),
-                                          true);
+                                Request.QueryString["ReturnUrl"],
+                                false),
+                            true);
                         break;
                     case SignInStatus.Failure:
                     default:

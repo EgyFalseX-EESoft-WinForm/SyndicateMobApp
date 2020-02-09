@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+  <group Text="Editors">
+    <item Text="Users Editor" NavigateUrl="~/User/EditUsers.aspx" />
+  </group>
+
+</menu>

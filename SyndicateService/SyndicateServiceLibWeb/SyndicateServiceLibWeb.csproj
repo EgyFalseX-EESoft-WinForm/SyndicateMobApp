@@ -176,6 +176,7 @@
     <Content Include="Admin\EditTblAds.aspx" />
     <Content Include="Admin\EditUsers.aspx" />
     <Content Include="Admin\EditTblNews.aspx" />
+    <Content Include="App_Data\UserSideMenu.xml" />
     <Content Include="App_Data\AdminSideMenu.xml" />
     <Content Include="App_Data\SideMenu.xml" />
     <Content Include="App_Data\TopMenu.xml" />
@@ -220,6 +221,7 @@
     <Content Include="Root.master" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="User\UserEditUsers.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -235,6 +237,7 @@
     <None Include="Properties\PublishProfiles\132.148.83.93.pubxml" />
     <None Include="Properties\PublishProfiles\FalseX003-SyndicateServiceWeb.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="User\UserMain.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -490,6 +493,20 @@
     </Compile>
     <Compile Include="Download\Download.aspx.designer.cs">
       <DependentUpon>Download.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserMain.master.cs">
+      <DependentUpon>UserMain.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserMain.master.designer.cs">
+      <DependentUpon>UserMain.master</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserEditUsers.aspx.cs">
+      <DependentUpon>UserEditUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserEditUsers.aspx.designer.cs">
+      <DependentUpon>UserEditUsers.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
